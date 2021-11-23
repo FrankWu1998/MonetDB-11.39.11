@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmcutil.a  CMakeFiles/mcutil.dir/dump.c.o CMakeFiles/mcutil.dir/dotmonetdb.c.o
+/usr/bin/ranlib libmcutil.a

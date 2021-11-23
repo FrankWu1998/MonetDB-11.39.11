@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC  -DNDEBUG=1  -shared  -o lib_run_adder.so CMakeFiles/run_adder.dir/run_adder.c.o -Wl,-rpath,/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/gdk:/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/monetdb5/tools: ../../gdk/libbat.so.21.1.1 ../tools/libmonetdb5.so.30.0.4 

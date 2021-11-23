@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbatstore.a  CMakeFiles/batstore.dir/bat_table.c.o CMakeFiles/batstore.dir/bat_storage.c.o CMakeFiles/batstore.dir/bat_logger.c.o CMakeFiles/batstore.dir/bat_utils.c.o CMakeFiles/batstore.dir/res_table.c.o
+/usr/bin/ranlib libbatstore.a

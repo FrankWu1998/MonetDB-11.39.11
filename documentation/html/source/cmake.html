@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>CMake &#8212; MonetDB 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MonetDB Release" href="release.html" />
+    <link rel="prev" title="monetdb manual page" href="man_monetdb.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="cmake">
+<h1>CMake<a class="headerlink" href="#cmake" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2><code class="docutils literal notranslate"><span class="pre">Introduction</span></code><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="packaging">
+<h2><code class="docutils literal notranslate"><span class="pre">Packaging</span></code><a class="headerlink" href="#packaging" title="Permalink to this headline">¶</a></h2>
+<p>The source packages are located at <a class="reference external" href="https://www.monetdb.org/downloads/sources/Apr2019-SP1/">https://www.monetdb.org/downloads/sources/Apr2019-SP1/</a></p>
+</div>
+<div class="section" id="rpm">
+<h2>RPM<a class="headerlink" href="#rpm" title="Permalink to this headline">¶</a></h2>
+<p>The source rpm's are located in <a class="reference external" href="https://www.monetdb.org/downloads/Fedora/source/">https://www.monetdb.org/downloads/Fedora/source/</a> and are shared by all rpm based repositories. The debug packages are located in <a class="reference external" href="https://www.monetdb.org/downloads/Fedora/debug/">https://www.monetdb.org/downloads/Fedora/debug/</a> and <a class="reference external" href="https://www.monetdb.org/downloads/epel/debug/">https://www.monetdb.org/downloads/epel/debug/</a> The binary packages are located in <a class="reference external" href="https://www.monetdb.org/downloads/Fedora/">https://www.monetdb.org/downloads/Fedora/</a> and <a class="reference external" href="https://www.monetdb.org/downloads/epel/">https://www.monetdb.org/downloads/epel/</a></p>
+</div>
+<div class="section" id="deb">
+<h2>DEB<a class="headerlink" href="#deb" title="Permalink to this headline">¶</a></h2>
+<p>The source packages are located in <a class="reference external" href="https://www.monetdb.org/downloads/deb/dists/stretch/monetdb/source/">https://www.monetdb.org/downloads/deb/dists/stretch/monetdb/source/</a> and the binary packages are located at <a class="reference external" href="https://www.monetdb.org/downloads/deb/">https://www.monetdb.org/downloads/deb/</a> The source package setup for debian is totally different than for rpm's.</p>
+</div>
+<div class="section" id="msi">
+<h2>MSI<a class="headerlink" href="#msi" title="Permalink to this headline">¶</a></h2>
+<p>The windows packages are located at <a class="reference external" href="https://www.monetdb.org/downloads/Windows/Apr2019-SP1/">https://www.monetdb.org/downloads/Windows/Apr2019-SP1/</a></p>
+</div>
+<div class="section" id="mac-os-x">
+<h2>Mac OS X<a class="headerlink" href="#mac-os-x" title="Permalink to this headline">¶</a></h2>
+<p>The Mac OS X packages are downloaded from <a class="reference external" href="https://www.monetdb.org/downloads/MacOSX/">https://www.monetdb.org/downloads/MacOSX/</a> This repository contains a binary tarball and a pkg package. This last one is generated using the &quot;MonetDB.pkgproj&quot; file in the &quot;MacOSX&quot; directory in the source repository. The repository itself is only a download folder, there is no scripting needed to generate the repository itself. The third option to install monetdb on MacOS is to use homebrew. The relevant file is &quot;<a class="reference external" href="https://github.com/MonetDB/homebrew-core/blob/master/Formula/monetdb.rb">https://github.com/MonetDB/homebrew-core/blob/master/Formula/monetdb.rb</a>&quot;, the repository is in the MonetDB github organization and is a clone of the homebrew repository. This file will need to be changes after switching to cmake. The difficult part will likely be to keep this backwards compatible.</p>
+</div>
+<div class="section" id="releasing">
+<h2><code class="docutils literal notranslate"><span class="pre">Releasing</span></code><a class="headerlink" href="#releasing" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="versioning">
+<h2><code class="docutils literal notranslate"><span class="pre">Versioning</span></code><a class="headerlink" href="#versioning" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="source-code-management">
+<h2><code class="docutils literal notranslate"><span class="pre">Source</span> <span class="pre">Code</span> <span class="pre">Management</span></code><a class="headerlink" href="#source-code-management" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="testing">
+<h2><code class="docutils literal notranslate"><span class="pre">Testing</span></code><a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cmake-code-structure">
+<h2><code class="docutils literal notranslate"><span class="pre">CMake</span> <span class="pre">code</span> <span class="pre">structure</span></code><a class="headerlink" href="#cmake-code-structure" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="main-file">
+<h2>Main file<a class="headerlink" href="#main-file" title="Permalink to this headline">¶</a></h2>
+<p>CmakeLists.txt</p>
+<p>options
+versions
+includes
+check features
+install directory setup
+build header files
+add subdirectories
+packaging
+testing</p>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p>In cmake, options can have the value ON or OFF. In the autotools system, many configure options where called &quot;enable_xxxx&quot; with the value true or false. To make the sure the cmake command &quot;sounds logical&quot; when read from the commandline, we choose to use short descriptions for the options. For example &quot;enable_cintegration=true&quot; becomes &quot;-DCINTEGRATION=ON&quot;.</p>
+<p>The idea behind the defaults for the options also has changed from the autotools build system. Previously the idea was to limit the part of the code that was build in order to speed up the compilation. Parts of the code that were not required where only build when explicitly enabled. In the cmake build system this has been reversed. Now as much as possible is build, since compiling everything is now fast enough. In the cmake build system, every optional part is build, as long as the dependent libraries are detected.</p>
+<p>It is no longer possible to disable building major parts of the code, such as sql or mapi. And setting a certain option to off really means that you disable detecting the required libraries. For example, &quot;-DODBC=OFF&quot; means don't try detect the odbc development libraries. That implies that the odbc library will not be build.</p>
+<p>Most of the library detection is don in the &quot;monetdb-findpackages&quot; cmake file. We want to do this in such a way that we don't need a lot of logic. So for example, for the geom module library we only need to detect the geos library::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">GEOM</span><span class="p">)</span>
+  <span class="n">find_package</span><span class="p">(</span><span class="n">Geos</span><span class="p">)</span>
+<span class="n">endif</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The find_packages function should define a &quot;GEOS_FOUND&quot; variable that is used throughout the rest of the cmake code. If you want to include a cmake file conditionally on the detection of a library, you should use that variable, for example in &quot;geom/monetdb5/CMakeLists.txt&quot; we use &quot;if(GEOS_FOUND)&quot;. The only exception is in the monetdb_config.h file. Since the source code still uses legacy variables, usually &quot;HAVE_xxx&quot;, we define them using this pattern::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#cmakedefine HAVE_GEOM @GEOS_FOUND@</span>
+</pre></div>
+</div>
+<p>This should give the correct result, because of the way &quot;boolean&quot; values, in combination with empty and non-existing variables work. The only situation where this might go wrong is when the variable explicitly has to have the value 1. This way, we cleanup as much of the legacy variables as possible from the build system. If the build system is setup correctly, the &quot;HAVE_xxxx&quot; variables should not be needed in most cases, because the code will only be build if the value = 1.</p>
+<div class="section" id="build-type">
+<h3>Build type<a class="headerlink" href="#build-type" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="install-prefix">
+<h3>Install prefix<a class="headerlink" href="#install-prefix" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="verbose">
+<h3>Verbose<a class="headerlink" href="#verbose" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="debug-find">
+<h3>Debug find<a class="headerlink" href="#debug-find" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="prefix-path">
+<h3>Prefix path<a class="headerlink" href="#prefix-path" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="toolchain-files">
+<h3>Toolchain files<a class="headerlink" href="#toolchain-files" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="custom-targets">
+<h2>Custom targets<a class="headerlink" href="#custom-targets" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="help">
+<h3>Help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="install">
+<h3>install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="test">
+<h3>test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="mtest">
+<h3>mtest<a class="headerlink" href="#mtest" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="installing">
+<h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
+<p>To configure an install of a target, you have to define two things, where to install the file and the component that the file belongs to. And this has to be done for all the files that are part of the target. See the following example from the streams library to get an idea on how something would look::</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>install(TARGETS
+  stream
+  EXPORT streamTargets
+  RUNTIME
+  DESTINATION ${CMAKE_INSTALL_BINDIR}
+  COMPONENT stream
+  LIBRARY
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  COMPONENT stream
+  ARCHIVE
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  COMPONENT stream
+  PUBLIC_HEADER
+  COMPONENT streamdev
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/monetdb
+  INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+  COMPONENT streamdev)
+</pre></div>
+</div>
+<p>When defining the destination, always use the &quot;CMAKE_INSTALL_???DIR&quot; variables, not the &quot;CMAKE_INSTALL_FULL_???DIR&quot; ones. See <a class="reference external" href="https://cmake.org/cmake/help/latest/module/GNUInstallDirs.html">https://cmake.org/cmake/help/latest/module/GNUInstallDirs.html</a> for the details, but the important part is that you should let CMake handle the &quot;CMAKE_INSTALL_PREFIX&quot;. Only when the value is used inside the C code, or python scripts, you want to use the actual absolute paths.</p>
+</div>
+<div class="section" id="unspecified">
+<h2>Unspecified<a class="headerlink" href="#unspecified" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>clients/odbc/samples</p></li>
+</ul>
+</div>
+<div class="section" id="legacy">
+<h2><code class="docutils literal notranslate"><span class="pre">Legacy</span></code><a class="headerlink" href="#legacy" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="numpy-detection">
+<h2>Numpy detection<a class="headerlink" href="#numpy-detection" title="Permalink to this headline">¶</a></h2>
+<p>Since the Python3::Numpy target is not available before version 3.14, we need an alternative. We use a NumPy detection function from a github project: https://raw.githubusercontent.com/fperazzi/davis-2017/master/cmake/FindNumPy.cmake This is MIT licensed, so we can include this in MonetDB. We change the python detection to detect python3, instead of python2.</p>
+</div>
+<div class="section" id="shp-h-define-conflicts">
+<h2>shp.h define conflicts<a class="headerlink" href="#shp-h-define-conflicts" title="Permalink to this headline">¶</a></h2>
+<p>We now disable some defines in sql/backends/monet5/vaults/shp/shp.h that were defined in monetdb_config.h because they conflict with defines in gdal library header files.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">these</span> <span class="n">were</span> <span class="n">previously</span> <span class="n">defined</span> <span class="ow">in</span> <span class="n">monetdb_config</span><span class="o">.</span><span class="n">h</span> <span class="o">*/</span>
+<span class="c1">#undef HAVE_DLFCN_H</span>
+<span class="c1">#undef HAVE_FCNTL_H</span>
+<span class="c1">#undef HAVE_ICONV</span>
+<span class="c1">#undef HAVE_STRINGS_H</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="kvm-library">
+<h2>kvm library<a class="headerlink" href="#kvm-library" title="Permalink to this headline">¶</a></h2>
+<p>The kvm library is only used on *bsd. We already remove the header detection from cmakelists.txt: &quot;find_path(HAVE_KVM_H &quot;kvm.h&quot;)&quot;.</p>
+</div>
+<div class="section" id="wix-packages">
+<h2>WIX packages<a class="headerlink" href="#wix-packages" title="Permalink to this headline">¶</a></h2>
+<p>You need to install the wixtoolset (with chocolaty):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">choco</span> <span class="n">install</span> <span class="n">wixtoolset</span>
+</pre></div>
+</div>
+<p>Then you can run the following command from the build directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;C:\Program Files (x86)\Microsoft Visual Studio</span><span class="se">\201</span><span class="s2">7\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake</span><span class="se">\b</span><span class="s2">in\CPack&quot;</span> <span class="o">-</span><span class="n">G</span> <span class="n">WIX</span> <span class="o">-</span><span class="n">C</span> <span class="n">Debug</span> <span class="o">--</span><span class="n">config</span> <span class="n">CPackConfig</span><span class="o">.</span><span class="n">cmake</span>
+</pre></div>
+</div>
+<p>This will create the &quot;msi&quot; file.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">MonetDB</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/dev_notes.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/monetdbe_api.html">MonetDBe API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">The MonetDB Database System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#copyright-notice">Copyright Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Building MonetDB from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-fedora.html">Build on Fedora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-debian.html">Build on Debian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clients.html">The MonetDB clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">The MonetDB CMake Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Giving input to MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="json.html">Support for JSON in MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual_pages.html">Manual pages</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CMake</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction"><code class="docutils literal notranslate"><span class="pre">Introduction</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#packaging"><code class="docutils literal notranslate"><span class="pre">Packaging</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rpm">RPM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deb">DEB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#msi">MSI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mac-os-x">Mac OS X</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#releasing"><code class="docutils literal notranslate"><span class="pre">Releasing</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#versioning"><code class="docutils literal notranslate"><span class="pre">Versioning</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-code-management"><code class="docutils literal notranslate"><span class="pre">Source</span> <span class="pre">Code</span> <span class="pre">Management</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing"><code class="docutils literal notranslate"><span class="pre">Testing</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cmake-code-structure"><code class="docutils literal notranslate"><span class="pre">CMake</span> <span class="pre">code</span> <span class="pre">structure</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#main-file">Main file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#options">Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#build-type">Build type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-prefix">Install prefix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verbose">Verbose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debug-find">Debug find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prefix-path">Prefix path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toolchain-files">Toolchain files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-targets">Custom targets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#help">Help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install">install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test">test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mtest">mtest</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installing">Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unspecified">Unspecified</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#legacy"><code class="docutils literal notranslate"><span class="pre">Legacy</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#numpy-detection">Numpy detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shp-h-define-conflicts">shp.h define conflicts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kvm-library">kvm library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wix-packages">WIX packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">MonetDB Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_handbook.html">Developer's Handbook</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="man_monetdb.html" title="previous chapter">monetdb manual page</a></li>
+      <li>Next: <a href="release.html" title="next chapter">MonetDB Release</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, MonetDB Solutions.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/cmake.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

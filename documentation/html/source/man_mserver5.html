@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>mserver5 manual page &#8212; MonetDB 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="monetdbd manual page" href="man_monetdbd.html" />
+    <link rel="prev" title="msqldump manual page" href="man_msqldump.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="mserver5-manual-page">
+<h1>mserver5 manual page<a class="headerlink" href="#mserver5-manual-page" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mserver5">
+<h2>MSERVER5<a class="headerlink" href="#mserver5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="name">
+<h3>NAME<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h3>
+<p>mserver5 - the MonetDB server version 5</p>
+</div>
+<div class="section" id="synopsis">
+<h3>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h3>
+<p><strong>mserver5</strong> [ <em>options</em> ]</p>
+</div>
+<div class="section" id="description">
+<h3>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p><em>Mserver5</em> is the current MonetDB server that performs all processing on
+request of clients for a certain database.</p>
+<p>Note that while <em>mserver5</em> is the process that does the actual work, it
+is usually more common to start, monitor and connect to the <em>mserver5</em>
+process through <em>monetdbd</em>(1).</p>
+<p>This man-page describes the options that <em>mserver5</em> understands. It is
+intended for people who really need to work with <em>mserver5</em> itself. In
+regular cases, the programs <em>monetdbd</em>(1) and <em>monetdb</em>(1) control
+the many options, and allow to adjust them to appropriate values where
+sensible. For normal usage, it is preferred to apply any configuration
+through these programs.</p>
+</div>
+<div class="section" id="operation">
+<h3>OPERATION<a class="headerlink" href="#operation" title="Permalink to this headline">¶</a></h3>
+<p>When the build-time configuration did not disable this, a <em>mserver5</em>
+process presents the user with server startup information and internal
+exceptions due to errors in commands sent by clients. The architecture
+is setup to handle multiple streams of requests. The first thread
+started represents the server, which only writes to standard output.</p>
+<p>The server thread started remains in existence until all other threads
+die. The server is stopped by sending it a termination signal (SIGINT,
+SIGTERM, SIGQUIT).</p>
+</div>
+<div class="section" id="mserver5-options">
+<h3>MSERVER5 OPTIONS<a class="headerlink" href="#mserver5-options" title="Permalink to this headline">¶</a></h3>
+<p><em>Mserver5</em> can be started with options as arguments.</p>
+<dl class="simple">
+<dt><strong>--dbpath=</strong><em>path</em></dt><dd><p>Path where <em>mserver5</em> should find a database. Shorthand for option
+<strong>gdk_dbpath</strong>. Default value:
+<strong>&#64;CMAKE_INSTALL_FULL_LOCALSTATEDIR&#64;/monetdb5/dbfarm/demo</strong>.</p>
+</dd>
+<dt><strong>--dbextra=</strong><em>path</em></dt><dd><p>Path where <em>mserver5</em> should store transient data. Default value is
+the value of the <strong>--dbpath</strong> option.</p>
+</dd>
+<dt><strong>--dbtrace=</strong><em>path</em></dt><dd><p>File name for the trace log file for <em>mserver5</em>. Default value is the
+file <strong>mdbtrace.log</strong> inside the directory specified with the
+<strong>--dbpath</strong> option.</p>
+</dd>
+<dt><strong>--config=</strong><em>file</em></dt><dd><p>Config file to read options from. This file can contain all options
+as can be set with the <strong>--set</strong> flag. See <em>CONFIG FILE FORMAT</em>.</p>
+</dd>
+<dt><strong>--single-user</strong></dt><dd><p>Allow only a single user at a time.</p>
+</dd>
+<dt><strong>--readonly</strong></dt><dd><p>The database is opened in read-only mode.</p>
+</dd>
+<dt><strong>--set</strong> <em>option</em><strong>=</strong><em>value</em></dt><dd><p>Set individual configuration option. For possible options, see
+<em>PARAMETERS</em> sections.</p>
+</dd>
+<dt><strong>--help</strong></dt><dd><p>Print list of options.</p>
+</dd>
+<dt><strong>--version</strong></dt><dd><p>Print version and compile configuration.</p>
+</dd>
+<dt><strong>--in-memory</strong></dt><dd><p>Run <em>mserver5</em> in-memory. <strong>No</strong> data will be persisted.</p>
+</dd>
+</dl>
+<p><strong>--debug</strong>[<strong>=</strong><em>value</em>]</p>
+<dl class="simple">
+<dt><strong>-d</strong>[<em>value</em>]</dt><dd><p>Set debug level. This is mostly for debugging purposes. The value is
+an integer, which can be (a bit-wise OR of):</p>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        1 = THRDMASK     = thread-specific debug output
+        2 = CHECKMASK    = property enforcing on new BATs
+        8 = PROPMASK     = property checking on all values:
+                           tells about wrongly set properties
+       16 = IOMASK       = major IO activity
+       32 = BATMASK      = BAT handling
+      128 = PARMASK      = Thread management
+      512 = TMMASK       = Transaction management
+     1024 = TEMMASK      = Locks and Triggers
+     4096 = PERFMASK     = BBP Performance (?)
+     8192 = DELTAMASK    = Delta debugging (?)
+    16384 = LOADMASK     = Module loading
+  1048576 = ACCELMASK    = Accelerator debugging
+  2097152 = ALGOMASK     = show low level algorithm chosen
+ 16777216 = NOSYNCMASK   = disable forcefully synchronizing files
+                           to disk.  If this flag is set, there is
+                           no guarantee that the database remains
+                           consistent after a crash.  DO NOT USE
+                           (unless you really don&#39;t care about your
+                           data).
+ 33554432 = DEADBEEFMASK = disable &quot;cleaning&quot; of freed memory
+                           in GDKfree() which only happens in a
+                           debug build (i.e. with assertions
+                           enabled) e.g., for performance
+                           measurements
+ 67108864 = ALLOCMASK    = exhaustive GDK malloc &amp; free tracing
+                           for debugging (GDK developers, only)
+134217728 = OPTMASK      = trace the actions, decisions and
+                           effects of MAL optimizers
+268435456 = HEAPMASK     = trace/debug HEAPextend;
+                           used only for development &amp; debugging
+536870912 = FORCEMITOMASK = forcefully activate mitosis even on
+                            small tables, i.e., split small tables
+                            in as many (tiny) pieces as there are
+                            cores (threads) available;
+                            this allows us to test mitosis
+                            functionality without requiring large
+                            data sets (— at the expense of a
+                            potentially significant interpretation
+                            overhead for unnecessarily large plans);
+                            used only for development &amp; testing;
+                            set automatically by Mtest.py
+</pre></div>
+</div>
+<p>The <em>value</em> together with the <strong>=</strong> sign is optional. If not specified,
+it defaults to <strong>1</strong>. In the short form <strong>-d</strong>, the value, if present,
+must immediately (i.e. without space) follow the option. The values of
+multiple instances of this flag are OR-ed together.</p>
+<dl class="simple">
+<dt><strong>--algorithms</strong></dt><dd><p>Equivalent to <strong>--debug=</strong><em>(ALGOMASK)</em>.</p>
+</dd>
+<dt><strong>--forcemito</strong></dt><dd><p>Equivalent to <strong>--debug=</strong><em>(FORCEMITOMASK | NOSYNCMASK)</em>.</p>
+</dd>
+<dt><strong>--heaps</strong></dt><dd><p>Equivalent to <strong>--debug=</strong><em>(HEAPMASK)</em>.</p>
+</dd>
+<dt><strong>--io</strong></dt><dd><p>Equivalent to <strong>--debug=</strong><em>(IOMASK | PERFMASK)</em>.</p>
+</dd>
+<dt><strong>--memory</strong></dt><dd><p>Equivalent to <strong>--debug=</strong><em>(ALLOCMASK)</em>.</p>
+</dd>
+<dt><strong>--modules</strong></dt><dd><p>Equivalent to <strong>--debug=</strong><em>(LOADMASK)</em>.</p>
+</dd>
+<dt><strong>--performance</strong></dt><dd><p>Equivalent to <strong>--debug=</strong><em>(DEADBEEFMASK)</em>.</p>
+</dd>
+<dt><strong>--properties</strong></dt><dd><p>Equivalent to <strong>--debug=</strong><em>(CHECKMASK | PROPMASK | BATMASK)</em>.</p>
+</dd>
+<dt><strong>--threads</strong></dt><dd><p>Equivalent to <strong>--debug=</strong><em>(THRDMASK | PARMASK)</em>.</p>
+</dd>
+<dt><strong>--transactions</strong></dt><dd><p>Equivalent to <strong>--debug=</strong><em>(TMMASK | DELTAMASK | TEMMASK)</em>.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="mserver5-parameters">
+<h3>MSERVER5 PARAMETERS<a class="headerlink" href="#mserver5-parameters" title="Permalink to this headline">¶</a></h3>
+<p><em>Mserver5</em> instructs the GDK kernel through the MAL (MonetDB Assembler
+Language) language. MonetDB 5 contains an extensive optimiser framework
+to transform MAL plans into more optimal or functional (e.g.
+distributed) plans. These parameters control behaviour on the MAL level.</p>
+<dl>
+<dt><strong>monet_vault_key</strong></dt><dd><p>The authorisation tables inside <em>mserver5</em> can be encrypted with a
+key, such that reading the BATs does not directly disclose any
+credentials. The <strong>monet_vault_key</strong> setting points to a file that
+stores a secret key to unlock the password vault. It can contain
+anything. The file is read up to the first null-byte (<code class="docutils literal notranslate"><span class="pre">'\0'</span></code>), hence it
+can be padded to any length with trailing null-bytes to obfuscate the
+key length. Generating a key can be done for example by using a tool
+such as <em>pwgen</em> and adding a few of the passwords generated. Make
+sure not to choose a too small key. Note that on absence of a vault
+key file, some default key is used to encrypt the authorisation
+tables. Changing this setting (effectively changing the key) for an
+existing database makes that database unusable as noone is any longer
+able to login. If you use <em>monetdbd</em>(1), a per-database vault key
+is set.</p>
+</dd>
+<dt><strong>max_clients</strong></dt><dd><p>Controls how many client slots are allocated for clients to connect.
+This settings limits the maximum number of connected clients at the
+same time. Note that MonetDB is not designed to handle massive
+amounts of connected clients. The funnel capability from
+<em>monetdbd</em>(1) might be a more suitable solution for such workloads.
+Default <strong>64</strong>.</p>
+</dd>
+<dt><strong>mapi_usock</strong></dt><dd><p>The name of the UNIX domain socket file on which the server will
+listen for connections. Note, there is usually a severe
+system-imposed length limitation on the name of the file.</p>
+</dd>
+<dt><strong>mapi_port</strong></dt><dd><p>The TCP/IP port number on which the server will listen for
+connections. This is only used if the value of the
+<strong>mapi_listenaddr</strong> option is not equal to <strong>none</strong>. Default
+<strong>50000</strong>. If the value is <strong>0</strong>, the server will use a so called
+ephemeral port, i.e. one that is assigned by the system. After
+successfully starting to listen to a port, the value of the port can
+be retrieved from the file <strong>.conn</strong> inside the database
+(<strong>--dbpath</strong>) directory.</p>
+</dd>
+<dt><strong>mapi_listenaddr</strong></dt><dd><p>The TCP/IP interface on which the server will listen for connections.
+Possibilites are:</p>
+<dl class="simple">
+<dt><strong>localhost</strong></dt><dd><p>The server listens only on the IPv4 and IPv6 loopback interface.
+This is the default.</p>
+</dd>
+<dt><strong>127.0.0.1</strong></dt><dd><p>The server listens only on the IPv4 loopback interface.</p>
+</dd>
+<dt><strong>::1</strong></dt><dd><p>The server listens only on the IPv6 loopback interface.</p>
+</dd>
+<dt><strong>all</strong></dt><dd><p>The server listens on all IPv4 and IPv6 interfaces.</p>
+</dd>
+<dt><strong>0.0.0.0</strong></dt><dd><p>The server listens on all IPv4 interfaces.</p>
+</dd>
+<dt><strong>::</strong></dt><dd><p>The server listens on all IPv6 interfaces.</p>
+</dd>
+<dt><strong>none</strong></dt><dd><p>The server will not listen on any TCP/IP interface (you need to
+use the UNIX domain socket interface).</p>
+</dd>
+<dt><em>hostname</em></dt><dd><p>The server will listen on the interface designated by <em>hostname</em>
+which is looked up using the normal hostname lookup facilities.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="sql-parameters">
+<h3>SQL PARAMETERS<a class="headerlink" href="#sql-parameters" title="Permalink to this headline">¶</a></h3>
+<p>The SQL component of MonetDB 5 runs on top of the MAL environment. It
+has its own SQL-level specific settings.</p>
+<dl>
+<dt><strong>sql_debug</strong></dt><dd><p>Enable debugging using a mask. This option should normally be
+disabled (0). Default: <strong>0</strong>.</p>
+</dd>
+<dt><strong>sql_optimizer</strong></dt><dd><p>The default SQL optimizer pipeline can be set per server. See the
+optpipe setting in <em>monetdb</em>(1) when using monetdbd. During SQL
+initialization, the optimizer pipeline is checked against the
+dependency information maintained in the optimizer library to ensure
+there are no conflicts and at least the pre-requisite optimizers are
+used. The setting of sql_optimizer can be either the list of
+optimizers to run. Default: <strong>default_pipe</strong>.</p>
+<p>The following are possible pipes to use:</p>
+<dl class="simple">
+<dt><strong>minimal_pipe</strong></dt><dd><p>The minimal pipeline necessary by the server to operate correctly.
+minimal_pipe=inline,remap,deadcode,multiplex,generator,profiler,candidates,garbageCollector</p>
+</dd>
+<dt><strong>default_pipe</strong></dt><dd><p>The default pipeline contains the mitosis-mergetable-reorder
+optimizers, aimed at large tables and improved access locality.
+default_pipe=inline,remap,costModel,coercions,aliases,evaluate,emptybind,pushselect,aliases,mitosis,mergetable,deadcode,aliases,constants,commonTerms,projectionpath,deadcode,reorder,matpack,dataflow,querylog,multiplex,generator,profiler,candidates,postfix,deadcode,wlc,garbageCollector</p>
+</dd>
+<dt><strong>no_mitosis_pipe</strong></dt><dd><p>The no_mitosis pipeline is identical to the default pipeline,
+except that optimizer mitosis is omitted. It is used mainly to
+make some tests work deterministically, and to check/debug whether
+&quot;unexpected&quot; problems are related to mitosis (and/or mergetable).
+no_mitosis_pipe=inline,remap,costModel,coercions,aliases,evaluate,emptybind,pushselect,aliases,mergetable,deadcode,aliases,constants,commonTerms,projectionpath,deadcode,reorder,matpack,dataflow,querylog,multiplex,generator,profiler,candidates,postfix,deadcode,wlc,garbageCollector</p>
+</dd>
+<dt><strong>sequential_pipe</strong></dt><dd><p>The sequential pipeline is identical to the default pipeline,
+except that optimizers mitosis &amp; dataflow are omitted. It is use
+mainly to make some tests work deterministically, i.e., avoid
+ambigious output, by avoiding parallelism.
+sequential_pipe=inline,remap,costModel,coercions,aliases,evaluate,emptybind,pushselect,aliases,mergetable,deadcode,aliases,constants,commonTerms,projectionpath,deadcode,reorder,matpack,querylog,multiplex,generator,profiler,candidates,postfix,deadcode,wlc,garbageCollector</p>
+</dd>
+</dl>
+</dd>
+<dt><strong>embedded_py</strong></dt><dd><p>Enable embedded Python. This means Python code can be called from
+SQL. The value is <strong>true</strong> or <strong>3</strong> for embedded Python 3. Note that
+by enabling embedded Python, users of the server are allowed to
+execute arbitrary Python code, and are therefore able to read and
+modify all data that the server process has access to.</p>
+</dd>
+<dt><strong>embedded_r=true</strong></dt><dd><p>Enable embedded R. This means R code can be called from SQL. Note
+that by enabling embedded R, users of the server are allowed to
+execute arbitrary R code, and are therefore able to read and modify
+all data that the server process has access to.</p>
+</dd>
+<dt><strong>embedded_c=true</strong></dt><dd><p>Enable embedded C. This means C code can be called from SQL. The C
+code will first be compiled and then executed. This means a C
+compiler must be available. Note also that by enabling embedded C,
+users of the server are allowed to execute arbitrary C code, and are
+therefore able to read and modify all data that the server process
+has access to. In addition, if the C code causes a crash, all bets
+are off.</p>
+</dd>
+<dt><strong>raw_strings=true</strong></dt><dd><p>The boolean option raw_strings controls how the sql scanner
+interprets string literals. If the value is <strong>false</strong> then strings
+are interpreted as if they were delimited with E-quotes, that is
+strings are interpreted as C strings and backslash characters are
+needed to escape special characters. If the value is <strong>true</strong> then
+strings are interpreted as if they were delimited with R-quotes, that
+is all characters are interpreted literally. Single quote characters
+need to be doubled inside strings. The default value is <strong>false</strong>.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="config-file-format">
+<h3>CONFIG FILE FORMAT<a class="headerlink" href="#config-file-format" title="Permalink to this headline">¶</a></h3>
+<p>The configuration file readable by <em>mserver5</em> consists of parameters of
+the form &quot;<em>name</em>=<em>value</em>&quot;. The file is line-based, each
+newline-terminated line represents either a comment or a parameter. Only
+the first equals sign in a parameter is significant. Whitespace before
+or after the first equals sign is not stripped. Trailing whitespace in a
+parameter value is retained verbatim. Any line beginning with a hash
+(<strong>#</strong>) is ignored, as are lines containing only whitespace. The values
+following the equals sign in parameters are all a string where quotes
+are not needed, and if written be part of the string.</p>
+</div>
+<div class="section" id="see-also">
+<h3>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h3>
+<p><em>monetdbd</em>(1), <em>monetdb</em>(1), <em>mclient</em>(1)</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">MonetDB</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/dev_notes.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/monetdbe_api.html">MonetDBe API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">The MonetDB Database System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#copyright-notice">Copyright Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Building MonetDB from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-fedora.html">Build on Fedora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-debian.html">Build on Debian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clients.html">The MonetDB clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">The MonetDB CMake Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Giving input to MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="json.html">Support for JSON in MonetDB</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="manual_pages.html">Manual pages</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="man_mclient.html">mclient manual page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man_msqldump.html">msqldump manual page</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">mserver5 manual page</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mserver5">MSERVER5</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man_monetdbd.html">monetdbd manual page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man_monetdb.html">monetdb manual page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">MonetDB Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_handbook.html">Developer's Handbook</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="manual_pages.html">Manual pages</a><ul>
+      <li>Previous: <a href="man_msqldump.html" title="previous chapter">msqldump manual page</a></li>
+      <li>Next: <a href="man_monetdbd.html" title="next chapter">monetdbd manual page</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, MonetDB Solutions.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/man_mserver5.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Developer&#39;s Handbook &#8212; MonetDB 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="MonetDB Release" href="release.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="developer-s-handbook">
+<h1>Developer's Handbook<a class="headerlink" href="#developer-s-handbook" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>MonetDB uses a custom program <code class="docutils literal notranslate"><span class="pre">Mtest.py</span></code> to run tests. Each test is an SQL,
+Python or MAL program along with its standard output and standard error streams.
+<code class="docutils literal notranslate"><span class="pre">Mtest.py</span></code> runs each of these programs, captures the standard output and the
+standard error, and compares them to the <em>stable</em> streams. If any differences are
+encountered then the test has failed.</p>
+<div class="section" id="tests-in-the-codebase">
+<h3>Tests in the codebase<a class="headerlink" href="#tests-in-the-codebase" title="Permalink to this headline">¶</a></h3>
+<p>Tests are usually <code class="docutils literal notranslate"><span class="pre">.sql</span></code>, <code class="docutils literal notranslate"><span class="pre">.py</span></code> or <code class="docutils literal notranslate"><span class="pre">.malC</span></code> files and the stable streams
+are stored in <code class="docutils literal notranslate"><span class="pre">.stable.out</span></code> and <code class="docutils literal notranslate"><span class="pre">.stable.err</span></code> files with the same name in
+the same directory. For example in the directory <code class="docutils literal notranslate"><span class="pre">sql/test/json/Tests</span></code> we find
+the files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">jsonkeyarray.Bug-6858.sql</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jsonkeyarray.Bug-6858.stable.out</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jsonkeyarray.Bug-6858.stable.err</span></code></p></li>
+</ul>
+<p>These three files define the test <code class="docutils literal notranslate"><span class="pre">jsonkeyarray.Bug-6858</span></code>.</p>
+<p>In any directory with tests you will also find a file named <code class="docutils literal notranslate"><span class="pre">All</span></code>. This is an
+index of all the tests in the directory. If a test is not mentioned in the
+<code class="docutils literal notranslate"><span class="pre">All</span></code> file, it will not run.</p>
+</div>
+<div class="section" id="running-tests">
+<h3>Running tests<a class="headerlink" href="#running-tests" title="Permalink to this headline">¶</a></h3>
+<p>The <cite>canonical</cite> name of a test is its path relative to the root of the source
+tree (<code class="docutils literal notranslate"><span class="pre">$src_root</span></code>), with the <code class="docutils literal notranslate"><span class="pre">Tests</span></code> component and the suffix removed. For
+instance the above test's canonical name is
+<code class="docutils literal notranslate"><span class="pre">sql/test/json/jsonkeyarray.Bug-6858</span></code>.</p>
+<p>In order to run a single test from <code class="docutils literal notranslate"><span class="pre">$src_root</span></code> or any of its descendants, use
+its canonical name as the argument of <code class="docutils literal notranslate"><span class="pre">Mtest.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[$src_root]$ Mtest.py sql/test/json/jsonkeyarray.Bug-6858
+</pre></div>
+</div>
+<p>Alternatively, from within the directory where the test is defined you can run
+the test by giving the last component of its canonical name as the argument to
+<code class="docutils literal notranslate"><span class="pre">Mtest.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[$src_root/sql/test/json/Tests/]$ Mtest.py jsonkeyarray.Bug-6858
+</pre></div>
+</div>
+<p>Another way to run tests is running a number of them together using the
+canonical name of a group. For example to run all the tests in the <code class="docutils literal notranslate"><span class="pre">json</span></code>
+group of the <code class="docutils literal notranslate"><span class="pre">sql</span></code> component use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[$src_root]$ Mtest.py sql/test/json/
+</pre></div>
+</div>
+<p>This will run all the tests defined in the file
+<code class="docutils literal notranslate"><span class="pre">$src_root/sql/test/json/Tests/All</span></code>.</p>
+<p>The last way to run a group of tests is from within the
+directory where they reside:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[$src_root/sql/test/json/Tests]$ Mtest.py .
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-a-new-test">
+<h3>Adding a new test<a class="headerlink" href="#adding-a-new-test" title="Permalink to this headline">¶</a></h3>
+<p>Summarizing the above discussion, to add a new test, you need to write the test
+itself, create the stable output and error files, and finally add the test to the
+<code class="docutils literal notranslate"><span class="pre">All</span></code> index. This will make ensure that the test will be picked up by
+<code class="docutils literal notranslate"><span class="pre">Mtest.py</span></code> as part of its group.</p>
+<p>To create the correct stable output you can use the <code class="docutils literal notranslate"><span class="pre">Mapprove.py</span></code> utility.
+First create empty <code class="docutils literal notranslate"><span class="pre">.stable.{out,err}</span></code> files and run the test using
+<code class="docutils literal notranslate"><span class="pre">Mtest.py</span></code>. Check the output and if it is correct, run <code class="docutils literal notranslate"><span class="pre">Mapprove.py</span></code> with
+the same arguments. This will add the correct contents to the
+<code class="docutils literal notranslate"><span class="pre">.stable.{out,err}</span></code> files. Commit the changes to the VCS and the test can now
+be used by other developers and the nightly testing infrastructure.</p>
+</div>
+<div class="section" id="python-tests-api">
+<h3>Python tests API<a class="headerlink" href="#python-tests-api" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">MonetDB</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/dev_notes.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/monetdbe_api.html">MonetDBe API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">The MonetDB Database System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#copyright-notice">Copyright Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Building MonetDB from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-fedora.html">Build on Fedora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-debian.html">Build on Debian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clients.html">The MonetDB clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">The MonetDB CMake Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Giving input to MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="json.html">Support for JSON in MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual_pages.html">Manual pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">MonetDB Release</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer's Handbook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tests-in-the-codebase">Tests in the codebase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-tests">Running tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-new-test">Adding a new test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-tests-api">Python tests API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="release.html" title="previous chapter">MonetDB Release</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, MonetDB Solutions.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/developers_handbook.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

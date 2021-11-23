@@ -1,0 +1,1 @@
+/usr/bin/cc  -DNDEBUG=1   CMakeFiles/testStmtAttr.dir/testStmtAttr.c.o  -o testStmtAttr -Wl,-rpath,:::::::::::::::::::::::::::::::::::::: /usr/lib/x86_64-linux-gnu/libodbc.so 

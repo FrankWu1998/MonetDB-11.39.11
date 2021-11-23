@@ -1,0 +1,1 @@
+/usr/bin/cc  -DNDEBUG=1   CMakeFiles/odbcsample1.dir/odbcsample1.c.o  -o odbcsample1 -Wl,-rpath,:::::::::::::::::::::::::::::::::::::: /usr/lib/x86_64-linux-gnu/libodbc.so 

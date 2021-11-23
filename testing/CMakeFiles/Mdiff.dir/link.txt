@@ -1,0 +1,1 @@
+/usr/bin/cc  -DNDEBUG=1   CMakeFiles/Mdiff.dir/difflib.c.o CMakeFiles/Mdiff.dir/helpers.c.o CMakeFiles/Mdiff.dir/Mdiff.c.o  -o Mdiff -Wl,-rpath,:::::::::::::::::::::::::::::::::::::: 

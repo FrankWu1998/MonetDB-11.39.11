@@ -1,0 +1,1 @@
+/usr/bin/cc  -DNDEBUG=1   CMakeFiles/testgetinfo.dir/testgetinfo.c.o  -o testgetinfo -Wl,-rpath,:::::::::::::::::::::::::::::::::::::: /usr/lib/x86_64-linux-gnu/libodbc.so 

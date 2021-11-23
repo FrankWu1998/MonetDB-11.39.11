@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC  -DNDEBUG=1  -shared  -o libMonetODBCs.so CMakeFiles/MonetODBCs.dir/drvcfg.c.o -Wl,-rpath,:::::::::::::::::::::::::::::::::::::: ../../../common/utils/libmutils.a 

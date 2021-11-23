@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Building MonetDB On Windows &#8212; MonetDB 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="building-monetdb-on-windows">
+<h1>Building MonetDB On Windows<a class="headerlink" href="#building-monetdb-on-windows" title="Permalink to this headline">¶</a></h1>
+<p>In this document we describe how to build the MonetDB suite of
+programs on Windows using the sources from <a class="reference external" href="https://dev.monetdb.org/hg/MonetDB/">our source repository</a>.
+This document is mainly targeted at building on Windows on a 32-bit
+architecture, but there are notes throughout about building on Windows
+on a 64-bit architecture which is indicated with Windows64.  We have
+successfully built on Windows XP, Windows Server, and Windows 7.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The MonetDB suite of programs consists of a number of components which
+we will describe briefly here.  The section names are the names of the
+top-level folders in the Mercurial clone.</p>
+<p>Note that in branches up to and including Oct2010 the build process
+was different.  This document describes the build process for the
+branch this document is part of.  Use the command <code class="docutils literal notranslate"><span class="pre">hg</span> <span class="pre">branch</span></code> to
+find out the name of the branch.</p>
+<div class="section" id="buildtools">
+<h3>buildtools<a class="headerlink" href="#buildtools" title="Permalink to this headline">¶</a></h3>
+<p>The buildtools component contains tools that are used to build the
+other components.  This component is required, but not all parts of
+this component are required for all configurations.</p>
+</div>
+<div class="section" id="common">
+<h3>common<a class="headerlink" href="#common" title="Permalink to this headline">¶</a></h3>
+<p>Also known as the MonetDB Common component contains some generally
+useful libraries.  This component is required.</p>
+</div>
+<div class="section" id="gdk">
+<h3>gdk<a class="headerlink" href="#gdk" title="Permalink to this headline">¶</a></h3>
+<p>Also known as the Goblin Database Kernel contains the database kernel,
+i.e. the heart of MonetDB.  This component is required.</p>
+</div>
+<div class="section" id="clients">
+<h3>clients<a class="headerlink" href="#clients" title="Permalink to this headline">¶</a></h3>
+<p>Also known as the MonetDB Client component contains a library which
+forms the basis for communicating with the MonetDB server components,
+and some interface programs that use this library to communicate with
+the server.  This component is required.</p>
+</div>
+<div class="section" id="monetdb5">
+<h3>monetdb5<a class="headerlink" href="#monetdb5" title="Permalink to this headline">¶</a></h3>
+<p>The MonetDB5 Server component is the database server.  It uses MAL
+(the MonetDB Algebra Language) as programming interface.  This
+component is required.</p>
+</div>
+<div class="section" id="sql">
+<h3>sql<a class="headerlink" href="#sql" title="Permalink to this headline">¶</a></h3>
+<p>Also known as MonetDB SQL, this component provides an SQL frontend to
+MonetDB5.  This component is required if you need SQL support.</p>
+</div>
+<div class="section" id="tools">
+<h3>tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h3>
+<p>The tools component contains two parts.  The mserver part is the
+actual database server binary and is required.  The merovingian part
+is not used on Windows.</p>
+</div>
+<div class="section" id="geom">
+<h3>geom<a class="headerlink" href="#geom" title="Permalink to this headline">¶</a></h3>
+<p>The geom component provides a module for the MonetDB SQL frontend.
+This component is optional.</p>
+</div>
+<div class="section" id="testing">
+<h3>testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+<p>The testing component contains some files and programs we use for
+testing the MonetDB suite.  This component is optional.</p>
+</div>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>In order to compile the MonetDB suite of programs, several other
+programs and libraries need to be installed.  Some further programs
+and libraries can be optionally installed to enable optional features.
+The required programs and libraries are listed in this section, the
+following section lists the optional programs and libraries.</p>
+<div class="section" id="chocolatey">
+<h3>Chocolatey<a class="headerlink" href="#chocolatey" title="Permalink to this headline">¶</a></h3>
+<p>Although <a class="reference external" href="https://chocolatey.org/">Chocolatey</a> is not a prerequisite per se, it makes
+installing and maintaining some of the other prerequisites a lot
+easier.  Therefore we recommend installing chocolatey.  Instructions
+are on their <a class="reference external" href="https://chocolatey.org/">website</a>.</p>
+<p>We have installed the following programs using <a class="reference external" href="https://chocolatey.org/">Chocolatey</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">choco</span> <span class="n">install</span> <span class="n">ActivePerl</span> <span class="n">ant</span> <span class="n">cmake</span> <span class="n">ruby</span>
+<span class="n">choco</span> <span class="n">install</span> <span class="n">python3</span> <span class="n">python3</span><span class="o">-</span><span class="n">x86_32</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">MonetDB</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/dev_notes.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/monetdbe_api.html">MonetDBe API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">The MonetDB Database System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#copyright-notice">Copyright Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Building MonetDB from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-fedora.html">Build on Fedora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-debian.html">Build on Debian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clients.html">The MonetDB clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">The MonetDB CMake Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Giving input to MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="json.html">Support for JSON in MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual_pages.html">Manual pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">MonetDB Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_handbook.html">Developer's Handbook</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, MonetDB Solutions.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/windowsbuild.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

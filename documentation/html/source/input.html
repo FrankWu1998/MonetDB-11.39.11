@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Giving input to MonetDB &#8212; MonetDB 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Support for JSON in MonetDB" href="json.html" />
+    <link rel="prev" title="The MonetDB CMake Design" href="design.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="giving-input-to-monetdb">
+<h1>Giving input to MonetDB<a class="headerlink" href="#giving-input-to-monetdb" title="Permalink to this headline">¶</a></h1>
+<p>This chapter discusses what kinds of input MonetDB accepts as syntactically
+correct.</p>
+<div class="section" id="literals">
+<h2>Literals<a class="headerlink" href="#literals" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="strings">
+<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
+<p>String literals are denoted by enclosing a sequence of UTF-8 characters between
+single quotes: <code class="docutils literal notranslate"><span class="pre">'</span></code>. MonetDB allows the use of different quote sequences that
+control the interpretation of the contents of the string.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The quote sequences are <em>not</em> case sensitive, i.e. the strings
+<code class="docutils literal notranslate"><span class="pre">E'abc'</span></code> and <code class="docutils literal notranslate"><span class="pre">e'abc'</span></code>, are exactly the same.</p>
+</div>
+<p>The available modes
+are as follows:</p>
+<p>Enhanced strings</p>
+<blockquote>
+<div><p>Enhanced strings are enclosed between <code class="docutils literal notranslate"><span class="pre">E'</span></code> and <code class="docutils literal notranslate"><span class="pre">'</span></code>. Within them various
+C-like escape sequences are valid:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span><span class="o">&gt;</span><span class="n">SELECT</span> <span class="n">E</span><span class="s1">&#39;Newline chars</span><span class="se">\n</span><span class="s1">are interpreted like in C-strings&#39;</span><span class="p">;</span>
+<span class="o">+-------------------------------------------------+</span>
+<span class="o">|</span> <span class="n">single_value</span>                                    <span class="o">|</span>
+<span class="o">+=================================================+</span>
+<span class="o">|</span> <span class="n">Newline</span> <span class="n">chars</span>                                   <span class="o">|</span>
+<span class="p">:</span> <span class="n">are</span> <span class="n">interpreted</span> <span class="n">like</span> <span class="ow">in</span> <span class="n">C</span><span class="o">-</span><span class="n">strings</span>               <span class="p">:</span>
+<span class="o">+-------------------------------------------------+</span>
+<span class="mi">1</span> <span class="nb">tuple</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>By default MonetDB interprets strings in this mode, i.e. if you use just
+single quotes to enclose a string it will be interpreted like this.</p>
+</div>
+</div></blockquote>
+<p>Raw strings</p>
+<blockquote>
+<div><p>Raw strings are enclosed between the lexemes <code class="docutils literal notranslate"><span class="pre">R'</span></code> and <code class="docutils literal notranslate"><span class="pre">'</span></code>. In this mode
+all characters are interpreted literally except for the single quote character
+(<code class="docutils literal notranslate"><span class="pre">'</span></code>) that needs to be escaped by writing it twice. This mode is what the
+SQL specifies as strings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span><span class="o">&gt;</span><span class="n">SELECT</span> <span class="sa">R</span><span class="s1">&#39;Backslash doesn&#39;&#39;t have a special meaning here: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">;</span>
+<span class="o">+---------------------------------------------------+</span>
+<span class="o">|</span> <span class="n">single_value</span>                                      <span class="o">|</span>
+<span class="o">+===================================================+</span>
+<span class="o">|</span> <span class="n">Backslash</span> <span class="n">doesn</span><span class="s1">&#39;t have a special meaning here: </span><span class="se">\n</span><span class="s1"> |</span>
+<span class="o">+---------------------------------------------------+</span>
+<span class="mi">1</span> <span class="nb">tuple</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl>
+<dt>Blobs</dt><dd><p>Strings enclosed in <code class="docutils literal notranslate"><span class="pre">X'</span></code> and <code class="docutils literal notranslate"><span class="pre">'</span></code>, are intended for input of binary
+blobs. Only hexadecimal digits (case insensitive) are allowed in this mode,
+and the string must have an even number of characters. Every hexadecimal digit
+pair is interpreted as one byte:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span><span class="o">&gt;</span><span class="n">SELECT</span> <span class="n">X</span><span class="s1">&#39;12EEff&#39;</span><span class="p">;</span>
+<span class="o">+---------------------------------------------------+</span>
+<span class="o">|</span> <span class="n">single_value</span>                                      <span class="o">|</span>
+<span class="o">+===================================================+</span>
+<span class="o">|</span> <span class="mi">12</span><span class="n">EEFF</span>                                            <span class="o">|</span>
+<span class="o">+---------------------------------------------------+</span>
+<span class="mi">1</span> <span class="nb">tuple</span>
+
+<span class="n">sql</span><span class="o">&gt;</span><span class="n">SELECT</span> <span class="n">X</span><span class="s1">&#39;1&#39;</span><span class="p">;</span>
+<span class="n">incorrect</span> <span class="n">blob</span> <span class="mi">1</span> <span class="ow">in</span><span class="p">:</span> <span class="s2">&quot;select X&#39;1&#39;;&quot;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>Unicode sequences</p>
+<blockquote>
+<div><p>Strings enclosed between <code class="docutils literal notranslate"><span class="pre">U&amp;'</span></code> and <code class="docutils literal notranslate"><span class="pre">'</span></code>, are interpreted as unicode
+sequences:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span><span class="o">&gt;</span><span class="n">select</span> <span class="n">U</span><span class="o">&amp;</span><span class="s1">&#39;</span><span class="se">\000</span><span class="s1">a&#39;</span><span class="p">;</span>
+<span class="o">+--------------+</span>
+<span class="o">|</span> <span class="n">single_value</span> <span class="o">|</span>
+<span class="o">+==============+</span>
+<span class="o">|</span>              <span class="o">|</span>
+<span class="o">+--------------+</span>
+<span class="mi">1</span> <span class="nb">tuple</span>
+<span class="n">sql</span><span class="o">&gt;</span><span class="n">select</span> <span class="n">U</span><span class="o">&amp;</span><span class="s1">&#39;</span><span class="se">\006</span><span class="s1">1&#39;</span><span class="p">;</span>
+<span class="o">+--------------+</span>
+<span class="o">|</span> <span class="n">single_value</span> <span class="o">|</span>
+<span class="o">+==============+</span>
+<span class="o">|</span> <span class="n">a</span>            <span class="o">|</span>
+<span class="o">+--------------+</span>
+<span class="mi">1</span> <span class="nb">tuple</span>
+<span class="n">sql</span><span class="o">&gt;</span><span class="n">select</span> <span class="n">U</span><span class="o">&amp;</span><span class="s1">&#39;</span><span class="se">\00</span><span class="s1">a&#39;</span><span class="p">;</span>
+<span class="n">Bad</span> <span class="n">Unicode</span> <span class="n">string</span> <span class="ow">in</span><span class="p">:</span> <span class="s2">&quot;select U&amp;&#39;</span><span class="se">\00</span><span class="s2">a&#39;;&quot;</span>
+<span class="n">sql</span><span class="o">&gt;</span><span class="n">select</span> <span class="n">U</span><span class="o">&amp;</span><span class="s1">&#39;</span><span class="se">\00</span><span class="s1">oa&#39;</span><span class="p">;</span>
+<span class="n">Bad</span> <span class="n">Unicode</span> <span class="n">string</span> <span class="ow">in</span><span class="p">:</span> <span class="s2">&quot;select U&amp;&#39;</span><span class="se">\00</span><span class="s2">oa&#39;;&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="numbers">
+<h3>Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<p>You can write comments in three different ways:</p>
+<p>SQL line comments</p>
+<blockquote>
+<div><p>These start with two hyphens: <code class="docutils literal notranslate"><span class="pre">--</span></code> and extend to the end of the line.</p>
+</div></blockquote>
+<p>Python line comments</p>
+<blockquote>
+<div><p>Anything between the hash character <code class="docutils literal notranslate"><span class="pre">#</span></code> and the end of the line is ignored
+by MonetDB.</p>
+</div></blockquote>
+<p>C block comments</p>
+<blockquote>
+<div><p>MonetDB also ignores anything that is written between the lexemes <code class="docutils literal notranslate"><span class="pre">/*</span></code> and
+<code class="docutils literal notranslate"><span class="pre">*/</span></code>.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="identifiers">
+<h2>Identifiers<a class="headerlink" href="#identifiers" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">MonetDB</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/dev_notes.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/monetdbe_api.html">MonetDBe API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">The MonetDB Database System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#copyright-notice">Copyright Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Building MonetDB from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-fedora.html">Build on Fedora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-debian.html">Build on Debian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clients.html">The MonetDB clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">The MonetDB CMake Design</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Giving input to MonetDB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#literals">Literals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#strings">Strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#numbers">Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#identifiers">Identifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="json.html">Support for JSON in MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual_pages.html">Manual pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">MonetDB Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_handbook.html">Developer's Handbook</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="design.html" title="previous chapter">The MonetDB CMake Design</a></li>
+      <li>Next: <a href="json.html" title="next chapter">Support for JSON in MonetDB</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, MonetDB Solutions.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/input.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

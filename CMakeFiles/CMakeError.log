@@ -1,0 +1,344 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6efe3/fast && /usr/bin/make -f CMakeFiles/cmTC_6efe3.dir/build.make CMakeFiles/cmTC_6efe3.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6efe3.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -std=gnu99 -o CMakeFiles/cmTC_6efe3.dir/src.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_6efe3
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6efe3.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_6efe3.dir/src.c.o  -o cmTC_6efe3 
+CMakeFiles/cmTC_6efe3.dir/src.c.o: In function `main':
+src.c:(.text+0x3e): undefined reference to `pthread_create'
+src.c:(.text+0x4a): undefined reference to `pthread_detach'
+src.c:(.text+0x5b): undefined reference to `pthread_join'
+src.c:(.text+0x6f): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_6efe3.dir/build.make:86: recipe for target 'cmTC_6efe3' failed
+make[1]: *** [cmTC_6efe3] Error 1
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_6efe3/fast' failed
+make: *** [cmTC_6efe3/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_fe3de/fast && /usr/bin/make -f CMakeFiles/cmTC_fe3de.dir/build.make CMakeFiles/cmTC_fe3de.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fe3de.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -std=gnu99 -o CMakeFiles/cmTC_fe3de.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fe3de
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fe3de.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_fe3de.dir/CheckFunctionExists.c.o  -o cmTC_fe3de -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_fe3de.dir/build.make:86: recipe for target 'cmTC_fe3de' failed
+make[1]: *** [cmTC_fe3de] Error 1
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_fe3de/fast' failed
+make: *** [cmTC_fe3de/fast] Error 2
+
+
+
+Determining if the include file dispatch/dispatch.h exists failed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_47f14/fast && /usr/bin/make -f CMakeFiles/cmTC_47f14.dir/build.make CMakeFiles/cmTC_47f14.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_47f14.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_47f14.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: dispatch/dispatch.h: No such file or directory
+    1 | #include <dispatch/dispatch.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_47f14.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_47f14.dir/CheckIncludeFile.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_47f14.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_47f14/fast' failed
+make: *** [cmTC_47f14/fast] Error 2
+
+
+
+Determining if the include file io.h exists failed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b61eb/fast && /usr/bin/make -f CMakeFiles/cmTC_b61eb.dir/build.make CMakeFiles/cmTC_b61eb.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b61eb.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_b61eb.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: io.h: No such file or directory
+    1 | #include <io.h>
+      |          ^~~~~~
+compilation terminated.
+CMakeFiles/cmTC_b61eb.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_b61eb.dir/CheckIncludeFile.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_b61eb.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_b61eb/fast' failed
+make: *** [cmTC_b61eb/fast] Error 2
+
+
+
+Determining if the include file kvm.h exists failed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6487f/fast && /usr/bin/make -f CMakeFiles/cmTC_6487f.dir/build.make CMakeFiles/cmTC_6487f.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6487f.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_6487f.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: kvm.h: No such file or directory
+    1 | #include <kvm.h>
+      |          ^~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_6487f.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_6487f.dir/CheckIncludeFile.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_6487f.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_6487f/fast' failed
+make: *** [cmTC_6487f/fast] Error 2
+
+
+
+Determining if the include file mach/mach_init.h exists failed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_356d8/fast && /usr/bin/make -f CMakeFiles/cmTC_356d8.dir/build.make CMakeFiles/cmTC_356d8.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_356d8.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_356d8.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: mach/mach_init.h: No such file or directory
+    1 | #include <mach/mach_init.h>
+      |          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_356d8.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_356d8.dir/CheckIncludeFile.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_356d8.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_356d8/fast' failed
+make: *** [cmTC_356d8/fast] Error 2
+
+
+
+Determining if the include file mach/task.h exists failed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c2c4e/fast && /usr/bin/make -f CMakeFiles/cmTC_c2c4e.dir/build.make CMakeFiles/cmTC_c2c4e.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c2c4e.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_c2c4e.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: mach/task.h: No such file or directory
+    1 | #include <mach/task.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_c2c4e.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_c2c4e.dir/CheckIncludeFile.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_c2c4e.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_c2c4e/fast' failed
+make: *** [cmTC_c2c4e/fast] Error 2
+
+
+
+Determining if the include file mach-o/dyld.h exists failed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_8cf66/fast && /usr/bin/make -f CMakeFiles/cmTC_8cf66.dir/build.make CMakeFiles/cmTC_8cf66.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8cf66.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_8cf66.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: mach-o/dyld.h: No such file or directory
+    1 | #include <mach-o/dyld.h>
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_8cf66.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_8cf66.dir/CheckIncludeFile.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_8cf66.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_8cf66/fast' failed
+make: *** [cmTC_8cf66/fast] Error 2
+
+
+
+Determining if the include file procfs.h exists failed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_dd89e/fast && /usr/bin/make -f CMakeFiles/cmTC_dd89e.dir/build.make CMakeFiles/cmTC_dd89e.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dd89e.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_dd89e.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: procfs.h: No such file or directory
+    1 | #include <procfs.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_dd89e.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_dd89e.dir/CheckIncludeFile.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_dd89e.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_dd89e/fast' failed
+make: *** [cmTC_dd89e/fast] Error 2
+
+
+
+Determining if the include file winsock2.h exists failed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_fab42/fast && /usr/bin/make -f CMakeFiles/cmTC_fab42.dir/build.make CMakeFiles/cmTC_fab42.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fab42.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_fab42.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: winsock2.h: No such file or directory
+    1 | #include <winsock2.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_fab42.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_fab42.dir/CheckIncludeFile.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_fab42.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_fab42/fast' failed
+make: *** [cmTC_fab42/fast] Error 2
+
+
+
+Determining if the getaddrinfo exist failed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ea210/fast && /usr/bin/make -f CMakeFiles/cmTC_ea210.dir/build.make CMakeFiles/cmTC_ea210.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ea210.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_ea210.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: ws2tcpip.h: No such file or directory
+    2 | #include <ws2tcpip.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_ea210.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_ea210.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_ea210.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_ea210/fast' failed
+make: *** [cmTC_ea210/fast] Error 2
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <ws2tcpip.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getaddrinfo
+  return ((int*)(&getaddrinfo))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the dispatch_semaphore_create exist failed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_80180/fast && /usr/bin/make -f CMakeFiles/cmTC_80180.dir/build.make CMakeFiles/cmTC_80180.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_80180.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_80180.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: dispatch/dispatch.h: No such file or directory
+    2 | #include <dispatch/dispatch.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_80180.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_80180.dir/CheckSymbolExists.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_80180.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_80180/fast' failed
+make: *** [cmTC_80180/fast] Error 2
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <dispatch/dispatch.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef dispatch_semaphore_create
+  return ((int*)(&dispatch_semaphore_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function getexecname exists failed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_924c5/fast && /usr/bin/make -f CMakeFiles/cmTC_924c5.dir/build.make CMakeFiles/cmTC_924c5.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_924c5.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=getexecname    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_924c5.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_924c5
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_924c5.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=getexecname    CMakeFiles/cmTC_924c5.dir/CheckFunctionExists.c.o  -o cmTC_924c5 
+CMakeFiles/cmTC_924c5.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `getexecname'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_924c5.dir/build.make:86: recipe for target 'cmTC_924c5' failed
+make[1]: *** [cmTC_924c5] Error 1
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_924c5/fast' failed
+make: *** [cmTC_924c5/fast] Error 2
+
+
+
+Determining if the function _NSGetExecutablePath exists failed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_bc851/fast && /usr/bin/make -f CMakeFiles/cmTC_bc851.dir/build.make CMakeFiles/cmTC_bc851.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bc851.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=_NSGetExecutablePath    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_bc851.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_bc851
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bc851.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=_NSGetExecutablePath    CMakeFiles/cmTC_bc851.dir/CheckFunctionExists.c.o  -o cmTC_bc851 
+CMakeFiles/cmTC_bc851.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_NSGetExecutablePath'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_bc851.dir/build.make:86: recipe for target 'cmTC_bc851' failed
+make[1]: *** [cmTC_bc851] Error 1
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_bc851/fast' failed
+make: *** [cmTC_bc851/fast] Error 2
+
+
+
+Determining if the function task_info exists failed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ada41/fast && /usr/bin/make -f CMakeFiles/cmTC_ada41.dir/build.make CMakeFiles/cmTC_ada41.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ada41.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=task_info    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_ada41.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ada41
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ada41.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=task_info    CMakeFiles/cmTC_ada41.dir/CheckFunctionExists.c.o  -o cmTC_ada41 
+CMakeFiles/cmTC_ada41.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `task_info'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_ada41.dir/build.make:86: recipe for target 'cmTC_ada41' failed
+make[1]: *** [cmTC_ada41] Error 1
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_ada41/fast' failed
+make: *** [cmTC_ada41/fast] Error 2
+
+
+

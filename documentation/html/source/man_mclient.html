@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>mclient manual page &#8212; MonetDB 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="msqldump manual page" href="man_msqldump.html" />
+    <link rel="prev" title="Manual pages" href="manual_pages.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="mclient-manual-page">
+<h1>mclient manual page<a class="headerlink" href="#mclient-manual-page" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mclient">
+<h2>MCLIENT<a class="headerlink" href="#mclient" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="name">
+<h3>NAME<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h3>
+<p>mclient --- the MonetDB command-line tool</p>
+</div>
+<div class="section" id="synopsis">
+<h3>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><strong>mclient</strong> [ <em>options</em> ] [ <em>file or database</em> [ <em>file</em> ... ] ]</div>
+<div class="line"><strong>mclient</strong> <strong>--help</strong></div>
+</div>
+</div>
+<div class="section" id="description">
+<h3>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p>MonetDB is a database management system that is developed from a
+main-memory perspective with use of a fully decomposed storage model,
+automatic index management, extensibility of data types and search
+accelerators, and an SQL front end.</p>
+<p><em>Mclient</em> is the command-line interface to the MonetDB server.</p>
+<p>If the <strong>--statement=</strong><em>query</em> (<strong>-s</strong> <em>query</em>) option is given, the
+query is executed. If any files are listed after the options, queries
+are read from the files and executed. The special filename <strong>-</strong> refers
+to standard input. Note that if there is both a <strong>--statement</strong> option
+and filename arguments, the query given with <strong>--statement</strong> is executed
+first. If no <strong>--statement</strong> option is given and no files are specified
+on the command line, <em>mclient</em> reads queries from standard input.</p>
+<p>When reading from standard input, if standard input is a terminal or if
+the <strong>--interactive</strong> (<strong>-i</strong>) option is given, <em>mclient</em> interprets
+lines starting with <strong>\</strong> (backslash) specially. See the section
+BACKSLASH COMMANDS below.</p>
+<p>Before <em>mclient</em> starts parsing command line options, it reads a
+configuration file. If the environment variable <strong>DOTMONETDBFILE</strong> is
+set and not empty, it reads the file pointed to by that variable. If set
+but empty, no configuration file is read. If unset, <em>mclient</em> first
+looks for a file <em>.monetdb</em> in the current working directory, and if
+that doesn't exist, it looks for a file <em>monetdb</em> in the XDG
+configuration directory (<strong>$XDG_CONFIG_HOME</strong> which defaults to
+<strong>$HOME/.config</strong> if not set), and finally for a file <em>.monetdb</em> in the
+current user's home directory. This file can contain defaults for the
+flags <strong>user</strong>, <strong>password</strong>, <strong>language</strong>, <strong>database</strong>,
+<strong>save_history</strong>, <strong>format</strong>, <strong>host</strong>, <strong>port</strong>, and <strong>width</strong>. For
+example, an entry in a <em>.monetdb</em> file that sets the default language
+for <em>mclient</em> to mal looks like this: <strong>language=mal</strong>. To disable
+reading the <em>.monetdb</em> file, set the variable <strong>DOTMONETDBFILE</strong> to the
+empty string in the environment.</p>
+</div>
+<div class="section" id="options">
+<h3>OPTIONS<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="general-options">
+<h4>General Options<a class="headerlink" href="#general-options" title="Permalink to this headline">¶</a></h4>
+<dl>
+<dt><strong>--help</strong> (<strong>-?</strong>)</dt><dd><p>Print usage information and exit.</p>
+</dd>
+<dt><strong>--version</strong> (<strong>-v</strong>)</dt><dd><p>Print version information and exit.</p>
+</dd>
+<dt><strong>--encoding=</strong><em>encoding</em> (<strong>-E</strong> <em>encoding</em>)</dt><dd><p>Specify the character encoding of the input. The option applies to
+both the standard input of <em>mclient</em> and to the argument of the
+<strong>--statement</strong> (<strong>-s</strong>) option but not to the contents of files
+specified on the command line (except for <strong>-</strong> which refers to
+standard input) or files specified using the <strong>\&lt;</strong> command (those
+must be encoded using UTF-8). The default encoding is taken from the
+locale.</p>
+</dd>
+<dt><strong>--language=</strong><em>language</em> (<strong>-l</strong> <em>language</em>)</dt><dd><p>Specify the query language. The following languages are recognized:
+<strong>mal</strong> and <strong>sql</strong>. A unique prefix suffices. When the
+<strong>--language</strong> option is omitted, the default of <strong>sql</strong> is assumed.</p>
+</dd>
+<dt><strong>--database=</strong><em>database</em> (<strong>-d</strong> <em>database</em>)</dt><dd><p>Specify the name or URI of the database to connect to. The <strong>-d</strong> can
+be omitted if an equally named file does not exist in the current
+directory. As such, the first non-option argument will be interpreted
+as database to connect to if the argument does not exist as file.
+Valid URIs are as returned by `monetdb discover`, see
+<em>monetdb</em>(1), and look like
+<strong>mapi:monetdb://</strong><em>hostname</em><strong>:</strong><em>port</em><strong>/</strong><em>database</em>.</p>
+</dd>
+<dt><strong>--host=</strong><em>hostname</em> (<strong>-h</strong> <em>hostname</em>)</dt><dd><p>Specify the name of the host on which the server runs (default:
+<strong>localhost</strong>). When the argument starts with a forward slash (/),
+host is assumed to be the directory where the UNIX sockets are stored
+for platforms where these are supported.</p>
+</dd>
+<dt><strong>--port=</strong><em>portnr</em> (<strong>-p</strong> <em>portnr</em>)</dt><dd><p>Specify the portnumber of the server (default: <strong>50000</strong>).</p>
+</dd>
+<dt><strong>--interactive</strong> (<strong>-i</strong>)</dt><dd><p>When reading from standard input, interpret lines starting with
+<strong>\</strong> (backslash) specially. See the section BACKSLASH COMMANDS
+below.</p>
+</dd>
+<dt><strong>--timer=</strong><em>timermode</em> (<strong>-t</strong> <em>timermode</em>)</dt><dd><div class="line-block">
+<div class="line">The <em>timer</em> command controls the format of the time reported for
+queries. The default mode is <strong>none</strong> which turns off timing
+reporting. The timer mode <strong>clock</strong> reports the client-side
+wall-clock time (&quot;<strong>clk</strong>&quot;) in a human-friendly format. The timer
+mode <strong>performance</strong> reports client-side wall-clock time
+(&quot;<strong>clk</strong>&quot;) as well as detailed server-side timings, all in
+milliseconds (ms): the time to parse the SQL query, optimize the
+logical relational plan and create the initial physical (MAL) plan
+(&quot;<strong>sql</strong>&quot;); the time to optimize the physical (MAL) plan
+(&quot;<strong>opt</strong>&quot;); the time to execute the physical (MAL) plan
+(&quot;<strong>run</strong>&quot;). All timings are reported on stderr.</div>
+<div class="line"><strong>Note</strong> that the client-measured wall-clock time is reported per
+query <strong>only</strong> when options <strong>--interactive</strong> or <strong>--echo</strong> are
+used, because only then does <em>mclient</em> send individual lines
+(statements) of the SQL script to the server. Otherwise, when
+<em>mclient</em> sends the SQL script in large(r) batch(es), only the
+total wall-clock time per batch is measured and reported. The
+server-measured detailed performance timings are always measured
+and reported per query.</div>
+</div>
+</dd>
+<dt><strong>--user=</strong><em>user</em> (<strong>-u</strong> <em>user</em>)</dt><dd><p>Specify the user to connect as. If this flag is absent, the client
+will ask for a user name, unless a default was found in the
+<em>.monetdb</em> or <strong>$DOTMONETDBFILE</strong> file.</p>
+</dd>
+<dt><strong>--format=</strong><em>format</em> (<strong>-f</strong> <em>format</em>)</dt><dd><p>Specify the output format. The possible values are <strong>sql</strong>,
+<strong>expanded</strong>, <strong>x</strong>, <strong>csv</strong>, <strong>tab</strong>, <strong>raw</strong>, <strong>xml</strong>, <strong>trash</strong>,
+and <strong>rowcount</strong>. <strong>csv</strong> is comma-separated values; <strong>tab</strong> is
+tab-separated values; <strong>raw</strong> is no special formatting (data is
+dumped the way the server sends it to the client); <strong>sql</strong> is a
+pretty format which is meant for human consumption where columns are
+clearly shown; <strong>expanded</strong> and <strong>x</strong> are synonyms and are another
+pretty format meant for human consumption where column values are
+printed in full and below each other; <strong>xml</strong> is a valid (in the XML
+sense) document; <strong>trash</strong> does not render any output, enabling
+performance measurements free of any output rendering/serialization
+costs; and <strong>rowcount</strong> is a variation on <strong>trash</strong> where only the
+number of affected rows is printed. In addition to plain <strong>csv</strong>, two
+other forms are possible. <strong>csv=</strong><em>c</em> uses <em>c</em> as column separator;
+<strong>csv+</strong><em>c</em> uses <em>c</em> as column separator and produces a single
+header line in addition to the data.</p>
+</dd>
+<dt><strong>--echo</strong> (<strong>-e</strong>)</dt><dd><p>Echo the query. Note that using this option slows down processing.</p>
+</dd>
+<dt><strong>--history</strong> (<strong>-H</strong>)</dt><dd><p>If compiled with the <em>readline</em>(3) library, load and save the
+command line history (default off).</p>
+</dd>
+<dt><strong>--log=</strong><em>logfile</em> (<strong>-L</strong> <em>logfile</em>)</dt><dd><p>Save client/server interaction in the specified file.</p>
+</dd>
+<dt><strong>--statement=</strong><em>stmt</em> (<strong>-s</strong> <em>stmt</em>)</dt><dd><p>Execute the specified query. The query is run before any queries from
+files specified on the command line are run.</p>
+</dd>
+<dt><strong>--timezone</strong> (<strong>-z</strong>)</dt><dd><p>Do not tell the client's timezone to the server.</p>
+</dd>
+<dt><strong>--Xdebug</strong> (<strong>-X</strong>)</dt><dd><p>Trace network interaction between <em>mclient</em> and the server.</p>
+</dd>
+<dt><strong>--pager=</strong><em>cmd</em> (<strong>-|</strong> <em>cmd</em>)</dt><dd><p>Send query output through the specified <em>cmd</em>. One <em>cmd</em> is started
+for each query. Note that the <strong>|</strong> will have to be quoted or else
+the shell will interpret it.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="sql-options">
+<h4>SQL Options<a class="headerlink" href="#sql-options" title="Permalink to this headline">¶</a></h4>
+<dl class="simple">
+<dt><strong>--null=</strong><em>nullstr</em> (<strong>-n</strong> <em>nullstr</em>)</dt><dd><p>Set the string to be used as NULL representation when using the sql,
+csv, or tab output formats. If not used, NULL values are represented
+by the string &quot;null&quot; in the sql output format, and as the empty
+string in the csv and tab output formats. Note that an argument is
+required, so in order to use the empty string, use <strong>-n &quot;&quot;</strong> (with
+the space) or <strong>--null=</strong>.</p>
+</dd>
+<dt><strong>--autocommit</strong> (<strong>-a</strong>)</dt><dd><p>Switch autocommit mode off. By default, autocommit mode is on.</p>
+</dd>
+<dt><strong>--allow-remote</strong> (<strong>-R</strong>)</dt><dd><p>Allow remote content (URLs) in the <strong>COPY INTO</strong> <em>table</em> <strong>FROM</strong>
+<em>file</em> <strong>ON CLIENT</strong> ... query. Remote content is retrieved by
+<em>mclient</em>.</p>
+</dd>
+<dt><strong>--rows=</strong><em>nr</em> (<strong>-r</strong> <em>nr</em>)</dt><dd><p>If specified, query results will be paged by an internal pager at the
+specified number of lines.</p>
+</dd>
+<dt><strong>--width=</strong><em>nr</em> (<strong>-w</strong> <em>nr</em>)</dt><dd><p>Specify the width of the screen. The default is the (initial) width
+of the terminal.</p>
+</dd>
+<dt><strong>--dump</strong> (<strong>-D</strong>)</dt><dd><p>Create an SQL dump.</p>
+</dd>
+<dt><strong>--inserts</strong> (<strong>-N</strong>)</dt><dd><p>Use INSERT INTO statements instead of COPY INTO + CSV values when
+dumping the data of a table. This option can be used when trying to
+load data from MonetDB into another database, or when e.g. JDBC
+applications are used to reload the dump.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="backslash-commands">
+<h3>BACKSLASH COMMANDS<a class="headerlink" href="#backslash-commands" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="general-commands">
+<h4>General Commands<a class="headerlink" href="#general-commands" title="Permalink to this headline">¶</a></h4>
+<dl class="simple">
+<dt><strong>\?</strong></dt><dd><p>Show a help message explaining the backslash commands.</p>
+</dd>
+<dt><strong>\q</strong></dt><dd><p>Exit <em>mclient</em>.</p>
+</dd>
+<dt><strong>\&lt;</strong> <em>file</em></dt><dd><p>Read input from the named <em>file</em>.</p>
+</dd>
+<dt><strong>\&gt;</strong> <em>file</em></dt><dd><p>Write output to the named <em>file</em>. If no <em>file</em> is specified, write to
+standard output.</p>
+</dd>
+<dt><strong>\|</strong> <em>command</em></dt><dd><p>Pipe output to the given <em>command</em>. Each query is piped to a new
+invocation of the <em>command</em>. If no <em>command</em> is given, revert to
+writing output to standard output.</p>
+</dd>
+<dt><strong>\h</strong></dt><dd><p>Show the <em>readline</em>(3) history.</p>
+</dd>
+<dt><strong>\L</strong> <em>file</em></dt><dd><p>Log client/server interaction in the given <em>file</em>. If no <em>file</em> is
+specified, stop logging information.</p>
+</dd>
+<dt><strong>\X</strong></dt><dd><p>Trace what <em>mclient</em> is doing. This is mostly for debugging purposes.</p>
+</dd>
+<dt><strong>\e</strong></dt><dd><p>Echo the query in SQL formatting mode.</p>
+</dd>
+<dt><strong>\f</strong> <em>format</em></dt><dd><p>Use the specified <em>format</em> mode to format the output. Possible modes
+the same as for the <strong>--format</strong> (<strong>-f</strong>) option.</p>
+</dd>
+<dt><strong>\w</strong> <em>width</em></dt><dd><p>Set the maximum page width for rendering in the <strong>sql</strong> formatting
+mode. If <em>width</em> is <strong>-1</strong>, the page width is unlimited, when <em>width</em>
+is <strong>0</strong>, use the terminal width. If <em>width</em> is greater than <strong>0</strong>,
+use the given width.</p>
+</dd>
+<dt><strong>\r</strong> <em>rows</em></dt><dd><p>Use an internal pager using <em>rows</em> per page. If <em>rows</em> is <strong>-1</strong>,
+stop using the internal pager.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="sql-commands">
+<h4>SQL Commands<a class="headerlink" href="#sql-commands" title="Permalink to this headline">¶</a></h4>
+<dl class="simple">
+<dt><strong>\D</strong></dt><dd><p>Dump the complete database. This is equivalent to using the program
+<em>msqldump</em>(1).</p>
+</dd>
+<dt><strong>\D</strong> <em>table</em></dt><dd><p>Dump the given <em>table</em>.</p>
+</dd>
+<dt><strong>\d</strong></dt><dd><p>Alias for \dvt.</p>
+</dd>
+<dt><strong>\d[Stvsfn]+</strong></dt><dd><p>List database objects of the given type. Multiple type specifiers can
+be used at the same time. The specifiers <em>S</em>, <em>t</em>, <em>v</em>, <em>s</em>, <em>f</em> and
+<em>n</em> stand for System, table, view, sequence, function and schema
+respectively. Note that <em>S</em> simply switches on viewing system catalog
+objects, which is orthogonal to the other specifiers.</p>
+</dd>
+<dt><strong>\d[Stvsfn]+</strong> <em>object</em></dt><dd><p>Describe the given <em>object</em> in the database using SQL statements that
+reconstruct the object. The same specifiers as above can be used,
+following the same rules. When no specifiers are given, <strong>vt</strong> is
+assumed. The object can be given with or without a schema, separated
+by a dot. The object name can contain the wildcard characters <strong>*</strong>
+and <strong>_</strong> that represent zero or more, and exactly one character
+respectively. An object name is converted to lowercase, unless the
+object name is quoted by double quotes (<strong>&quot;</strong>). Examples of this, are
+e.g. <em>*.mytable</em>, <em>tabletype*</em>, or <em>&quot;myschema.FOO&quot;</em>. Note that
+wildcard characters do not work in quoted objects. Quoting follows
+SQL quoting rules. Arbitrary parts can be quoted, and two quotes
+following each other in a quoted string represent the quote itself.</p>
+</dd>
+<dt><strong>\A</strong></dt><dd><p>Enable auto commit mode.</p>
+</dd>
+<dt><strong>\a</strong></dt><dd><p>Disable auto commit mode.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="examples">
+<h3>EXAMPLES<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>Efficiently import data from a CSV (comma-separated values) file into a
+table. The file must be readable by the server. <em>$file</em> is the absolute
+path name of the file, <em>$table</em> is the name of the table, <em>$db</em> is the
+name of the database.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mclient -d $db -s &quot;COPY INTO $table FROM &#39;$file&#39; USING DELIMITERS &#39;,&#39;,E&#39;\\n&#39;,&#39;\&quot;&#39;&quot;
+</pre></div>
+</div>
+<p>Efficiently import data from a CSV file into a table when the file is to
+be read by <em>mclient</em> (e.g. the server has no access to the file).
+<em>$file</em> is the (absolute or relative) path name of the file, <em>$table</em> is
+the name of the table, <em>$db</em> is the name of the database.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mclient -d $db -s &quot;COPY INTO $table FROM STDIN USING DELIMITERS &#39;,&#39;,E&#39;\\n&#39;,&#39;\&quot;&#39;&quot; - &lt; $file
+</pre></div>
+</div>
+<p>Note that in this latter case, if a count of records is supplied, it
+should be at least as large as the number of records actually present in
+the CSV file. This, because otherwise the remainder of the file will be
+interpreted as SQL queries.</p>
+<p>Another, easier method to have the client read the file content is as
+follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mclient -d $db -s &quot;COPY INTO $table FROM &#39;$file&#39; ON CLIENT USING DELIMITERS &#39;,&#39;,E&#39;\\n&#39;,\&quot;&#39;&quot;
+</pre></div>
+</div>
+<p>In this case the value of <em>$file</em> can be a path name relative to the
+directory in which <em>mclient</em> was started. If, in addition, the option
+<strong>--allow-remote</strong> is passed to <em>mclient</em>, the <em>$file</em> in the above
+query can also be a URL. It then has to have the form
+<em>schema</em><strong>://</strong><em>string</em><strong>,</strong> <em>e</em>.<em>g</em>.,
+<em>https://www.example.org/dumpdata.csv</em>.</p>
+<p>See <a class="reference external" href="https://www.monetdb.org/Documentation/Manuals/SQLreference/CopyInto">https://www.monetdb.org/Documentation/Manuals/SQLreference/CopyInto</a>
+for more information about the COPY INTO query.</p>
+</div>
+<div class="section" id="see-also">
+<h3>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h3>
+<p><em>msqldump</em>(1), <em>mserver5</em>(1)</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">MonetDB</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/dev_notes.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/monetdbe_api.html">MonetDBe API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">The MonetDB Database System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#copyright-notice">Copyright Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Building MonetDB from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-fedora.html">Build on Fedora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-debian.html">Build on Debian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clients.html">The MonetDB clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">The MonetDB CMake Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Giving input to MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="json.html">Support for JSON in MonetDB</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="manual_pages.html">Manual pages</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">mclient manual page</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mclient">MCLIENT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man_msqldump.html">msqldump manual page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man_mserver5.html">mserver5 manual page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man_monetdbd.html">monetdbd manual page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man_monetdb.html">monetdb manual page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">MonetDB Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_handbook.html">Developer's Handbook</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="manual_pages.html">Manual pages</a><ul>
+      <li>Previous: <a href="manual_pages.html" title="previous chapter">Manual pages</a></li>
+      <li>Next: <a href="man_msqldump.html" title="next chapter">msqldump manual page</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, MonetDB Solutions.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/man_mclient.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

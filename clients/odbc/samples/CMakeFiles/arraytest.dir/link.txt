@@ -1,0 +1,1 @@
+/usr/bin/cc  -DNDEBUG=1   CMakeFiles/arraytest.dir/arraytest.c.o  -o arraytest -Wl,-rpath,:::::::::::::::::::::::::::::::::::::: /usr/lib/x86_64-linux-gnu/libodbc.so 

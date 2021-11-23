@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmoptions.a  CMakeFiles/moptions.dir/monet_options.c.o
+/usr/bin/ranlib libmoptions.a

@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../clients/mapilib/mapi.h
+stdio.h
+-
+stdint.h
+-
+stdbool.h
+-
+mapi_querytype.h
+../clients/mapilib/mapi_querytype.h
+
+../clients/mapilib/mapi_querytype.h
+
+/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/clients/examples/C/smack00.c
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+mapi.h
+-
+

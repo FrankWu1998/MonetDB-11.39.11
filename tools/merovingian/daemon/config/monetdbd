@@ -1,0 +1,9 @@
+# this is the logrotate configuration for merovingian
+/usr/local/var/log/monetdb/merovingian.log {
+	su monetdb monetdb
+	missingok
+	notifempty
+	postrotate
+		[ -s /usr/local/var/run/monetdb/merovingian.pid ] && kill -HUP $(cat /usr/local/var/run/monetdb/merovingian.pid)
+	endscript
+}

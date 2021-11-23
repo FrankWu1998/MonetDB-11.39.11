@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC  -DNDEBUG=1  -shared -Wl,-soname,libmapi.so.12 -o libmapi.so.12.0.6 CMakeFiles/mapi.dir/mapi.c.o -Wl,-rpath,/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/common/stream: ../../common/options/libmoptions.a ../../common/utils/libmcrypt.a ../../common/stream/libstream.so.14.0.4 /usr/lib/x86_64-linux-gnu/libcrypto.so 

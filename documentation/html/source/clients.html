@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>The MonetDB clients &#8212; MonetDB 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The MonetDB CMake Design" href="design.html" />
+    <link rel="prev" title="Build on Debian" href="build-debian.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="the-monetdb-clients">
+<h1>The MonetDB clients<a class="headerlink" href="#the-monetdb-clients" title="Permalink to this headline">¶</a></h1>
+<p>This chapter discusses the various clients that can connect to a MonetDB Server.</p>
+<div class="section" id="mclient">
+<h2><code class="docutils literal notranslate"><span class="pre">mclient</span></code><a class="headerlink" href="#mclient" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="msqldump">
+<h2><code class="docutils literal notranslate"><span class="pre">msqldump</span></code><a class="headerlink" href="#msqldump" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-monetdb-file">
+<h3>The <code class="docutils literal notranslate"><span class="pre">.monetdb</span></code> file<a class="headerlink" href="#the-monetdb-file" title="Permalink to this headline">¶</a></h3>
+<p>Various options to the above clients can be configured by a file. The clients
+search for this file in the following locations:</p>
+<ol class="arabic simple">
+<li><p>The file specified in the <code class="docutils literal notranslate"><span class="pre">DOTMONETDBFILE</span></code> environment variable.</p></li>
+<li><p>The file <code class="docutils literal notranslate"><span class="pre">.monetdb</span></code> in the current working directory.</p></li>
+<li><p>The file <code class="docutils literal notranslate"><span class="pre">monetdb</span></code> in the <code class="docutils literal notranslate"><span class="pre">XDG_CONFIG_HOME/monetdb/</span></code> directory.</p></li>
+<li><p>The file <code class="docutils literal notranslate"><span class="pre">.monetdb</span></code> in the user's home directory.</p></li>
+</ol>
+<p>The options that can be specified in this file are the following:</p>
+<blockquote>
+<div><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">user</span></code></dt><dd><p>The username used to connect to the server.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">password</span></code></dt><dd><p>The password used to connect to the server.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">database</span></code></dt><dd><p>The database the client will connect to.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">host</span></code></dt><dd><p>The hostname where the server is running.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">port</span></code></dt><dd><p>The port where the server is listening on.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">language</span></code></dt><dd><p>What language this connection will use. Valid values are <code class="docutils literal notranslate"><span class="pre">sql</span></code> and <code class="docutils literal notranslate"><span class="pre">mal</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">save_history</span></code></dt><dd><p>This option allows the command history to persist across different client
+sessions. Valid options are <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">on</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code> and <code class="docutils literal notranslate"><span class="pre">off</span></code>. This
+option is relevant for interactive clients (only <code class="docutils literal notranslate"><span class="pre">mclient</span></code> currently).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">format</span></code></dt><dd><p>The format of the client output. Valid options are <code class="docutils literal notranslate"><span class="pre">csv</span></code>, <code class="docutils literal notranslate"><span class="pre">tab</span></code>,
+<code class="docutils literal notranslate"><span class="pre">raw</span></code>, <code class="docutils literal notranslate"><span class="pre">sql</span></code>, <code class="docutils literal notranslate"><span class="pre">xml</span></code>, <code class="docutils literal notranslate"><span class="pre">trash</span></code>, <code class="docutils literal notranslate"><span class="pre">rowcount</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">width</span></code></dt><dd><p>The width in characters of each row in the paginated output that the client
+produces.</p>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">MonetDB</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/dev_notes.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/monetdbe_api.html">MonetDBe API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">The MonetDB Database System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#copyright-notice">Copyright Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Building MonetDB from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-fedora.html">Build on Fedora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-debian.html">Build on Debian</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The MonetDB clients</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mclient"><code class="docutils literal notranslate"><span class="pre">mclient</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#msqldump"><code class="docutils literal notranslate"><span class="pre">msqldump</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#miscellaneous">Miscellaneous</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-monetdb-file">The <code class="docutils literal notranslate"><span class="pre">.monetdb</span></code> file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">The MonetDB CMake Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Giving input to MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="json.html">Support for JSON in MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual_pages.html">Manual pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">MonetDB Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_handbook.html">Developer's Handbook</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="build-debian.html" title="previous chapter">Build on Debian</a></li>
+      <li>Next: <a href="design.html" title="next chapter">The MonetDB CMake Design</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, MonetDB Solutions.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/clients.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

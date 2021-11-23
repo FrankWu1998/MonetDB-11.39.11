@@ -1,0 +1,1 @@
+/usr/bin/cc  -DNDEBUG=1   CMakeFiles/example_blob.dir/example_blob.c.o  -o example_blob -Wl,-rpath,/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/tools/monetdbe ../../../tools/monetdbe/libmonetdbe.so.1.0.2 

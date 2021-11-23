@@ -1,0 +1,1 @@
+/usr/bin/cc  -DNDEBUG=1   CMakeFiles/smack01.dir/smack01.c.o  -o smack01 -Wl,-rpath,/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/clients/mapilib: ../../mapilib/libmapi.so.12.0.6 

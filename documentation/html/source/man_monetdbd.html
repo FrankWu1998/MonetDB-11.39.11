@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>monetdbd manual page &#8212; MonetDB 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="monetdb manual page" href="man_monetdb.html" />
+    <link rel="prev" title="mserver5 manual page" href="man_mserver5.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="monetdbd-manual-page">
+<h1>monetdbd manual page<a class="headerlink" href="#monetdbd-manual-page" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="monetdbd">
+<h2>MONETDBD<a class="headerlink" href="#monetdbd" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="name">
+<h3>NAME<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h3>
+<p>monetdbd - the MonetDB Database Server daemon</p>
+</div>
+<div class="section" id="synopsis">
+<h3>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h3>
+<p><strong>monetdbd</strong> <em>command</em> [ <em>command_args</em> ] <em>dbfarm</em></p>
+</div>
+<div class="section" id="description">
+<h3>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p><em>Monetdbd</em> is the MonetDB Database Server daemon. The program is mainly
+meant to be used as daemon, but it also allows to setup and change the
+configuration of a dbfarm. The use of <em>monetdbd</em> is either as
+user-oriented way to configure, start and stop a database farm, or to be
+started from a startup script, such as from <em>/etc/init.d/</em> on Linux
+systems or <em>smf</em>(5) on Solaris systems, as part of a system startup.</p>
+<p><em>Monetdbd</em> is the system formerly known as <em>merovingian</em>. It was renamed
+to <em>monetdbd</em> since the name <em>merovingian</em> proved to be confusing to
+most regular end-users. Internally, <em>monetdbd</em> uses the name
+<em>merovingian</em> at many places for historical reasons.</p>
+<p>A <em>monetdbd</em> instance manages one local cluster based, which is a
+directory in the system, referred to as the <em>dbfarm</em>. Nowadays, the
+dbfarm location always has to be given as argument to <em>monetdbd</em>.</p>
+<p>Within its local cluster <em>monetdbd</em> takes care of starting up databases
+when necessary, and stopping them either upon request via <em>monetdb</em>(1)
+or when being shut down. Client database connections are made against
+<em>monetdbd</em> initially which redirects or proxies the client to the
+appropriate database process, started on the fly when necessary.</p>
+<p>When started, <em>monetdbd</em> runs by default in the background, sending log
+messages to <em>merovingian.log</em>, until being sent a stop, terminate or
+interrupt signal, possibly using the stop command of <em>monetdbd</em>.</p>
+<p><em>monetdbd</em> uses a neighbor discovery scheme to detect other <em>monetdbd</em>
+processes running in the local network. Databases from those remote
+instances are made available to a locally connecting client. Remote
+databases never override local databases, and their availability is
+controlled by the remote <em>monetdbd</em> process. See also the sharing
+capabilities of <em>monetdb</em>(1) and the <em>REMOTE DATABASES</em> section below.</p>
+</div>
+<div class="section" id="commands">
+<h3>COMMANDS<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h3>
+<p>The commands for <em>monetdbd</em> are <strong>create</strong>, <strong>start</strong>, <strong>stop</strong>,
+<strong>get</strong>, <strong>set</strong>, <strong>version</strong>, and <strong>help</strong>. The commands facilitate
+initializing a dbfarm, starting and stopping the MonetDB Database
+Server, and retrieving or setting options.</p>
+<dl class="simple">
+<dt><strong>create dbfarm</strong></dt><dd><p>Initializes a new database farm, such that a MonetDB Database Server
+can be started on that location. All necessary directories are
+attempted to be created, and an initial properties file is created in
+the directory itself. <em>dbfarm</em> must be a location addressable in the
+local filesystem hierarchy.</p>
+</dd>
+<dt><strong>start</strong> [<strong>-n</strong>] <em>dbfarm</em></dt><dd><p>Starts <em>monetdbd</em>, the MonetDB Database Server, on the given dbfarm.
+When the <strong>-n</strong> flag is given, <em>monetdbd</em> will not fork into the
+background, but instead remain attached to the calling environment,
+until given a stop signal.</p>
+</dd>
+<dt><strong>stop</strong> <em>dbfarm</em></dt><dd><p>Sends a stop signal to the <em>monetdbd</em> process responsible for the
+given dbfarm.</p>
+</dd>
+<dt><strong>get</strong> &lt;<strong>all</strong> | <em>property</em>[,<em>property</em>[,..]]&gt; <em>dbfarm</em></dt><dd><p>Prints the requested properties, or all known properties, for the
+given dbfarm. For each property, its value is printed. Some
+properties are virtual, and given for information purposes only, they
+cannot be modified using the <strong>set</strong> command.</p>
+</dd>
+<dt><strong>set</strong> <em>property</em><strong>=</strong><em>value</em> <em>dbfarm</em></dt><dd><p>Sets property to value for the given database. For a list of
+properties, run <strong>monetdbd get all</strong>. Some properties require a
+restart of the MonetDB Database Server in order to take effect. The
+<strong>set</strong> command, will however always write the property, and tell the
+running <em>monetdbd</em> to reload the properties file (if running). For an
+explanation of the properties, see the <em>CONFIGURATION</em> section below.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="configuration">
+<h3>CONFIGURATION<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p><em>Monetdbd</em> reads its properties from the <em>.merovingian_properties</em> file
+inside the dbfarm. This file is created by the <strong>create</strong> command. This
+file is not meant to be edited manually, instead it should be updated
+using the <strong>set</strong> command. The following properties can be set:</p>
+<dl class="simple">
+<dt><strong>logfile</strong></dt><dd><p>This property points to the file where all log messages are written
+to. It is relative to the dbfarm directory, but can be absolute to
+point to e.g. another medium. Changing this property takes effect
+immediately at runtime.</p>
+</dd>
+<dt><strong>pidfile</strong></dt><dd><p><em>Monetdbd</em> stores the process ID of the background server in the file
+pointed to by this property. The same rules apply as for the
+<strong>logfile</strong> property.</p>
+</dd>
+<dt><strong>sockdir</strong></dt><dd><p>For faster access, <em>monetdbd</em> uses UNIX domain sockets for its
+control mechanism and regular database connections. The sockets are
+placed as files in the filesystem hierarchy. The <strong>sockdir</strong> property
+controls in which directory they are placed. In general this setting
+should not be changed.</p>
+</dd>
+<dt><strong>port</strong></dt><dd><p>This property specifies which TCP port <em>monetdbd</em> should listen to
+for connection requests. Defaults to 50000.</p>
+</dd>
+<dt><strong>ipv6</strong></dt><dd><p>This property forces <em>monetdbd</em> to bind connections on IPv6 addresses
+only. Defaults to false.</p>
+</dd>
+<dt><strong>listenaddr</strong></dt><dd><p>This property specifies an address that is allowed to connect to the
+server. The user can specify one IP(v6) address, or use the 0.0.0.0
+notation to allow connections from everywhere. Defaults to localhost
+(127.0.0.1).</p>
+</dd>
+<dt><strong>control</strong></dt><dd><p>For remote management of <em>monetdbd</em>, the <strong>control</strong> property
+specifies whether or not to enable remote management. Note that for
+remote management, a passphrase is required, see below. It defaults
+to false for security reasons. Changing this property takes effect
+immediately at runtime.</p>
+</dd>
+<dt><strong>passphrase</strong></dt><dd><p>To control <em>monetdbd</em> from a remote machine, a passphrase is
+necessary, to be given to <em>monetdb</em>(1). The passphrase can be
+either given as hashed value prefixed by the hash type in curly
+braces (e.g. {SHA512}xxx...) or as plain text value which will be
+hashed automatically. Note that the only hash accepted is the one
+specified at configure time, which is &#64;PASSWORD_BACKEND&#64;. Changing
+this property takes effect immediately at runtime.</p>
+</dd>
+<dt><strong>snapshotdir</strong></dt><dd><p>This property specifies where the <em>monetdb snapshot create</em> command
+stores its snapshots. There is no default value. If unset, no
+snapshots can be created.</p>
+</dd>
+<dt><strong>snapshotcompression</strong></dt><dd><p>This property specifies whether database snapshots created by
+<em>monetdb snapshot create</em> are compressed, and if so, using which
+algorithm. The default value is <em>.tar.lz4</em> if LZ4 compression is
+available, or <em>.tar</em> otherwise. Other supported values are, if
+available, <em>.tar.gz</em>, <em>.tar.xz</em>, and <em>.tar.bz2</em>. These more efficient
+but much slower compression algorithms are usually not recommended
+for backups of large databases because it would take enormous amounts
+of time.</p>
+</dd>
+<dt><strong>discovery</strong></dt><dd><p>Specifies whether neighbor discovery is to be enabled using UDP
+broadcasts or not. The broadcasts are done on the same portnumber as
+the port setting.</p>
+</dd>
+<dt><strong>discoveryttl</strong></dt><dd><p><em>Monetdbd</em> publishes locally available databases to others
+periodically. The interval used here, defined in seconds, depends on
+the time-to-live of the databases before they need to get refreshed.
+The default is 600 seconds (10 minutes), which should keep traffic in
+your network fairly low. Additions and removals are processed
+immediately regardless of this timeout. If you are in a network
+environment where physical network links disappear often, you may
+want to decrease this value to more quickly remove no longer
+reachable databases.</p>
+</dd>
+<dt><strong>exittimeout</strong></dt><dd><p>if <em>monetdbd</em> stops a running mserver, for example in response to a
+<em>monetdb stop</em> command or when <em>monetdbd</em> itself is shutting down, it
+first sends the mserver a SIGTERM signal to trigger a graceful
+shutdown. If that takes more than <strong>exittimeout</strong> seconds, SIGKILL is
+sent as a last resort. This may cause (partial) data loss. A time-out
+value of 0 means no mservers will be shut down, and hence they will
+continue to run after <em>monetdbd</em> has shut down. Note that this
+particular configuration is extremely inconvenient. The default
+time-out is 60 seconds. If your databases are rather large and you
+find your databases consistently being killed by <em>monetdbd</em> upon
+shutdown, you may want to increase this time-out. Changing this
+property takes effect immediately at runtime.</p>
+</dd>
+<dt><strong>forward</strong></dt><dd><p><em>monetdbd</em> has two ways in which it can &quot;attach&quot; a connecting client
+to the target database. The first method, <strong>redirect</strong>, uses a
+redirect sent to the client with the responsible mserver process. The
+second method, <strong>proxy,</strong> proxies the client to the mserver over
+<em>monetdbd</em>. While <strong>redirect</strong> is more efficient, it requires the
+connecting client to be able to connect to the mserver. In many
+settings this may be undesirable or even impossible, since a wide
+range of open ports and routing are necessary for this. In such case
+the <strong>proxy</strong> technique of <em>monetdbd</em> is a good solution, which also
+allows a <em>monetdbd</em> instance on the border of a network to serve
+requests to nodes in the local (unreachable) network. Note that for
+local databases, the <strong>proxy</strong> method uses a UNIX domain socket
+feature to pass file-descriptors to the local mserver. This
+effectively is as efficient as the <em>redirect</em> approach, but still
+hides away the mservers properly behind <em>monetdbd</em>. Hence, in
+practice it is only relevant for connections to remote databases to
+use redirects instead of proxies. Changing this property takes effect
+immediately at runtime.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="remote-databases">
+<h3>REMOTE DATABASES<a class="headerlink" href="#remote-databases" title="Permalink to this headline">¶</a></h3>
+<p>The neighbor discovery capabilities of <em>monetdbd</em> allow a user to
+contact a remote database transparently, as if it were a local database.
+By default, all local databases are announced in the network, such that
+neighbors can pick them up to make them available for their local users.
+This feature can be disabled globally, or on database level. For the
+latter, the <em>monetdb</em>(1) utility can be used to change the share
+property of a database.</p>
+<p>While neighbor discovery in itself is sufficient to locate a database in
+a cluster, it is limited in expressiveness. For instance, database names
+are assumed to be unique throughout the entire system. This means local
+databases overshadow remote ones, and duplicate remote entries cannot be
+distinguished. To compensate for this, <em>monetdbd</em> allows to adds a
+<strong>tag</strong> to each database that is being shared. This tag is sent in
+addition to the database name, and only understood by other
+<em>monetdbd</em>s.</p>
+<p>Tags are arbitrary ASCII-strings matching the pattern [A-Za-z0-9./]+.
+There are no assumed semantics in the tag, which allows for multiple
+approaches when using the tag. The tag is always used in combination
+with the database name. For this, the `/' character is used as
+separator, which hence suggests the user to use that character as
+separator for multilevel tags. <em>Monetdbd</em> allows common path globbing
+using `*' on tags, which allows for many use-cases. Consider for
+instance the following three databases with their tag:</p>
+<blockquote>
+<div><p>dbX/master/tableQ</p>
+<blockquote>
+<div><p>dbY/slave/tableQ</p>
+<blockquote>
+<div><p>dbZ/slave/tableQ</p>
+<p>A default match has implicit `/<em>' added to the search, making
+more generic search strings match more specific ones. Hence, a
+connect with database *dbX</em> is the same as <em>dbX/*</em> and hence
+matches <em>dbX/master/tableQ</em>. Similar, a database connect for
+<em>*/master</em> matches the same database as before. Note that the
+implicit `/<em>' is not added if that would cause no matches,
+such as for **/master/tableQ</em> which would return all masters
+for <em>tableQ</em>, which in our hypothetical example is only <em>dbX</em>.
+In contrast, a database connect for <em>*/slave/tableQ</em> matches
+with either <em>dbY</em> or <em>dbZ</em>. <em>Monetdbd</em> returns the two options
+to the client in a round-robin fashion, such that subsequent
+connects for the same pattern result in a load-balanced connect
+to either of both databases.</p>
+<p>With tags in use, one can possibly make distinction between
+databases, if setup like that. The previous example could hence
+also be setup like this:</p>
+<blockquote>
+<div><p>tableQ/master</p>
+<blockquote>
+<div><p>tableQ/slave</p>
+<blockquote>
+<div><p>tableQ/slave</p>
+<p>Connecting to <em>tableQ/slave</em> would now return either
+of both databases even though they are not unique
+(apart from the host they are located on, which is not
+shown in the example). While being confusing for
+humans, for <em>monetdbd</em> it is the same situation as in
+the previous example. However, because globbing allows
+to make things easier to understand, tags for both
+slaves could be changed to <em>slaveX</em> or <em>slave/X</em> and
+use the necessary pattern to match them. It is up to
+the user to decide how to use the tags.</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="multiplex-funnels">
+<h3>MULTIPLEX-FUNNELS<a class="headerlink" href="#multiplex-funnels" title="Permalink to this headline">¶</a></h3>
+<p><em>Monetdbd</em> implements multiplex-funnel capabilities. As the name
+suggests two techniques are combined, the multiplexer and the funnel.</p>
+<p>The <em>funnel</em> capability limits the access to the database to one client
+at a time. That is, if multiple clients connect to the funnel, their
+queries will be serialized such that they are executed one after the
+other. An effect of this approach is that clients no longer have an
+exclusive channel to the database, which means that individual queries
+from one client may have been interleaved with queries from others. This
+most notably makes SQL transaction blocks unreliable with a funnel. The
+funnel, hence, is meant to scale down a large amount of clients that
+perform short-running (read-only) queries, as typically seen in
+web-based query loads.</p>
+<p>When a funnel is defined to use multiple databases, the funnel adds a
+<em>multiplexer</em> to its query channel. A multiplex-funnel sends each query
+to all of the defined databases. This behavior can be quite confusing at
+first, but proves to be useful in typical sharding configurations, where
+in particular simple selection queries have to be performed on each of
+the shards. The multiplexer combines the answers from all defined
+databases in one single answer that it sends back to the client.
+However, this combining is without any smart logic, that is, the
+multiplexer does not evaluate the query it is running, but just combines
+all answers it receives from the databases. This results in e.g. as many
+return tuples for a <strong>SELECT COUNT(*)</strong> query, as there are databases
+defined.</p>
+<p>Due to the two above mentioned characteristics, a multiplex-funnel has
+some limitations. As mentioned before, transactions over multiple
+queries are likely not to result in the desired behavior. This is due to
+each query to the funnel is required to be self-contained. Further,
+since for each query, the results from multiple servers have to be
+combined into one, that query must only return a single response, i.e.
+multi-statement queries are most likely causing the funnel to respond
+with an error, or return garbled results. Last, the size of each query
+is limited to currently about 80K. While this size should be sufficient
+for most queries, it is likely not enough for e.g. COPY INTO statements.
+Apart from the data transfer implications, such statements should not be
+used with the funnel, as the results will be undefined due to the
+limited query buffer. Applications using the funnel should aim for short
+and single-statement queries that require no transactions.</p>
+<p>See the <strong>create</strong> command in the <em>monetdb</em>(1) man-page for details on
+how to setup a multiplex-funnel.</p>
+</div>
+<div class="section" id="signals">
+<h3>SIGNALS<a class="headerlink" href="#signals" title="Permalink to this headline">¶</a></h3>
+<p><em>Monetdbd</em> acts upon a number of signals as is common for a daemon.</p>
+<dl class="simple">
+<dt><strong>SIGINT, SIGTERM, SIGQUIT</strong></dt><dd><p>Any of these signals make <em>monetdbd</em> enter the shutdown sequence.
+This sequence involves cleanly shutting down listener sockets,
+shutting down all started databases and finally terminating itself.</p>
+</dd>
+<dt><strong>SIGHUP</strong></dt><dd><p>When this signal is received by <em>monetdbd</em> it will reopen the logfile
+as pointed to by the <strong>logfile</strong> setting. Before it reopens the
+logfile, it will re-read the properties file from the dbfarm, which
+might result in opening a different file to continue logging.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="return-value">
+<h3>RETURN VALUE<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h3>
+<p><em>Monetdbd</em> returns exit code <strong>0</strong> if it was able to successfully
+perform the requested action, e.g. start, stop, etc. When an error
+occurs during the action, that prevents <em>monetdbd</em> from successfully
+performing the action, the exit code <strong>1</strong> is returned.</p>
+</div>
+<div class="section" id="see-also">
+<h3>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h3>
+<p><em>monetdb</em>(1), <em>mserver5</em>(1)</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">MonetDB</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/dev_notes.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/monetdbe_api.html">MonetDBe API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">The MonetDB Database System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#copyright-notice">Copyright Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Building MonetDB from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-fedora.html">Build on Fedora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-debian.html">Build on Debian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clients.html">The MonetDB clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">The MonetDB CMake Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Giving input to MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="json.html">Support for JSON in MonetDB</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="manual_pages.html">Manual pages</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="man_mclient.html">mclient manual page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man_msqldump.html">msqldump manual page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man_mserver5.html">mserver5 manual page</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">monetdbd manual page</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#monetdbd">MONETDBD</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man_monetdb.html">monetdb manual page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">MonetDB Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_handbook.html">Developer's Handbook</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="manual_pages.html">Manual pages</a><ul>
+      <li>Previous: <a href="man_mserver5.html" title="previous chapter">mserver5 manual page</a></li>
+      <li>Next: <a href="man_monetdb.html" title="next chapter">monetdb manual page</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, MonetDB Solutions.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/man_monetdbd.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

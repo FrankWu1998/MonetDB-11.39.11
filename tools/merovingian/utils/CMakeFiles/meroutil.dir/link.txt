@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmeroutil.a  CMakeFiles/meroutil.dir/control.c.o CMakeFiles/meroutil.dir/database.c.o CMakeFiles/meroutil.dir/glob.c.o CMakeFiles/meroutil.dir/properties.c.o CMakeFiles/meroutil.dir/utils.c.o
+/usr/bin/ranlib libmeroutil.a

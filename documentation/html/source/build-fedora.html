@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Build on Fedora &#8212; MonetDB 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Build on Debian" href="build-debian.html" />
+    <link rel="prev" title="Building MonetDB from source" href="build.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="build-on-fedora">
+<h1>Build on Fedora<a class="headerlink" href="#build-on-fedora" title="Permalink to this headline">¶</a></h1>
+<p>The following packages (RPMs) are or can be used by MonetDB.</p>
+<p>These packages are required.</p>
+<div class="line-block">
+<div class="line">cmake                 # version &gt;= 3.12</div>
+<div class="line">bison</div>
+<div class="line">gettext-devel</div>
+<div class="line">libxml2-devel</div>
+<div class="line">mercurial</div>
+<div class="line">openssl-devel</div>
+</div>
+<p>These packages are optional, but they are required to build RPMs using
+the command make rpm.</p>
+<div class="line-block">
+<div class="line">bzip2-devel           # optional: read and write .bz2 compressed files</div>
+<div class="line">bzip2                 # optional, required to create a tar ball (make dist)</div>
+<div class="line">checkpolicy           # optional, required to create RPMs (make rpm)</div>
+<div class="line">geos-devel            # optional: required for geom module</div>
+<div class="line">libcurl-devel         # optional: read remote files with sys.getcontent(url)</div>
+<div class="line">libuuid-devel         # optional</div>
+<div class="line">pcre-devel            # optional: use PCRE library, enable some functions</div>
+<div class="line">python3-devel         # optional, needed for Python 3 integration</div>
+<div class="line">python3-numpy         # optional, needed for Python 3 integration</div>
+<div class="line">R-core-devel          # optional, needed for R integration</div>
+<div class="line">readline-devel                # optional, enable editing in mclient</div>
+<div class="line">rpm-build             # optional, required to create RPMs (make rpm)</div>
+<div class="line">selinux-policy-devel  # optional, required to create RPMs (make rpm)</div>
+<div class="line">unixODBC-devel                # optional, needed for ODBC driver</div>
+</div>
+<p>These packages are optional.</p>
+<div class="line-block">
+<div class="line">cfitsio-devel         # optional: read FITS files</div>
+<div class="line">libasan                       # optional: --enable-sanitizer configuration (debug)</div>
+<div class="line">lz4-devel             # optional: compression in new (unused) MAPI protocol, also used to read and write .lz4 compressed files</div>
+<div class="line">netcdf-devel          # optional: read NetCDF files</div>
+<div class="line">proj-devel            # optional, only optionally used in geom module</div>
+<div class="line">snappy-devel          # optional: compression in new (unused) MAPI protocol</div>
+<div class="line">valgrind-devel                # optional: --with-valgrind configuration (debug)</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">MonetDB</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/dev_notes.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/monetdbe_api.html">MonetDBe API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">The MonetDB Database System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#copyright-notice">Copyright Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Building MonetDB from source</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Build on Fedora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-debian.html">Build on Debian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clients.html">The MonetDB clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">The MonetDB CMake Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Giving input to MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="json.html">Support for JSON in MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual_pages.html">Manual pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">MonetDB Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_handbook.html">Developer's Handbook</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="build.html" title="previous chapter">Building MonetDB from source</a></li>
+      <li>Next: <a href="build-debian.html" title="next chapter">Build on Debian</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, MonetDB Solutions.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/build-fedora.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

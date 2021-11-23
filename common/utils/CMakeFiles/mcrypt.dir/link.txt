@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmcrypt.a  CMakeFiles/mcrypt.dir/mcrypt.c.o
+/usr/bin/ranlib libmcrypt.a

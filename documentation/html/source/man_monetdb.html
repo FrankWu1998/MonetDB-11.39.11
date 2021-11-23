@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>monetdb manual page &#8212; MonetDB 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CMake" href="cmake.html" />
+    <link rel="prev" title="monetdbd manual page" href="man_monetdbd.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="monetdb-manual-page">
+<h1>monetdb manual page<a class="headerlink" href="#monetdb-manual-page" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="name">
+<h2>NAME<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h2>
+<p>monetdb - control a MonetDB Database Server instance</p>
+</div>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>monetdb</strong> [ <em>monetdb_options</em> ] <em>command</em> [ <em>command_options</em> ] [
+<em>command_args</em> ]</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p><em>Monetdb</em> allows an administrator of the MonetDB Database Server to
+perform various operations on the databases in the server. It relies on
+<em>monetdbd</em>(1) running in the background for all operations.</p>
+</div>
+<div class="section" id="options">
+<h2>OPTIONS<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p><em>Monetdb_options</em> affect all commands and control the general behavior
+of <em>monetdb</em>.</p>
+<dl class="simple">
+<dt><strong>-q</strong></dt><dd><p>Suppresses all standard progress messages, only writing output to
+stderr if an error occurred.</p>
+</dd>
+<dt><strong>-h</strong> <em>hostname</em></dt><dd><p>Connect to <em>hostname</em> instead of attempting a connection over the
+local UNIX socket. This allows <em>monetdb</em> to connect to a remote
+<em>monetdbd</em>(1). The use of this option requires <strong>-P</strong> (see below).
+If <em>hostname</em> starts with a forward slash (/), <em>hostname</em> is assumed
+to be the directory where the UNIX sockets are stored. In that case,
+the <strong>-P</strong> option is not allowed.</p>
+</dd>
+<dt><strong>-p</strong> <em>port</em></dt><dd><p>Connects to the given portnumber instead of the default (50000).
+Requires <strong>-h</strong> to be given as option too.</p>
+</dd>
+<dt><strong>-P</strong> <em>passphrase</em></dt><dd><p>Specifies the passphrase necessary to login to a remote
+<em>monetdbd</em>(1). This option requires -h to be given as well. A bad
+passphrase causes <em>monetdb</em> to fail to login, and hence fail to
+perform any remote action.</p>
+</dd>
+<dt><strong>-v</strong></dt><dd><p>Show version, equal to <strong>monetdb version</strong>.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="commands">
+<h2>COMMANDS<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<p>The commands for the <em>monetdb</em> utility are <strong>create</strong>, <strong>destroy</strong>,
+<strong>lock</strong>, <strong>release</strong>, <strong>status</strong>, <strong>start</strong>, <strong>stop</strong>, <strong>kill</strong>,
+<strong>profilerstart</strong>, <strong>profilerstop</strong>, <strong>snapshot</strong>, <strong>set</strong>, <strong>get</strong>,
+<strong>inherit</strong>, <strong>discover</strong>, <strong>help</strong>, and <strong>version</strong>. The commands
+facilitate adding, removing, maintaining, starting and stopping a
+database inside the MonetDB Database Server.</p>
+<p>For all commands, database arguments can be glob-like expressions. This
+allows to do wildcard matches. For details on the syntax, see
+<em>EXPRESSIONS</em>.</p>
+<dl>
+<dt><strong>create</strong> [<strong>-m</strong> <em>pattern</em>] [<strong>-p</strong> <em>password</em><strong>]</strong><em>database</em><strong>[</strong><em>database</em><strong>...]</strong></dt><dd><p>Initializes a new database in the MonetDB Database Server. A database
+created with this command makes it available under its database name,
+but not yet for use by clients, as the database is put into
+maintenance mode. This allows the database administrator to perform
+initialization steps before releasing it to users, unless the <strong>-p</strong>
+argument is supplied. See also <strong>monetdb lock</strong>. The name of the
+database must match the expression [A-Za-z0-9-_]+.</p>
+<dl class="simple">
+<dt><strong>-m</strong><em>pattern</em></dt><dd><p>With the <strong>-m</strong> flag, instead of creating a database, a
+multiplex-funnel is created. See section <em>MULTIPLEX-FUNNEL</em> in
+<em>monetdbd</em>(1). The pattern argument is not fully the same as a
+pattern for connecting or discovery. Each parallel target for the
+multiplex-funnel is given as
+<em>username</em><strong>+</strong><em>password</em><strong>&#64;</strong><em>pattern</em> sequence,
+separated by commas. Here the <em>pattern</em> is an ordinary pattern as
+would be used for connecting to a database, and can hence also be
+just the name of a database.</p>
+</dd>
+<dt><strong>-p</strong><em>password</em></dt><dd><p>The <strong>-p</strong> flag allows to create a database with the given
+password for the monetdb user. Since this protects the database
+from being accessed via well-known credentials, the created
+database is not locked after creation. This way, a new database
+can be created and used right away using the password supplied.</p>
+</dd>
+</dl>
+</dd>
+<dt><strong>destroy [-f]</strong><em>database</em><strong>[</strong><em>database</em><strong>...]</strong></dt><dd><p>Removes the given <em>database</em>, including all its data and logfiles.
+Once destroy has completed, all data is lost. Be careful when using
+this command.</p>
+<dl class="simple">
+<dt><strong>-f</strong></dt><dd><p>By default, a confirmation question is asked, however the <strong>-f</strong>
+option, when provided, suppresses this question and removal is
+executed right away. Note that without this option you cannot
+destroy a running database, bring it down first using the <strong>stop</strong>
+command.</p>
+</dd>
+</dl>
+</dd>
+<dt><strong>lock</strong><em>database</em><strong>[</strong><em>database</em><strong>...]</strong></dt><dd><p>Puts the given database in maintenance mode. A database under
+maintenance can only be connected to by an administrator account (by
+default the <em>monetdb</em> account). A database which is under maintenance
+is not started automatically by <em>monetdbd</em>(1), the MonetDB Database
+Server, when clients request for it. Use the <strong>release</strong> command to
+bring the database back for normal usage. To start a database which
+is under maintenance for administrator access, the <strong>start</strong> command
+can be used.</p>
+</dd>
+<dt><strong>release</strong><em>database</em><strong>[</strong><em>database</em><strong>...]</strong></dt><dd><p>Brings back a database from maintenance mode. A released database is
+available again for normal use by any client, and is started on
+demand. Use the <strong>lock</strong> command to take a database under
+maintenance.</p>
+</dd>
+<dt><strong>status [-lc] [-s</strong><em>states</em><strong>] [</strong><em>database</em><strong>...]</strong></dt><dd><p>Shows the state of the given database, or, when none given, all known
+databases. Three modes control the level of detail in the displayed
+output. By default a condensed one-line output per database format is
+used. This output resembles pretty much the output of various
+<em>xxxstat</em> programs, and is ideal for quickly gaining an overview of
+the system state. The output is divided into four columns, <strong>name</strong>,
+<strong>state</strong>, <strong>health</strong>, and <strong>remarks</strong>. The <strong>state</strong> column contains
+two characters that identify the state of the database, based on
+Booting (starting up), Running, Stopped, Crashed and Locked (under
+maintenance). This is followed by the uptime when running. The
+<strong>health</strong> column contains the percentage of successful starts and
+stops, followed by the average uptime. The <strong>remarks</strong> column can
+contain arbitrary information about the database state, but usually
+contains the URI the database can be connected to.</p>
+<dl class="simple">
+<dt><strong>-c</strong></dt><dd><p>The <strong>-c</strong> flag shows the most used properties of a database. This
+includes the state of the database (running, crashed, stopped),
+whether it is under maintenance or not, the crash averages and
+uptime statistics. The crash average is the number of times the
+database has crashed over the last 1, 15 or 30 starts. The lower
+the average, the healthier the database is.</p>
+</dd>
+<dt><strong>-l</strong></dt><dd><p>Triggered by the <strong>-l</strong> flag, a long listing is used. This listing
+spans many rows with on each row one property and its value
+separated by a colon (<strong>:</strong>). The long listing includes all
+information that is available.</p>
+</dd>
+<dt><strong>-s</strong></dt><dd><p>The <strong>-s</strong> flag controls which databases are being shown, matching
+their state. The required argument to this flag can be a
+combination of any of the following characters. Note that the
+order in which they are put also controls the order in which the
+databases are printed. <strong>b</strong>, <strong>r</strong>, <strong>s</strong>, <strong>c</strong>, and <strong>l</strong> are
+used to print a starting up (booting), started (running), stopped,
+crashed and locked database respectively. The default order which
+is used when the <strong>-s</strong> flag is absent, is <strong>rbscl.</strong></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><strong>start [-a]</strong><em>database</em><strong>[</strong><em>database</em><strong>...]</strong></p>
+<p><strong>stop [-a]</strong><em>database</em><strong>[</strong><em>database</em><strong>...]</strong></p>
+<p><strong>kill [-a]</strong><em>database</em><strong>[</strong><em>database</em><strong>...]</strong></p>
+<p>Starts, stops or kills the given database, or, when <strong>-a</strong> is supplied,
+all known databases. The <strong>kill</strong> command immediately terminates the
+database by sending the SIGKILL signal. Any data that hasn't been
+committed will be lost. This command should only be used as last resort
+for a database that doesn't respond any more. It is more common to use
+the <strong>stop</strong> command to stop a database. This will first attempt to stop
+the database, waiting for <strong>exittimeout</strong> seconds and if that fails,
+kill the database. When using the <strong>start</strong> command, <em>monetdb</em>(1) will
+output diagnostic messages if the requested action failed. When
+encountering an error, one should always consult the logfile of
+<em>monetdbd</em>(1) for more details. For the <strong>kill</strong> command a diagnostic
+message indicating the database has crashed is always emitted, due to
+the nature of that command. Note that in combination with <strong>-a</strong> the
+return code of <em>monetdb</em>(1) indicates failure if one of the databases
+had a failure, even though the operation on other databases was
+successful.</p>
+<p><strong>profilerstart</strong><em>database</em><strong>[</strong><em>database</em><strong>...]</strong></p>
+<p><strong>profilerstop</strong><em>database</em><strong>[</strong><em>database</em><strong>...]</strong></p>
+<p>Starts or stops the collection of profiling logs for the given database.
+The property <strong>profilerlogpath</strong> must be set for the given database, and
+it should point to a directory where the logs will be gathered. The
+filenames of the logs have the format:
+<em>proflog_&lt;database&gt;_YYYY-MM-DD_HH-MM-SS.json</em> where the last part is the
+date and time when the collection started. Please note that a file
+recording the pid of the profiler is written in the log directory,
+therefore each database needs to have a different <strong>profilerlogpath</strong>
+value.</p>
+<dl>
+<dt><strong>monetdb snapshot write</strong><em>dbname</em></dt><dd><p>Takes a snapshot of the given database and writes it to stdout.</p>
+</dd>
+<dt><strong>monetdb snapshot create [-t</strong><em>targetfile</em><strong>]</strong><em>dbname</em><strong>[</strong><em>dbname</em><strong>..]</strong></dt><dd><p>Takes a snapshot of the given databases. Here, <em>dbname</em> can be either
+the name of a single database or a pattern such as <em>staging*</em>
+indicating multiple databases to snapshot. Unless <strong>-t</strong> is given,
+the snapshots are written to files named
+<em>&lt;snapshotdir&gt;/&lt;dbname&gt;_&lt;YYYY&gt;&lt;MM&gt;&lt;DD&gt;T&lt;HH&gt;&lt;MM&gt;UTC&lt;snapshotcompression&gt;</em>
+where <em>snapshotdir</em> is a <em>monetdbd</em> setting that has to be configured
+explicitly using <strong>monetdbd set</strong> and <em>snapshotcompression</em> is
+another <strong>monetdbd</strong> setting which defaults to <em>.tar.lz4</em> or <em>.tar</em>.
+If <strong>-t</strong> is given, only a single database can be snapshotted and the
+snapshot is written to <em>targetfile</em>, a file on the server which must
+be somewhere under <em>snapshotdir</em> but which does not have to follow
+any particular naming convention.</p>
+</dd>
+<dt><strong>monetdb snapshot list [</strong><em>dbname</em><strong>..]</strong></dt><dd><p>Lists the snapshots for the given databases, or all databases if none
+is given, showing the snapshot id, the time the snapshot was taken
+and the (compressed) size of the snapshot file. Only snapshots
+following the naming convention described under <strong>monetdb snapshot
+create</strong> are listed. The snapshot id is of the form
+<em>dbname</em><strong>&#64;</strong><em>tag</em> where the tags are numbers starting at 1 for
+the most recent snapshot of a database, 2 for the next most recent,
+etc. For clarity, the first snapshot for each database shows the full
+snapshot id (<em>dbname</em><strong>&#64;1) and</strong> older snapshots for the same
+database are listed just as &#64;2, &#64;3, etc.</p>
+</dd>
+<dt><strong>monetdb snapshot restore [-f]</strong><em>snapshotid</em><strong>[</strong><em>dbname</em><strong>]</strong></dt><dd><p>Restores a database from the given snapshot, where <em>snapshotid</em> is
+either a path on the server or <em>name</em><strong>&#64;</strong><em>tag</em><strong>as listed by</strong>
+<strong>monetdb snapshot</strong> <strong>list.</strong> The optional <em>dbname</em> argument sets
+the name of the newly created database. It can be omitted unless
+<em>snapshotid</em> is a full path. When <strong>-f</strong> is given, no confirmation is
+asked when overwriting an existing database.</p>
+</dd>
+<dt><strong>monetdb snapshot destroy [-f]</strong><em>name</em><strong>&#64;</strong><em>tag</em><strong>..</strong></dt><dd><p>Delete the listed snapshots from the <em>snapshotdir</em> directory. When
+<strong>-f</strong> is given, no confirmation is asked.</p>
+</dd>
+<dt><strong>monetdb snapshot destroy [-f] -r</strong><em>N</em><em>dbname</em><strong>..</strong></dt><dd><p>Delete all but the <em>N</em> latest snapshots for the given databases.
+Again, <em>dbname</em> can be a pattern such as <em>staging*</em> or even <em>*</em> to
+work on all snapshotted databases. When <strong>-f</strong> is given, no
+confirmation is asked.</p>
+</dd>
+<dt><strong>get &lt;all |</strong><em>property</em><strong>[,</strong><em>property</em><strong>[,..]]&gt; [</strong><em>database</em><strong>...]</strong></dt><dd><p>Prints the requested properties, or all known properties, for the
+given database. For each property its source and value are printed.
+Source indicates where the current value comes from, e.g. the
+configuration file, or a local override.</p>
+</dd>
+<dt><strong>set</strong><em>property</em><strong>=</strong><em>value</em><em>database</em><strong>[</strong><em>database</em><strong>...]</strong></dt><dd><p>Sets property to value for the given database. For a list of
+properties, run <strong>monetdb get all</strong>. Most properties require the
+database to be stopped when set.</p>
+<dl class="simple">
+<dt><strong>shared=&lt;yes|no|</strong><em>tag</em><strong>&gt;</strong></dt><dd><p>Defines if and how the database is being announced to other
+monetdbds or not. If not set to <strong>yes</strong> or <strong>no</strong> the database is
+simply announced or not. Using a string, called <em>tag</em> the database
+is shared using that tag, allowing for more sophisticated usage.
+For information about the tag format and use, see section <em>REMOTE
+DATABASES</em> in the <em>monetdbd</em>(1) manpage. Note that this property
+can be set for a running database, and that a change takes
+immediate effect in the network.</p>
+</dd>
+<dt><strong>nthreads=</strong><em>number</em></dt><dd><p>Defines how many worker threads the server should use to perform
+main processing. Normally, this number equals the number of
+available CPU cores in the system. Reducing this number forces the
+server to use less parallelism when executing queries, or none at
+all if set to <strong>1</strong>.</p>
+</dd>
+<dt><strong>optpipe=</strong><em>string</em></dt><dd><p>Each server operates with a given optimizer pipeline. While the
+default usually is the best setting, for some experimental uses
+the pipeline can be changed. See the <em>mserver5</em>(1) manpage for
+available pipelines. Changing this setting is discouraged at all
+times.</p>
+</dd>
+<dt><strong>readonly=</strong>&lt;<strong>yes</strong>|<strong>no</strong>&gt;</dt><dd><p>Defines if the database has to be started in readonly mode.
+Updates are rejected in this mode, and the server employs some
+read-only optimizations that can lead to improved performance.</p>
+</dd>
+<dt><strong>nclients=</strong><em>number</em></dt><dd><p>Sets the maximum amount of clients that can connect to this
+database at the same time. Setting this to a high value is
+discouraged. A multiplex-funnel may be more performant, see
+<em>MULTIPLEX-FUNNEL</em> below.</p>
+</dd>
+<dt><strong>raw_strings=</strong>&lt;<strong>yes</strong>|<strong>no</strong>&gt;</dt><dd><p>Defines how the server interprets literal strings. See the
+<em>mserver5</em>(1) manpage for more details.</p>
+</dd>
+</dl>
+</dd>
+<dt><strong>inherit</strong><em>property</em><em>database</em><strong>[</strong><em>database</em><strong>...]</strong></dt><dd><p>Like set, but unsets the database-local value, and reverts to inherit
+from the default again.</p>
+</dd>
+<dt><strong>discover [</strong><em>expression</em><strong>]</strong></dt><dd><p>Returns a list of remote monetdbds and database URIs that were
+discovered by <em>monetdbd</em>(1). All databases listed can be connected
+to via the local MonetDB Database Server as if it were local
+databases using their database name. The connection is redirected or
+proxied based on configuration settings. If <em>expression</em> is given,
+only those discovered databases are returned for which their URI
+matches the expression. The expression syntax is described in the
+section <em>EXPRESSIONS</em>. Next to database URIs the hostnames and ports
+for monetdbds that allow to be controlled remotely can be found in
+the discover list masked with an asterisk. These entries can easily
+be filtered out using an expression (e.g. &quot;mapi:monetdb:<em>&quot;) if
+desired. The control entries come in handy when one wants to get an
+overview of available monetdbds in e.g. a local cluster. Note that
+for *monetdbd</em> to announce its control port, the <em>mero_controlport</em>
+setting for that <em>monetdbd</em> must be enabled in the configuration
+file.</p>
+</dd>
+</dl>
+<p><strong>-h</strong></p>
+<p><strong>help [</strong><em>command</em><strong>]</strong></p>
+<p>Shows general help, or short help for a given command.</p>
+<p><strong>-v</strong></p>
+<p><strong>version</strong></p>
+<p>Shows the version of the <em>monetdb</em> utility.</p>
+</div>
+<div class="section" id="expressions">
+<h2>EXPRESSIONS<a class="headerlink" href="#expressions" title="Permalink to this headline">¶</a></h2>
+<p>For various options, typically database names, expressions can be used.
+These expressions are limited shell-globbing like, where the * in any
+position is expanded to an arbitrary string. The * can occur multiple
+times in the expression, allowing for more advanced matches. Note that
+the empty string also matches the *, hence &quot;de*mo&quot; can return &quot;demo&quot; as
+match. To match the literal '*' character, one has to escape it using a
+backslash, e.g. &quot;*&quot;.</p>
+</div>
+<div class="section" id="return-value">
+<h2>RETURN VALUE<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
+<p>The <em>monetdb</em> utility returns exit code <strong>0</strong> if it successfully
+performed the requested command. An error caused by user input or
+database state is indicated by exit code <strong>1</strong>. If an internal error in
+the utility occurs, exit code <strong>2</strong> is returned.</p>
+</div>
+<div class="section" id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><em>monetdbd</em>(1), <em>mserver5</em>(1)</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">MonetDB</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/dev_notes.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/monetdbe_api.html">MonetDBe API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">The MonetDB Database System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#copyright-notice">Copyright Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Building MonetDB from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-fedora.html">Build on Fedora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-debian.html">Build on Debian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clients.html">The MonetDB clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">The MonetDB CMake Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Giving input to MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="json.html">Support for JSON in MonetDB</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="manual_pages.html">Manual pages</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="man_mclient.html">mclient manual page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man_msqldump.html">msqldump manual page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man_mserver5.html">mserver5 manual page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man_monetdbd.html">monetdbd manual page</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">monetdb manual page</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#name">NAME</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#options">OPTIONS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commands">COMMANDS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#expressions">EXPRESSIONS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#return-value">RETURN VALUE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">MonetDB Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_handbook.html">Developer's Handbook</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="manual_pages.html">Manual pages</a><ul>
+      <li>Previous: <a href="man_monetdbd.html" title="previous chapter">monetdbd manual page</a></li>
+      <li>Next: <a href="cmake.html" title="next chapter">CMake</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, MonetDB Solutions.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/man_monetdb.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

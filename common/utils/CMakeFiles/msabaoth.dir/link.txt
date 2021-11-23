@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmsabaoth.a  CMakeFiles/msabaoth.dir/msabaoth.c.o CMakeFiles/msabaoth.dir/muuid.c.o
+/usr/bin/ranlib libmsabaoth.a

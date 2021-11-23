@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>MonetDBe API &#8212; MonetDB 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The MonetDB Database System" href="../source/intro.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="monetdbe-api">
+<h1>MonetDBe API<a class="headerlink" href="#monetdbe-api" title="Permalink to this headline">¶</a></h1>
+<p>MonetDBe is embedded version of the MonetDB server code.
+The application is built around the libmonetdbe.so library. In line with the conventions of the MonetDB code base,
+all instructions return a string which contains possible error messages encountered during the interpretation.
+If all went well they return a NULL. Otherwise it the exception message thrown by the MonetDB kernel.</p>
+<div class="section" id="general-considerations">
+<h2>General considerations<a class="headerlink" href="#general-considerations" title="Permalink to this headline">¶</a></h2>
+<p>There can be a single :memory: database or local persistent database open at a time.
+The database location should be passed as a full path. Relative paths are currently not supported.</p>
+<p>As soon as you create a connection with another database, the content of the :memory: data store is lost.
+MonetDB/e can also be used as a proxy to a remote database.
+It is possible to have multiple such connections open.</p>
+</div>
+<div class="section" id="data-types">
+<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<p>The API wraps the internal data types to those more convenient for programming directly in C.</p>
+<div class="line-block">
+<div class="line">MonetDBe type           | MonetDB internal type |</div>
+<div class="line">----------------------- | --------------------- |</div>
+<div class="line">int8_t  |  bool|</div>
+<div class="line">int8_t  |  int8_t|</div>
+<div class="line">int16_t  |  int16_t|</div>
+<div class="line">int32_t  |  int32_t|</div>
+<div class="line">int64_t  |  int64_t|</div>
+<div class="line">__int128  |  int128_t|</div>
+<div class="line">float  |  float|</div>
+<div class="line">double  |  double|</div>
+<div class="line">char *  |  str|</div>
+<div class="line">monetdbe_data_blob  |  blob|</div>
+<div class="line">monetdbe_data_date  |  date|</div>
+<div class="line">monetdbe_data_time  |  time|</div>
+<div class="line">monetdbe_data_timestamp  |  timestamp|</div>
+<div class="line">----------------------- | --------------------- |</div>
+</div>
+</div>
+<div class="section" id="connection-and-server-options">
+<h2>Connection and server options<a class="headerlink" href="#connection-and-server-options" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.monetdbe_open">
+int <code class="sig-name descname">monetdbe_open</code><span class="sig-paren">(</span>monetdbe_database<em> *db</em>, char<em> *url</em>, monetdbe_options<em> *options</em><span class="sig-paren">)</span><a class="headerlink" href="#c.monetdbe_open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a monetdbe_database structure. The database of interest is denoted by an url and denote either ':memory:', /fullpath/directory,
+mapi:monetdb://company.nl:50000/database. The latter refers to a MonetDB server location.
+The :memory: and local path options lead to an exclusive lock on the database storage..
+Opening the same database multiple times concurrently is allowed, but opening another one concurrently will throw an error for now.
+There may be multiple connections to multiple MonetDB servers.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.monetdbe_close">
+int <code class="sig-name descname">monetdbe_close</code><span class="sig-paren">(</span>monetdbe_database<em> db</em><span class="sig-paren">)</span><a class="headerlink" href="#c.monetdbe_close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the database handler and release the resources for another database connection.
+From here on the connection can not be used anymore to pass queries and any pending result set is cleaned up.
+Be aware that the content of an ':memory:' database is discarded.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="transaction-management">
+<h2>Transaction management<a class="headerlink" href="#transaction-management" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.monetdbe_get_autocommit">
+char* <code class="sig-name descname">monetdbe_get_autocommit</code><span class="sig-paren">(</span>monetdbe_database<em> db</em>, int*<em> result</em><span class="sig-paren">)</span><a class="headerlink" href="#c.monetdbe_get_autocommit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the current transaction mode, i.e. 'autocommit' or 'no-autocommit'</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.monetdbe_set_autocommit">
+char *<code class="sig-name descname">monetdbe_set_autocommit</code><span class="sig-paren">(</span>monetdbe_database<em> db</em>, int<em> value</em><span class="sig-paren">)</span><a class="headerlink" href="#c.monetdbe_set_autocommit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the auto-commit mode to either true or false.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="sig-name descname">int monetdbe_in_transaction(monetdbe_database db);</code></dt>
+<dd><p>Boolean function to check if we are in a compound transaction.</p>
+</dd></dl>
+
+<div class="section" id="query-execution">
+<h3>Query execution<a class="headerlink" href="#query-execution" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="c.monetdbe_query">
+char* <code class="sig-name descname">monetdbe_query</code><span class="sig-paren">(</span>monetdbe_database<em> db</em>, char*<em> query</em>, monetdbe_result**<em> result</em>, monetdbe_cnt*<em> affected_rows</em><span class="sig-paren">)</span><a class="headerlink" href="#c.monetdbe_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>The main query interface to the database kernel. The query should obey the MonetDB SQL syntax. It returns a
+result set, i.e. a collection of columns in binary form and the number of rows affected by an update.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="sig-name descname">char* monetdbe_result_fetch(monetdbe_result *mres, monetdbe_column** res, size_t column_index);</code></dt>
+<dd><p>Given a result set from a query obtain an individual column description.
+It contains the type and a C-array of values. The number of rows is part of the monetdbe_result structure.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="sig-name descname">char* monetdbe_cleanup(monetdbe_database db, monetdbe_result *result);</code></dt>
+<dd><p>Remove the result set structure. The result is assigned NULL afterwards.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="query-prepare-bind-execute">
+<h2>Query prepare, bind, execute<a class="headerlink" href="#query-prepare-bind-execute" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<code class="sig-name descname">char* monetdbe_prepare(monetdbe_database db, char *query, monetdbe_statement **stmt);</code></dt>
+<dd><p>Sent a query to the database server and prepare an execution plan. The plan is assigned to
+the monetdbe_statement structure for subsequent execution.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="sig-name descname">char* monetdbe_bind(monetdbe_statement *stmt, void *data, size_t parameter_nr);</code></dt>
+<dd><p>Bind a local variable to a parameter in the prepared query structure. [TODO by pointer, do do you take a copy??]]</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="sig-name descname">char* monetdbe_execute(monetdbe_statement *stmt, monetdbe_result **result, monetdbe_cnt* affected_rows);</code></dt>
+<dd><p>When all parameters are bound, the statement is executed by the database server. An error is thrown if the
+number of parameters does not match.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="sig-name descname">char* monetdbe_cleanup_statement(monetdbe_database db, monetdbe_statement *stmt);</code></dt>
+<dd><p>Remove the execution pland and all bound variables.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="database-append">
+<h2>Database append<a class="headerlink" href="#database-append" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<code class="sig-name descname">char* monetdbe_append(monetdbe_database db, const char* schema, const char* table, monetdbe_result *result, size_t column_count);</code></dt>
+<dd><p>The result set obtained from any query can be assigned to a new database table.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="backup-and-restore">
+<h2>Backup and restore<a class="headerlink" href="#backup-and-restore" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<code class="sig-name descname">char* monetdbe_dump_database(monetdbe_database db, char *backupfile);</code></dt>
+<dd><p>Dump a :memory: database as a collection of SQL statements on a local file</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="sig-name descname">char* monetdbe_dump_table(monetdbe_database db, const char *schema_name, const char *table_name, const char *backupfile);</code></dt>
+<dd><p>Dump a specific tables</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="sig-name descname">char* monetdbe_restore(monetdbe_database db, char *localfile);</code></dt>
+<dd><p>[TODO] Restore a SQL dump to initialize the ':memory:' case. This is similar  to loading a SQL script.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.monetdbe_error">
+char * <code class="sig-name descname">monetdbe_error</code><span class="sig-paren">(</span>monetdbe_database<em> db</em><span class="sig-paren">)</span><a class="headerlink" href="#c.monetdbe_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the last error associated with the connection object.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="caveats-and-errors">
+<h2>Caveats and errors<a class="headerlink" href="#caveats-and-errors" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>If the program with the monetdbe.so library is killed forcefully then there may be some garbage files left behind in the
+database directory. In particular, you may have to remove the .gdk_lock and uuid files.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">MonetDB</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev_notes.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MonetDBe API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-considerations">General considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-types">Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connection-and-server-options">Connection and server options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transaction-management">Transaction management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#query-execution">Query execution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#query-prepare-bind-execute">Query prepare, bind, execute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-append">Database append</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#backup-and-restore">Backup and restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#miscellaneous">Miscellaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#caveats-and-errors">Caveats and errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../source/intro.html">The MonetDB Database System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/intro.html#copyright-notice">Copyright Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/build.html">Building MonetDB from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/build-fedora.html">Build on Fedora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/build-debian.html">Build on Debian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/clients.html">The MonetDB clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/design.html">The MonetDB CMake Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/input.html">Giving input to MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/json.html">Support for JSON in MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/manual_pages.html">Manual pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/release.html">MonetDB Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/developers_handbook.html">Developer's Handbook</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="installation.html" title="previous chapter">Installation</a></li>
+      <li>Next: <a href="../source/intro.html" title="next chapter">The MonetDB Database System</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, MonetDB Solutions.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/monetdbe/monetdbe_api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

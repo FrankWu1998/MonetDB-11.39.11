@@ -1,0 +1,2428 @@
+The system is: Linux - 4.15.0-140-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/3.15.2/CompilerIdC/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_bd194/fast && /usr/bin/make -f CMakeFiles/cmTC_bd194.dir/build.make CMakeFiles/cmTC_bd194.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bd194.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_bd194.dir/testCCompiler.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_bd194
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bd194.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_bd194.dir/testCCompiler.c.o  -o cmTC_bd194 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_fdc49/fast && /usr/bin/make -f CMakeFiles/cmTC_fdc49.dir/build.make CMakeFiles/cmTC_fdc49.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc   -v -o CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-3.15/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa:hsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 10.3.0-1ubuntu1~18.04~1' --with-bugurl=file:///usr/share/doc/gcc-10/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-10 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-10-xgJY7J/gcc-10-10.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-10-xgJY7J/gcc-10-10.3.0/debian/tmp-gcn/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 10.3.0 (Ubuntu 10.3.0-1ubuntu1~18.04~1) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/10/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.15/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -o /tmp/ccUgntKR.s
+GNU C17 (Ubuntu 10.3.0-1ubuntu1~18.04~1) version 10.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 10.3.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.19-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/10/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../x86_64-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/x86_64-linux-gnu/10/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+GNU C17 (Ubuntu 10.3.0-1ubuntu1~18.04~1) version 10.3.0 (x86_64-linux-gnu)
+	compiled by GNU C version 10.3.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.19-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 83a7a7c39faab5ef6f427455859e6f6a
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+ as -v --64 -o CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o /tmp/ccUgntKR.s
+GNU assembler version 2.30 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.30
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+Linking C executable cmTC_fdc49
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fdc49.dir/link.txt --verbose=1
+/usr/bin/cc     -v CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o  -o cmTC_fdc49 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa:hsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 10.3.0-1ubuntu1~18.04~1' --with-bugurl=file:///usr/share/doc/gcc-10/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-10 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-10-xgJY7J/gcc-10-10.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-10-xgJY7J/gcc-10-10.3.0/debian/tmp-gcn/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 10.3.0 (Ubuntu 10.3.0-1ubuntu1~18.04~1) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_fdc49' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/10/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper -plugin-opt=-fresolution=/tmp/ccjs5XcT.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_fdc49 /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/10 -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/10/../../.. CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_fdc49' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/usr/lib/gcc/x86_64-linux-gnu/10/include]
+    add: [/usr/local/include]
+    add: [/usr/include/x86_64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/10/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/10/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/usr/lib/gcc/x86_64-linux-gnu/10/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_fdc49/fast && /usr/bin/make -f CMakeFiles/cmTC_fdc49.dir/build.make CMakeFiles/cmTC_fdc49.dir/build]
+  ignore line: [make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-3.15/Modules/CMakeCCompilerABI.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa:hsa]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 10.3.0-1ubuntu1~18.04~1' --with-bugurl=file:///usr/share/doc/gcc-10/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-10 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-10-xgJY7J/gcc-10-10.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-10-xgJY7J/gcc-10-10.3.0/debian/tmp-gcn/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 10.3.0 (Ubuntu 10.3.0-1ubuntu1~18.04~1) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/10/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.15/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -o /tmp/ccUgntKR.s]
+  ignore line: [GNU C17 (Ubuntu 10.3.0-1ubuntu1~18.04~1) version 10.3.0 (x86_64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 10.3.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.19-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/10/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../x86_64-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/10/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include/x86_64-linux-gnu]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (Ubuntu 10.3.0-1ubuntu1~18.04~1) version 10.3.0 (x86_64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 10.3.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.19-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 83a7a7c39faab5ef6f427455859e6f6a]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o /tmp/ccUgntKR.s]
+  ignore line: [GNU assembler version 2.30 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.30]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [Linking C executable cmTC_fdc49]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fdc49.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o  -o cmTC_fdc49 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa:hsa]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 10.3.0-1ubuntu1~18.04~1' --with-bugurl=file:///usr/share/doc/gcc-10/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-10 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-10-xgJY7J/gcc-10-10.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-10-xgJY7J/gcc-10-10.3.0/debian/tmp-gcn/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 10.3.0 (Ubuntu 10.3.0-1ubuntu1~18.04~1) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_fdc49' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/10/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper -plugin-opt=-fresolution=/tmp/ccjs5XcT.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_fdc49 /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/10 -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/10/../../.. CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/10/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccjs5XcT.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_fdc49] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/10] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/10]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/10/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/10/../../..]
+    arg [CMakeFiles/cmTC_fdc49.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o] ==> ignore
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/10] ==> [/usr/lib/gcc/x86_64-linux-gnu/10]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/10/../../..] ==> [/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/10;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_9a688/fast && /usr/bin/make -f CMakeFiles/cmTC_9a688.dir/build.make CMakeFiles/cmTC_9a688.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9a688.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -std=gnu99 -o CMakeFiles/cmTC_9a688.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_9a688
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9a688.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_9a688.dir/CheckIncludeFile.c.o  -o cmTC_9a688 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4ed69/fast && /usr/bin/make -f CMakeFiles/cmTC_4ed69.dir/build.make CMakeFiles/cmTC_4ed69.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4ed69.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -std=gnu99 -o CMakeFiles/cmTC_4ed69.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_4ed69
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4ed69.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_4ed69.dir/CheckIncludeFile.c.o  -o cmTC_4ed69 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7862a/fast && /usr/bin/make -f CMakeFiles/cmTC_7862a.dir/build.make CMakeFiles/cmTC_7862a.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7862a.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -std=gnu99 -o CMakeFiles/cmTC_7862a.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_7862a
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7862a.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_7862a.dir/CheckIncludeFile.c.o  -o cmTC_7862a 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of unsigned short passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e350f/fast && /usr/bin/make -f CMakeFiles/cmTC_e350f.dir/build.make CMakeFiles/cmTC_e350f.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e350f.dir/CMAKE_SIZEOF_UNSIGNED_SHORT.c.o
+/usr/bin/cc   -std=gnu99 -o CMakeFiles/cmTC_e350f.dir/CMAKE_SIZEOF_UNSIGNED_SHORT.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CheckTypeSize/CMAKE_SIZEOF_UNSIGNED_SHORT.c
+Linking C executable cmTC_e350f
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e350f.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_e350f.dir/CMAKE_SIZEOF_UNSIGNED_SHORT.c.o  -o cmTC_e350f 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the system is big endian passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_bdee0/fast && /usr/bin/make -f CMakeFiles/cmTC_bdee0.dir/build.make CMakeFiles/cmTC_bdee0.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bdee0.dir/TestEndianess.c.o
+/usr/bin/cc   -std=gnu99 -o CMakeFiles/cmTC_bdee0.dir/TestEndianess.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/TestEndianess.c
+Linking C executable cmTC_bdee0
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bdee0.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_bdee0.dir/TestEndianess.c.o  -o cmTC_bdee0 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+TestEndianess.c:
+/* A 16 bit integer is required. */
+typedef unsigned short cmakeint16;
+
+/* On a little endian machine, these 16bit ints will give "THIS IS LITTLE ENDIAN."
+   On a big endian machine the characters will be exchanged pairwise. */
+const cmakeint16 info_little[] =  {0x4854, 0x5349, 0x4920, 0x2053, 0x494c, 0x5454, 0x454c, 0x4520, 0x444e, 0x4149, 0x2e4e, 0x0000};
+
+/* on a big endian machine, these 16bit ints will give "THIS IS BIG ENDIAN."
+   On a little endian machine the characters will be exchanged pairwise. */
+const cmakeint16 info_big[] =     {0x5448, 0x4953, 0x2049, 0x5320, 0x4249, 0x4720, 0x454e, 0x4449, 0x414e, 0x2e2e, 0x0000};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_little[argc];
+  require += info_big[argc];
+  (void)argv;
+  return require;
+}
+
+
+Performing C SOURCE FILE Test Iconv_IS_BUILT_IN succeeded with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_59a19/fast && /usr/bin/make -f CMakeFiles/cmTC_59a19.dir/build.make CMakeFiles/cmTC_59a19.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_59a19.dir/src.c.o
+/usr/bin/cc   -DIconv_IS_BUILT_IN   -std=gnu99 -o CMakeFiles/cmTC_59a19.dir/src.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_59a19
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_59a19.dir/link.txt --verbose=1
+/usr/bin/cc  -DIconv_IS_BUILT_IN    CMakeFiles/cmTC_59a19.dir/src.c.o  -o cmTC_59a19 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+      #include <stddef.h>
+      #include <iconv.h>
+      int main() {
+        char *a, *b;
+        size_t i, j;
+        iconv_t ic;
+        ic = iconv_open("to", "from");
+        iconv(ic, &a, &i, &b, &j);
+        iconv_close(ic);
+      }
+      
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ff52c/fast && /usr/bin/make -f CMakeFiles/cmTC_ff52c.dir/build.make CMakeFiles/cmTC_ff52c.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ff52c.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -std=gnu99 -o CMakeFiles/cmTC_ff52c.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_ff52c
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ff52c.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_ff52c.dir/CheckIncludeFile.c.o  -o cmTC_ff52c 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e8066/fast && /usr/bin/make -f CMakeFiles/cmTC_e8066.dir/build.make CMakeFiles/cmTC_e8066.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e8066.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -std=gnu99 -o CMakeFiles/cmTC_e8066.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e8066
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e8066.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_e8066.dir/CheckFunctionExists.c.o  -o cmTC_e8066 -lpthread 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function lzma_auto_decoder exists in the /usr/lib/x86_64-linux-gnu/liblzma.so passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_3d2f1/fast && /usr/bin/make -f CMakeFiles/cmTC_3d2f1.dir/build.make CMakeFiles/cmTC_3d2f1.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3d2f1.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=lzma_auto_decoder   -std=gnu99 -o CMakeFiles/cmTC_3d2f1.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_3d2f1
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3d2f1.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=lzma_auto_decoder    CMakeFiles/cmTC_3d2f1.dir/CheckFunctionExists.c.o  -o cmTC_3d2f1 /usr/lib/x86_64-linux-gnu/liblzma.so 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function lzma_easy_encoder exists in the /usr/lib/x86_64-linux-gnu/liblzma.so passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d5847/fast && /usr/bin/make -f CMakeFiles/cmTC_d5847.dir/build.make CMakeFiles/cmTC_d5847.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d5847.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=lzma_easy_encoder   -std=gnu99 -o CMakeFiles/cmTC_d5847.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d5847
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d5847.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=lzma_easy_encoder    CMakeFiles/cmTC_d5847.dir/CheckFunctionExists.c.o  -o cmTC_d5847 /usr/lib/x86_64-linux-gnu/liblzma.so 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function lzma_lzma_preset exists in the /usr/lib/x86_64-linux-gnu/liblzma.so passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f787d/fast && /usr/bin/make -f CMakeFiles/cmTC_f787d.dir/build.make CMakeFiles/cmTC_f787d.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f787d.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=lzma_lzma_preset   -std=gnu99 -o CMakeFiles/cmTC_f787d.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f787d
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f787d.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=lzma_lzma_preset    CMakeFiles/cmTC_f787d.dir/CheckFunctionExists.c.o  -o cmTC_f787d /usr/lib/x86_64-linux-gnu/liblzma.so 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the BZ2_bzCompressInit exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e9db8/fast && /usr/bin/make -f CMakeFiles/cmTC_e9db8.dir/build.make CMakeFiles/cmTC_e9db8.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e9db8.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -std=gnu99 -o CMakeFiles/cmTC_e9db8.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_e9db8
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e9db8.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_e9db8.dir/CheckSymbolExists.c.o  -o cmTC_e9db8 /usr/lib/x86_64-linux-gnu/libbz2.so 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <bzlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef BZ2_bzCompressInit
+  return ((int*)(&BZ2_bzCompressInit))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the uuid_generate exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_fef81/fast && /usr/bin/make -f CMakeFiles/cmTC_fef81.dir/build.make CMakeFiles/cmTC_fef81.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fef81.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -std=gnu99 -o CMakeFiles/cmTC_fef81.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_fef81
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fef81.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_fef81.dir/CheckSymbolExists.c.o  -o cmTC_fef81 /usr/lib/x86_64-linux-gnu/libuuid.so 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <uuid/uuid.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef uuid_generate
+  return ((int*)(&uuid_generate))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Performing C SOURCE FILE Test COMPILER_Wnounreachablecode succeeded with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f4215/fast && /usr/bin/make -f CMakeFiles/cmTC_f4215.dir/build.make CMakeFiles/cmTC_f4215.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f4215.dir/src.c.o
+/usr/bin/cc   -DCOMPILER_Wnounreachablecode   -std=gnu99 -o CMakeFiles/cmTC_f4215.dir/src.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_f4215
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f4215.dir/link.txt --verbose=1
+/usr/bin/cc  -DCOMPILER_Wnounreachablecode    CMakeFiles/cmTC_f4215.dir/src.c.o  -o cmTC_f4215 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(int argc,char** argv){(void)argc;(void)argv;return 0;}
+Performing C SOURCE FILE Test COMPILER_DNDEBUG1 succeeded with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_fa5d8/fast && /usr/bin/make -f CMakeFiles/cmTC_fa5d8.dir/build.make CMakeFiles/cmTC_fa5d8.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fa5d8.dir/src.c.o
+/usr/bin/cc   -DCOMPILER_DNDEBUG1  -DNDEBUG=1   -std=gnu99 -o CMakeFiles/cmTC_fa5d8.dir/src.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_fa5d8
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fa5d8.dir/link.txt --verbose=1
+/usr/bin/cc  -DCOMPILER_DNDEBUG1  -DNDEBUG=1    CMakeFiles/cmTC_fa5d8.dir/src.c.o  -o cmTC_fa5d8 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(int argc,char** argv){(void)argc;(void)argv;return 0;}
+Determining if the include file dlfcn.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ad901/fast && /usr/bin/make -f CMakeFiles/cmTC_ad901.dir/build.make CMakeFiles/cmTC_ad901.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ad901.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_ad901.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_ad901
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ad901.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_ad901.dir/CheckIncludeFile.c.o  -o cmTC_ad901 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file fcntl.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_3de99/fast && /usr/bin/make -f CMakeFiles/cmTC_3de99.dir/build.make CMakeFiles/cmTC_3de99.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3de99.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_3de99.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_3de99
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3de99.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_3de99.dir/CheckIncludeFile.c.o  -o cmTC_3de99 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file libgen.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_743dd/fast && /usr/bin/make -f CMakeFiles/cmTC_743dd.dir/build.make CMakeFiles/cmTC_743dd.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_743dd.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_743dd.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_743dd
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_743dd.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_743dd.dir/CheckIncludeFile.c.o  -o cmTC_743dd 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file libintl.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_bfd25/fast && /usr/bin/make -f CMakeFiles/cmTC_bfd25.dir/build.make CMakeFiles/cmTC_bfd25.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bfd25.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_bfd25.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_bfd25
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bfd25.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_bfd25.dir/CheckIncludeFile.c.o  -o cmTC_bfd25 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file netinet/in.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_8b3a1/fast && /usr/bin/make -f CMakeFiles/cmTC_8b3a1.dir/build.make CMakeFiles/cmTC_8b3a1.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8b3a1.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_8b3a1.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_8b3a1
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8b3a1.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_8b3a1.dir/CheckIncludeFile.c.o  -o cmTC_8b3a1 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file poll.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f33da/fast && /usr/bin/make -f CMakeFiles/cmTC_f33da.dir/build.make CMakeFiles/cmTC_f33da.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f33da.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_f33da.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_f33da
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f33da.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_f33da.dir/CheckIncludeFile.c.o  -o cmTC_f33da 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file pwd.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_288d2/fast && /usr/bin/make -f CMakeFiles/cmTC_288d2.dir/build.make CMakeFiles/cmTC_288d2.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_288d2.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_288d2.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_288d2
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_288d2.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_288d2.dir/CheckIncludeFile.c.o  -o cmTC_288d2 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file semaphore.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2c455/fast && /usr/bin/make -f CMakeFiles/cmTC_2c455.dir/build.make CMakeFiles/cmTC_2c455.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2c455.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_2c455.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_2c455
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2c455.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_2c455.dir/CheckIncludeFile.c.o  -o cmTC_2c455 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file stdatomic.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_612a9/fast && /usr/bin/make -f CMakeFiles/cmTC_612a9.dir/build.make CMakeFiles/cmTC_612a9.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_612a9.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_612a9.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_612a9
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_612a9.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_612a9.dir/CheckIncludeFile.c.o  -o cmTC_612a9 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file strings.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_40f8e/fast && /usr/bin/make -f CMakeFiles/cmTC_40f8e.dir/build.make CMakeFiles/cmTC_40f8e.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_40f8e.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_40f8e.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_40f8e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_40f8e.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_40f8e.dir/CheckIncludeFile.c.o  -o cmTC_40f8e 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file stropts.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d6912/fast && /usr/bin/make -f CMakeFiles/cmTC_d6912.dir/build.make CMakeFiles/cmTC_d6912.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d6912.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_d6912.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_d6912
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d6912.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_d6912.dir/CheckIncludeFile.c.o  -o cmTC_d6912 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/file.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_bf88b/fast && /usr/bin/make -f CMakeFiles/cmTC_bf88b.dir/build.make CMakeFiles/cmTC_bf88b.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bf88b.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_bf88b.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_bf88b
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bf88b.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_bf88b.dir/CheckIncludeFile.c.o  -o cmTC_bf88b 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/ioctl.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_1fc8d/fast && /usr/bin/make -f CMakeFiles/cmTC_1fc8d.dir/build.make CMakeFiles/cmTC_1fc8d.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1fc8d.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_1fc8d.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_1fc8d
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1fc8d.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_1fc8d.dir/CheckIncludeFile.c.o  -o cmTC_1fc8d 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/mman.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_56c69/fast && /usr/bin/make -f CMakeFiles/cmTC_56c69.dir/build.make CMakeFiles/cmTC_56c69.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_56c69.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_56c69.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_56c69
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_56c69.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_56c69.dir/CheckIncludeFile.c.o  -o cmTC_56c69 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/param.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_87588/fast && /usr/bin/make -f CMakeFiles/cmTC_87588.dir/build.make CMakeFiles/cmTC_87588.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_87588.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_87588.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_87588
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_87588.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_87588.dir/CheckIncludeFile.c.o  -o cmTC_87588 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/resource.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d6021/fast && /usr/bin/make -f CMakeFiles/cmTC_d6021.dir/build.make CMakeFiles/cmTC_d6021.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d6021.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_d6021.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_d6021
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d6021.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_d6021.dir/CheckIncludeFile.c.o  -o cmTC_d6021 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/stat.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a085b/fast && /usr/bin/make -f CMakeFiles/cmTC_a085b.dir/build.make CMakeFiles/cmTC_a085b.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a085b.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_a085b.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_a085b
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a085b.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_a085b.dir/CheckIncludeFile.c.o  -o cmTC_a085b 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/sysctl.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2aca5/fast && /usr/bin/make -f CMakeFiles/cmTC_2aca5.dir/build.make CMakeFiles/cmTC_2aca5.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2aca5.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_2aca5.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_2aca5
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2aca5.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_2aca5.dir/CheckIncludeFile.c.o  -o cmTC_2aca5 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/termios.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_afd6c/fast && /usr/bin/make -f CMakeFiles/cmTC_afd6c.dir/build.make CMakeFiles/cmTC_afd6c.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_afd6c.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_afd6c.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_afd6c
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_afd6c.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_afd6c.dir/CheckIncludeFile.c.o  -o cmTC_afd6c 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/times.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4a705/fast && /usr/bin/make -f CMakeFiles/cmTC_4a705.dir/build.make CMakeFiles/cmTC_4a705.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4a705.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_4a705.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_4a705
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4a705.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_4a705.dir/CheckIncludeFile.c.o  -o cmTC_4a705 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/uio.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d155d/fast && /usr/bin/make -f CMakeFiles/cmTC_d155d.dir/build.make CMakeFiles/cmTC_d155d.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d155d.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_d155d.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_d155d
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d155d.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_d155d.dir/CheckIncludeFile.c.o  -o cmTC_d155d 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/un.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ddc34/fast && /usr/bin/make -f CMakeFiles/cmTC_ddc34.dir/build.make CMakeFiles/cmTC_ddc34.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ddc34.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_ddc34.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_ddc34
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ddc34.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_ddc34.dir/CheckIncludeFile.c.o  -o cmTC_ddc34 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file sys/wait.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d65d5/fast && /usr/bin/make -f CMakeFiles/cmTC_d65d5.dir/build.make CMakeFiles/cmTC_d65d5.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d65d5.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_d65d5.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_d65d5
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d65d5.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_d65d5.dir/CheckIncludeFile.c.o  -o cmTC_d65d5 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file unistd.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b8fb9/fast && /usr/bin/make -f CMakeFiles/cmTC_b8fb9.dir/build.make CMakeFiles/cmTC_b8fb9.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b8fb9.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_b8fb9.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_b8fb9
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b8fb9.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_b8fb9.dir/CheckIncludeFile.c.o  -o cmTC_b8fb9 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file uuid/uuid.h exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_82c0d/fast && /usr/bin/make -f CMakeFiles/cmTC_82c0d.dir/build.make CMakeFiles/cmTC_82c0d.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_82c0d.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_82c0d.dir/CheckIncludeFile.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_82c0d
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_82c0d.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_82c0d.dir/CheckIncludeFile.c.o  -o cmTC_82c0d 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the opendir exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_57d07/fast && /usr/bin/make -f CMakeFiles/cmTC_57d07.dir/build.make CMakeFiles/cmTC_57d07.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_57d07.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_57d07.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_57d07
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_57d07.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_57d07.dir/CheckSymbolExists.c.o  -o cmTC_57d07 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <dirent.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef opendir
+  return ((int*)(&opendir))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the gethostbyname exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a3dd8/fast && /usr/bin/make -f CMakeFiles/cmTC_a3dd8.dir/build.make CMakeFiles/cmTC_a3dd8.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a3dd8.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_a3dd8.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_a3dd8
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a3dd8.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_a3dd8.dir/CheckSymbolExists.c.o  -o cmTC_a3dd8 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <netdb.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef gethostbyname
+  return ((int*)(&gethostbyname))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the setsockopt exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a2421/fast && /usr/bin/make -f CMakeFiles/cmTC_a2421.dir/build.make CMakeFiles/cmTC_a2421.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a2421.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_a2421.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_a2421
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a2421.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_a2421.dir/CheckSymbolExists.c.o  -o cmTC_a2421 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/socket.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setsockopt
+  return ((int*)(&setsockopt))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the gettimeofday exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a1a9b/fast && /usr/bin/make -f CMakeFiles/cmTC_a1a9b.dir/build.make CMakeFiles/cmTC_a1a9b.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a1a9b.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_a1a9b.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_a1a9b
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a1a9b.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_a1a9b.dir/CheckSymbolExists.c.o  -o cmTC_a1a9b 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef gettimeofday
+  return ((int*)(&gettimeofday))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the getaddrinfo exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f58c1/fast && /usr/bin/make -f CMakeFiles/cmTC_f58c1.dir/build.make CMakeFiles/cmTC_f58c1.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f58c1.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_f58c1.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_f58c1
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f58c1.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_f58c1.dir/CheckSymbolExists.c.o  -o cmTC_f58c1 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netdb.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getaddrinfo
+  return ((int*)(&getaddrinfo))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the fdatasync exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0768a/fast && /usr/bin/make -f CMakeFiles/cmTC_0768a.dir/build.make CMakeFiles/cmTC_0768a.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0768a.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_0768a.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_0768a
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0768a.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_0768a.dir/CheckSymbolExists.c.o  -o cmTC_0768a 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fdatasync
+  return ((int*)(&fdatasync))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the accept4 exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_aa54f/fast && /usr/bin/make -f CMakeFiles/cmTC_aa54f.dir/build.make CMakeFiles/cmTC_aa54f.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_aa54f.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_aa54f.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_aa54f
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aa54f.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_aa54f.dir/CheckSymbolExists.c.o  -o cmTC_aa54f 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/types.h>
+#include <sys/socket.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef accept4
+  return ((int*)(&accept4))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the asctime_r exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_307b1/fast && /usr/bin/make -f CMakeFiles/cmTC_307b1.dir/build.make CMakeFiles/cmTC_307b1.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_307b1.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_307b1.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_307b1
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_307b1.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_307b1.dir/CheckSymbolExists.c.o  -o cmTC_307b1 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef asctime_r
+  return ((int*)(&asctime_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the clock_gettime exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d79e7/fast && /usr/bin/make -f CMakeFiles/cmTC_d79e7.dir/build.make CMakeFiles/cmTC_d79e7.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d79e7.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_d79e7.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_d79e7
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d79e7.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_d79e7.dir/CheckSymbolExists.c.o  -o cmTC_d79e7 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef clock_gettime
+  return ((int*)(&clock_gettime))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the ctime_r exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_1d8cb/fast && /usr/bin/make -f CMakeFiles/cmTC_1d8cb.dir/build.make CMakeFiles/cmTC_1d8cb.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1d8cb.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_1d8cb.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_1d8cb
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1d8cb.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_1d8cb.dir/CheckSymbolExists.c.o  -o cmTC_1d8cb 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef ctime_r
+  return ((int*)(&ctime_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the fallocate exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f1d8a/fast && /usr/bin/make -f CMakeFiles/cmTC_f1d8a.dir/build.make CMakeFiles/cmTC_f1d8a.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f1d8a.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_f1d8a.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_f1d8a
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f1d8a.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_f1d8a.dir/CheckSymbolExists.c.o  -o cmTC_f1d8a 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <fcntl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fallocate
+  return ((int*)(&fallocate))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function fcntl exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_265bf/fast && /usr/bin/make -f CMakeFiles/cmTC_265bf.dir/build.make CMakeFiles/cmTC_265bf.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_265bf.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=fcntl    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_265bf.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_265bf
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_265bf.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=fcntl    CMakeFiles/cmTC_265bf.dir/CheckFunctionExists.c.o  -o cmTC_265bf 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the fork exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a3346/fast && /usr/bin/make -f CMakeFiles/cmTC_a3346.dir/build.make CMakeFiles/cmTC_a3346.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a3346.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_a3346.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_a3346
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a3346.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_a3346.dir/CheckSymbolExists.c.o  -o cmTC_a3346 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fork
+  return ((int*)(&fork))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the fsync exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_8d749/fast && /usr/bin/make -f CMakeFiles/cmTC_8d749.dir/build.make CMakeFiles/cmTC_8d749.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8d749.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_8d749.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_8d749
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8d749.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_8d749.dir/CheckSymbolExists.c.o  -o cmTC_8d749 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef fsync
+  return ((int*)(&fsync))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the ftime exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_90a90/fast && /usr/bin/make -f CMakeFiles/cmTC_90a90.dir/build.make CMakeFiles/cmTC_90a90.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_90a90.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_90a90.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_90a90
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_90a90.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_90a90.dir/CheckSymbolExists.c.o  -o cmTC_90a90 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/timeb.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef ftime
+  return ((int*)(&ftime))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function getlogin exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6841d/fast && /usr/bin/make -f CMakeFiles/cmTC_6841d.dir/build.make CMakeFiles/cmTC_6841d.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6841d.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=getlogin    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_6841d.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6841d
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6841d.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=getlogin    CMakeFiles/cmTC_6841d.dir/CheckFunctionExists.c.o  -o cmTC_6841d 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the getopt_long exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_943ae/fast && /usr/bin/make -f CMakeFiles/cmTC_943ae.dir/build.make CMakeFiles/cmTC_943ae.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_943ae.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_943ae.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_943ae
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_943ae.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_943ae.dir/CheckSymbolExists.c.o  -o cmTC_943ae 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <getopt.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getopt_long
+  return ((int*)(&getopt_long))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function getrlimit exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_57415/fast && /usr/bin/make -f CMakeFiles/cmTC_57415.dir/build.make CMakeFiles/cmTC_57415.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_57415.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=getrlimit    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_57415.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_57415
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_57415.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=getrlimit    CMakeFiles/cmTC_57415.dir/CheckFunctionExists.c.o  -o cmTC_57415 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function gettimeofday exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_46412/fast && /usr/bin/make -f CMakeFiles/cmTC_46412.dir/build.make CMakeFiles/cmTC_46412.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_46412.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=gettimeofday    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_46412.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_46412
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_46412.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=gettimeofday    CMakeFiles/cmTC_46412.dir/CheckFunctionExists.c.o  -o cmTC_46412 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function getuid exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_199e1/fast && /usr/bin/make -f CMakeFiles/cmTC_199e1.dir/build.make CMakeFiles/cmTC_199e1.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_199e1.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=getuid    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_199e1.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_199e1
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_199e1.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=getuid    CMakeFiles/cmTC_199e1.dir/CheckFunctionExists.c.o  -o cmTC_199e1 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the gmtime_r exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_051b7/fast && /usr/bin/make -f CMakeFiles/cmTC_051b7.dir/build.make CMakeFiles/cmTC_051b7.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_051b7.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_051b7.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_051b7
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_051b7.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_051b7.dir/CheckSymbolExists.c.o  -o cmTC_051b7 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef gmtime_r
+  return ((int*)(&gmtime_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the localtime_r exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_57ad1/fast && /usr/bin/make -f CMakeFiles/cmTC_57ad1.dir/build.make CMakeFiles/cmTC_57ad1.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_57ad1.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_57ad1.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_57ad1
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_57ad1.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_57ad1.dir/CheckSymbolExists.c.o  -o cmTC_57ad1 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef localtime_r
+  return ((int*)(&localtime_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the strerror_r exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f4940/fast && /usr/bin/make -f CMakeFiles/cmTC_f4940.dir/build.make CMakeFiles/cmTC_f4940.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f4940.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_f4940.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_f4940
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f4940.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_f4940.dir/CheckSymbolExists.c.o  -o cmTC_f4940 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strerror_r
+  return ((int*)(&strerror_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function lockf exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a54fe/fast && /usr/bin/make -f CMakeFiles/cmTC_a54fe.dir/build.make CMakeFiles/cmTC_a54fe.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a54fe.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=lockf    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_a54fe.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a54fe
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a54fe.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=lockf    CMakeFiles/cmTC_a54fe.dir/CheckFunctionExists.c.o  -o cmTC_a54fe 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the madvise exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_1ebe2/fast && /usr/bin/make -f CMakeFiles/cmTC_1ebe2.dir/build.make CMakeFiles/cmTC_1ebe2.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1ebe2.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_1ebe2.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_1ebe2
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1ebe2.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_1ebe2.dir/CheckSymbolExists.c.o  -o cmTC_1ebe2 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/mman.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef madvise
+  return ((int*)(&madvise))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the mremap exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_632e9/fast && /usr/bin/make -f CMakeFiles/cmTC_632e9.dir/build.make CMakeFiles/cmTC_632e9.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_632e9.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_632e9.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_632e9
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_632e9.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_632e9.dir/CheckSymbolExists.c.o  -o cmTC_632e9 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/mman.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef mremap
+  return ((int*)(&mremap))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function nanosleep exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_511a0/fast && /usr/bin/make -f CMakeFiles/cmTC_511a0.dir/build.make CMakeFiles/cmTC_511a0.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_511a0.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=nanosleep    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_511a0.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_511a0
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_511a0.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=nanosleep    CMakeFiles/cmTC_511a0.dir/CheckFunctionExists.c.o  -o cmTC_511a0 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function nl_langinfo exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_dad2f/fast && /usr/bin/make -f CMakeFiles/cmTC_dad2f.dir/build.make CMakeFiles/cmTC_dad2f.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dad2f.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=nl_langinfo    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_dad2f.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_dad2f
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dad2f.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=nl_langinfo    CMakeFiles/cmTC_dad2f.dir/CheckFunctionExists.c.o  -o cmTC_dad2f 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the pipe2 exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d2b11/fast && /usr/bin/make -f CMakeFiles/cmTC_d2b11.dir/build.make CMakeFiles/cmTC_d2b11.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d2b11.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_d2b11.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_d2b11
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d2b11.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_d2b11.dir/CheckSymbolExists.c.o  -o cmTC_d2b11 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <fcntl.h>
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pipe2
+  return ((int*)(&pipe2))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function poll exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_cd264/fast && /usr/bin/make -f CMakeFiles/cmTC_cd264.dir/build.make CMakeFiles/cmTC_cd264.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cd264.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=poll    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_cd264.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_cd264
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cd264.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=poll    CMakeFiles/cmTC_cd264.dir/CheckFunctionExists.c.o  -o cmTC_cd264 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the popen exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b9c90/fast && /usr/bin/make -f CMakeFiles/cmTC_b9c90.dir/build.make CMakeFiles/cmTC_b9c90.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b9c90.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_b9c90.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_b9c90
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b9c90.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_b9c90.dir/CheckSymbolExists.c.o  -o cmTC_b9c90 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef popen
+  return ((int*)(&popen))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the posix_fadvise exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a3586/fast && /usr/bin/make -f CMakeFiles/cmTC_a3586.dir/build.make CMakeFiles/cmTC_a3586.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a3586.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_a3586.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_a3586
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a3586.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_a3586.dir/CheckSymbolExists.c.o  -o cmTC_a3586 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <fcntl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef posix_fadvise
+  return ((int*)(&posix_fadvise))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the posix_fallocate exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5ca38/fast && /usr/bin/make -f CMakeFiles/cmTC_5ca38.dir/build.make CMakeFiles/cmTC_5ca38.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5ca38.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_5ca38.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_5ca38
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ca38.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_5ca38.dir/CheckSymbolExists.c.o  -o cmTC_5ca38 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <fcntl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef posix_fallocate
+  return ((int*)(&posix_fallocate))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the posix_madvise exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_31314/fast && /usr/bin/make -f CMakeFiles/cmTC_31314.dir/build.make CMakeFiles/cmTC_31314.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_31314.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_31314.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_31314
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_31314.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_31314.dir/CheckSymbolExists.c.o  -o cmTC_31314 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/mman.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef posix_madvise
+  return ((int*)(&posix_madvise))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function putenv exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_3b999/fast && /usr/bin/make -f CMakeFiles/cmTC_3b999.dir/build.make CMakeFiles/cmTC_3b999.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3b999.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=putenv    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_3b999.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_3b999
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3b999.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=putenv    CMakeFiles/cmTC_3b999.dir/CheckFunctionExists.c.o  -o cmTC_3b999 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function setsid exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_cf501/fast && /usr/bin/make -f CMakeFiles/cmTC_cf501.dir/build.make CMakeFiles/cmTC_cf501.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cf501.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=setsid    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_cf501.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_cf501
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cf501.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=setsid    CMakeFiles/cmTC_cf501.dir/CheckFunctionExists.c.o  -o cmTC_cf501 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function shutdown exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e8f14/fast && /usr/bin/make -f CMakeFiles/cmTC_e8f14.dir/build.make CMakeFiles/cmTC_e8f14.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e8f14.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=shutdown    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_e8f14.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e8f14
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e8f14.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=shutdown    CMakeFiles/cmTC_e8f14.dir/CheckFunctionExists.c.o  -o cmTC_e8f14 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function sigaction exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4b88e/fast && /usr/bin/make -f CMakeFiles/cmTC_4b88e.dir/build.make CMakeFiles/cmTC_4b88e.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4b88e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=sigaction    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_4b88e.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_4b88e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4b88e.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=sigaction    CMakeFiles/cmTC_4b88e.dir/CheckFunctionExists.c.o  -o cmTC_4b88e 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the stpcpy exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4dd20/fast && /usr/bin/make -f CMakeFiles/cmTC_4dd20.dir/build.make CMakeFiles/cmTC_4dd20.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4dd20.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_4dd20.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_4dd20
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4dd20.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_4dd20.dir/CheckSymbolExists.c.o  -o cmTC_4dd20 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef stpcpy
+  return ((int*)(&stpcpy))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function strcasestr exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_14435/fast && /usr/bin/make -f CMakeFiles/cmTC_14435.dir/build.make CMakeFiles/cmTC_14435.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_14435.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=strcasestr    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_14435.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_14435
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_14435.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=strcasestr    CMakeFiles/cmTC_14435.dir/CheckFunctionExists.c.o  -o cmTC_14435 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the strncasecmp exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a85fb/fast && /usr/bin/make -f CMakeFiles/cmTC_a85fb.dir/build.make CMakeFiles/cmTC_a85fb.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a85fb.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_a85fb.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_a85fb
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a85fb.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_a85fb.dir/CheckSymbolExists.c.o  -o cmTC_a85fb 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <strings.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strncasecmp
+  return ((int*)(&strncasecmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function strptime exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2e89e/fast && /usr/bin/make -f CMakeFiles/cmTC_2e89e.dir/build.make CMakeFiles/cmTC_2e89e.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2e89e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=strptime    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_2e89e.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2e89e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2e89e.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=strptime    CMakeFiles/cmTC_2e89e.dir/CheckFunctionExists.c.o  -o cmTC_2e89e 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function strsignal exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_9f2be/fast && /usr/bin/make -f CMakeFiles/cmTC_9f2be.dir/build.make CMakeFiles/cmTC_9f2be.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9f2be.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=strsignal    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_9f2be.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9f2be
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9f2be.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=strsignal    CMakeFiles/cmTC_9f2be.dir/CheckFunctionExists.c.o  -o cmTC_9f2be 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the sysconf exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c08af/fast && /usr/bin/make -f CMakeFiles/cmTC_c08af.dir/build.make CMakeFiles/cmTC_c08af.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c08af.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_c08af.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_c08af
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c08af.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_c08af.dir/CheckSymbolExists.c.o  -o cmTC_c08af 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sysconf
+  return ((int*)(&sysconf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function times exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ea313/fast && /usr/bin/make -f CMakeFiles/cmTC_ea313.dir/build.make CMakeFiles/cmTC_ea313.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ea313.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=times    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_ea313.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ea313
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ea313.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=times    CMakeFiles/cmTC_ea313.dir/CheckFunctionExists.c.o  -o cmTC_ea313 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function uname exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_17ddc/fast && /usr/bin/make -f CMakeFiles/cmTC_17ddc.dir/build.make CMakeFiles/cmTC_17ddc.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_17ddc.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=uname    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_17ddc.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_17ddc
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_17ddc.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=uname    CMakeFiles/cmTC_17ddc.dir/CheckFunctionExists.c.o  -o cmTC_17ddc 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the semtimedop exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e0bd1/fast && /usr/bin/make -f CMakeFiles/cmTC_e0bd1.dir/build.make CMakeFiles/cmTC_e0bd1.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e0bd1.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_e0bd1.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_e0bd1
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e0bd1.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_e0bd1.dir/CheckSymbolExists.c.o  -o cmTC_e0bd1 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/sem.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef semtimedop
+  return ((int*)(&semtimedop))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_kill exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_dee29/fast && /usr/bin/make -f CMakeFiles/cmTC_dee29.dir/build.make CMakeFiles/cmTC_dee29.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dee29.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=pthread_kill    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_dee29.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_dee29
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dee29.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=pthread_kill    CMakeFiles/cmTC_dee29.dir/CheckFunctionExists.c.o  -o cmTC_dee29 -lpthread 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function pthread_sigmask exists passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0c47e/fast && /usr/bin/make -f CMakeFiles/cmTC_0c47e.dir/build.make CMakeFiles/cmTC_0c47e.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0c47e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=pthread_sigmask    -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_0c47e.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_0c47e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0c47e.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1 -DCHECK_FUNCTION_EXISTS=pthread_sigmask    CMakeFiles/cmTC_0c47e.dir/CheckFunctionExists.c.o  -o cmTC_0c47e -lpthread 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the regcomp exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0c40e/fast && /usr/bin/make -f CMakeFiles/cmTC_0c40e.dir/build.make CMakeFiles/cmTC_0c40e.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0c40e.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_0c40e.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_0c40e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0c40e.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_0c40e.dir/CheckSymbolExists.c.o  -o cmTC_0c40e 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <regex.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef regcomp
+  return ((int*)(&regcomp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the MD5_Update exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7b523/fast && /usr/bin/make -f CMakeFiles/cmTC_7b523.dir/build.make CMakeFiles/cmTC_7b523.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7b523.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_7b523.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_7b523
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7b523.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_7b523.dir/CheckSymbolExists.c.o  -o cmTC_7b523 /usr/lib/x86_64-linux-gnu/libcrypto.so 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <openssl/md5.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef MD5_Update
+  return ((int*)(&MD5_Update))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the RIPEMD160_Update exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_89647/fast && /usr/bin/make -f CMakeFiles/cmTC_89647.dir/build.make CMakeFiles/cmTC_89647.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_89647.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_89647.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_89647
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_89647.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_89647.dir/CheckSymbolExists.c.o  -o cmTC_89647 /usr/lib/x86_64-linux-gnu/libcrypto.so 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <openssl/ripemd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef RIPEMD160_Update
+  return ((int*)(&RIPEMD160_Update))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the SHA1_Update exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_bcbde/fast && /usr/bin/make -f CMakeFiles/cmTC_bcbde.dir/build.make CMakeFiles/cmTC_bcbde.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bcbde.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_bcbde.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_bcbde
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bcbde.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_bcbde.dir/CheckSymbolExists.c.o  -o cmTC_bcbde /usr/lib/x86_64-linux-gnu/libcrypto.so 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <openssl/sha.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef SHA1_Update
+  return ((int*)(&SHA1_Update))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the SHA224_Update exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ca027/fast && /usr/bin/make -f CMakeFiles/cmTC_ca027.dir/build.make CMakeFiles/cmTC_ca027.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ca027.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_ca027.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_ca027
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ca027.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_ca027.dir/CheckSymbolExists.c.o  -o cmTC_ca027 /usr/lib/x86_64-linux-gnu/libcrypto.so 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <openssl/sha.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef SHA224_Update
+  return ((int*)(&SHA224_Update))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the SHA256_Update exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c3fd8/fast && /usr/bin/make -f CMakeFiles/cmTC_c3fd8.dir/build.make CMakeFiles/cmTC_c3fd8.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c3fd8.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_c3fd8.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_c3fd8
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c3fd8.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_c3fd8.dir/CheckSymbolExists.c.o  -o cmTC_c3fd8 /usr/lib/x86_64-linux-gnu/libcrypto.so 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <openssl/sha.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef SHA256_Update
+  return ((int*)(&SHA256_Update))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the SHA384_Update exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_997e2/fast && /usr/bin/make -f CMakeFiles/cmTC_997e2.dir/build.make CMakeFiles/cmTC_997e2.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_997e2.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_997e2.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_997e2
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_997e2.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_997e2.dir/CheckSymbolExists.c.o  -o cmTC_997e2 /usr/lib/x86_64-linux-gnu/libcrypto.so 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <openssl/sha.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef SHA384_Update
+  return ((int*)(&SHA384_Update))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the SHA512_Update exist passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6bc4a/fast && /usr/bin/make -f CMakeFiles/cmTC_6bc4a.dir/build.make CMakeFiles/cmTC_6bc4a.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6bc4a.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_6bc4a.dir/CheckSymbolExists.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_6bc4a
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6bc4a.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_6bc4a.dir/CheckSymbolExists.c.o  -o cmTC_6bc4a /usr/lib/x86_64-linux-gnu/libcrypto.so 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+File /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <openssl/sha.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef SHA512_Update
+  return ((int*)(&SHA512_Update))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining size of size_t passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5da20/fast && /usr/bin/make -f CMakeFiles/cmTC_5da20.dir/build.make CMakeFiles/cmTC_5da20.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5da20.dir/SIZEOF_SIZE_T.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_5da20.dir/SIZEOF_SIZE_T.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CheckTypeSize/SIZEOF_SIZE_T.c
+Linking C executable cmTC_5da20
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5da20.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_5da20.dir/SIZEOF_SIZE_T.c.o  -o cmTC_5da20 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of ssize_t passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_768ee/fast && /usr/bin/make -f CMakeFiles/cmTC_768ee.dir/build.make CMakeFiles/cmTC_768ee.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_768ee.dir/SIZEOF_SSIZE_T.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_768ee.dir/SIZEOF_SSIZE_T.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CheckTypeSize/SIZEOF_SSIZE_T.c
+Linking C executable cmTC_768ee
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_768ee.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_768ee.dir/SIZEOF_SSIZE_T.c.o  -o cmTC_768ee 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of char passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_3153a/fast && /usr/bin/make -f CMakeFiles/cmTC_3153a.dir/build.make CMakeFiles/cmTC_3153a.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3153a.dir/SIZEOF_CHAR.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_3153a.dir/SIZEOF_CHAR.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CheckTypeSize/SIZEOF_CHAR.c
+Linking C executable cmTC_3153a
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3153a.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_3153a.dir/SIZEOF_CHAR.c.o  -o cmTC_3153a 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of short passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_09d04/fast && /usr/bin/make -f CMakeFiles/cmTC_09d04.dir/build.make CMakeFiles/cmTC_09d04.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_09d04.dir/SIZEOF_SHORT.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_09d04.dir/SIZEOF_SHORT.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CheckTypeSize/SIZEOF_SHORT.c
+Linking C executable cmTC_09d04
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_09d04.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_09d04.dir/SIZEOF_SHORT.c.o  -o cmTC_09d04 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of int passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e61b5/fast && /usr/bin/make -f CMakeFiles/cmTC_e61b5.dir/build.make CMakeFiles/cmTC_e61b5.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e61b5.dir/SIZEOF_INT.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_e61b5.dir/SIZEOF_INT.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CheckTypeSize/SIZEOF_INT.c
+Linking C executable cmTC_e61b5
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e61b5.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_e61b5.dir/SIZEOF_INT.c.o  -o cmTC_e61b5 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of long passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_bd7fb/fast && /usr/bin/make -f CMakeFiles/cmTC_bd7fb.dir/build.make CMakeFiles/cmTC_bd7fb.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bd7fb.dir/SIZEOF_LONG.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_bd7fb.dir/SIZEOF_LONG.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CheckTypeSize/SIZEOF_LONG.c
+Linking C executable cmTC_bd7fb
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bd7fb.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_bd7fb.dir/SIZEOF_LONG.c.o  -o cmTC_bd7fb 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of long int passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6bc61/fast && /usr/bin/make -f CMakeFiles/cmTC_6bc61.dir/build.make CMakeFiles/cmTC_6bc61.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6bc61.dir/SIZEOF_LONG_INT.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_6bc61.dir/SIZEOF_LONG_INT.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CheckTypeSize/SIZEOF_LONG_INT.c
+Linking C executable cmTC_6bc61
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6bc61.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_6bc61.dir/SIZEOF_LONG_INT.c.o  -o cmTC_6bc61 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of double passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c2b7e/fast && /usr/bin/make -f CMakeFiles/cmTC_c2b7e.dir/build.make CMakeFiles/cmTC_c2b7e.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c2b7e.dir/SIZEOF_DOUBLE.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_c2b7e.dir/SIZEOF_DOUBLE.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CheckTypeSize/SIZEOF_DOUBLE.c
+Linking C executable cmTC_c2b7e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c2b7e.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_c2b7e.dir/SIZEOF_DOUBLE.c.o  -o cmTC_c2b7e 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of wchar_t passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f8d0b/fast && /usr/bin/make -f CMakeFiles/cmTC_f8d0b.dir/build.make CMakeFiles/cmTC_f8d0b.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f8d0b.dir/SIZEOF_WCHAR_T.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_f8d0b.dir/SIZEOF_WCHAR_T.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CheckTypeSize/SIZEOF_WCHAR_T.c
+Linking C executable cmTC_f8d0b
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f8d0b.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_f8d0b.dir/SIZEOF_WCHAR_T.c.o  -o cmTC_f8d0b 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of socklen_t passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_3c661/fast && /usr/bin/make -f CMakeFiles/cmTC_3c661.dir/build.make CMakeFiles/cmTC_3c661.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3c661.dir/HAVE_SOCKLEN_T.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_3c661.dir/HAVE_SOCKLEN_T.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CheckTypeSize/HAVE_SOCKLEN_T.c
+Linking C executable cmTC_3c661
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3c661.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_3c661.dir/HAVE_SOCKLEN_T.c.o  -o cmTC_3c661 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of __int128 passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ec408/fast && /usr/bin/make -f CMakeFiles/cmTC_ec408.dir/build.make CMakeFiles/cmTC_ec408.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ec408.dir/SIZEOF___INT128.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_ec408.dir/SIZEOF___INT128.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CheckTypeSize/SIZEOF___INT128.c
+Linking C executable cmTC_ec408
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ec408.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_ec408.dir/SIZEOF___INT128.c.o  -o cmTC_ec408 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of __int128_t passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2a2f9/fast && /usr/bin/make -f CMakeFiles/cmTC_2a2f9.dir/build.make CMakeFiles/cmTC_2a2f9.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2a2f9.dir/SIZEOF___INT128_T.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_2a2f9.dir/SIZEOF___INT128_T.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CheckTypeSize/SIZEOF___INT128_T.c
+Linking C executable cmTC_2a2f9
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2a2f9.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_2a2f9.dir/SIZEOF___INT128_T.c.o  -o cmTC_2a2f9 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of __uint128_t passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_9f9e0/fast && /usr/bin/make -f CMakeFiles/cmTC_9f9e0.dir/build.make CMakeFiles/cmTC_9f9e0.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9f9e0.dir/SIZEOF___UINT128_T.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_9f9e0.dir/SIZEOF___UINT128_T.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CheckTypeSize/SIZEOF___UINT128_T.c
+Linking C executable cmTC_9f9e0
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9f9e0.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_9f9e0.dir/SIZEOF___UINT128_T.c.o  -o cmTC_9f9e0 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of SQLLEN passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e4a7a/fast && /usr/bin/make -f CMakeFiles/cmTC_e4a7a.dir/build.make CMakeFiles/cmTC_e4a7a.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e4a7a.dir/_SQLLEN.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_e4a7a.dir/_SQLLEN.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CheckTypeSize/_SQLLEN.c
+Linking C executable cmTC_e4a7a
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e4a7a.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_e4a7a.dir/_SQLLEN.c.o  -o cmTC_e4a7a 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining size of SQLWCHAR passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b7923/fast && /usr/bin/make -f CMakeFiles/cmTC_b7923.dir/build.make CMakeFiles/cmTC_b7923.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b7923.dir/SIZEOF_SQLWCHAR.c.o
+/usr/bin/cc   -DNDEBUG=1     -D_GNU_SOURCE -std=gnu99 -o CMakeFiles/cmTC_b7923.dir/SIZEOF_SQLWCHAR.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CheckTypeSize/SIZEOF_SQLWCHAR.c
+Linking C executable cmTC_b7923
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b7923.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_b7923.dir/SIZEOF_SQLWCHAR.c.o  -o cmTC_b7923 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the system is big endian passed with the following output:
+Change Dir: /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e69cd/fast && /usr/bin/make -f CMakeFiles/cmTC_e69cd.dir/build.make CMakeFiles/cmTC_e69cd.dir/build
+make[1]: Entering directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e69cd.dir/TestEndianess.c.o
+/usr/bin/cc   -DNDEBUG=1    -std=gnu99 -o CMakeFiles/cmTC_e69cd.dir/TestEndianess.c.o   -c /home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp/TestEndianess.c
+Linking C executable cmTC_e69cd
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e69cd.dir/link.txt --verbose=1
+/usr/bin/cc  -DNDEBUG=1     CMakeFiles/cmTC_e69cd.dir/TestEndianess.c.o  -o cmTC_e69cd 
+make[1]: Leaving directory '/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/CMakeFiles/CMakeTmp'
+
+
+TestEndianess.c:
+/* A 16 bit integer is required. */
+typedef unsigned short cmakeint16;
+
+/* On a little endian machine, these 16bit ints will give "THIS IS LITTLE ENDIAN."
+   On a big endian machine the characters will be exchanged pairwise. */
+const cmakeint16 info_little[] =  {0x4854, 0x5349, 0x4920, 0x2053, 0x494c, 0x5454, 0x454c, 0x4520, 0x444e, 0x4149, 0x2e4e, 0x0000};
+
+/* on a big endian machine, these 16bit ints will give "THIS IS BIG ENDIAN."
+   On a little endian machine the characters will be exchanged pairwise. */
+const cmakeint16 info_big[] =     {0x5448, 0x4953, 0x2049, 0x5320, 0x4249, 0x4720, 0x454e, 0x4449, 0x414e, 0x2e2e, 0x0000};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_little[argc];
+  require += info_big[argc];
+  (void)argv;
+  return require;
+}
+
+

@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>MSQLDUMP &#8212; MonetDB 0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="msqldump">
+<h1>MSQLDUMP<a class="headerlink" href="#msqldump" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="name">
+<h2>NAME<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h2>
+<p>msqldump - dump a MonetDB/SQL database</p>
+</div>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>msqldump</strong> [ <em>options</em> ] [ <em>dbname</em> ]</p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>MonetDB is a database management system that is developed from a
+main-memory perspective with use of a fully decomposed storage model,
+automatic index management, extensibility of data types and search
+accelerators, and an SQL front end.</p>
+<p><em>Msqldump</em> is the program to dump an MonetDB/SQL database. The dump can
+be used to populate a new MonetDB/SQL database.</p>
+<p>Before <em>msqldump</em> starts parsing command line options, it reads a
+configuration file. If the environment variable <strong>DOTMONETDBFILE</strong> is
+set and not empty, it reads the file pointed to by that variable. If set
+but empty, no configuration file is read. If unset, <em>msqldump</em> first
+looks for a file <em>.monetdb</em> in the current working directory, and if
+that doesn't exist, it looks for a file <em>monetdb</em> in the XDG
+configuration directory (<strong>$XDG_CONFIG_HOME</strong> which defaults to
+<strong>$HOME/.config</strong> if not set), and finally for a file <em>.monetdb</em> in the
+current user's home directory. This file can contain defaults for the
+flags <strong>user</strong>, <strong>password</strong>, <strong>host</strong>, and <strong>port</strong>. To disable reading
+the <em>.monetdb</em> file, set the variable <strong>DOTMONETDBFILE</strong> to the empty
+string in the environment.</p>
+</div>
+<div class="section" id="options">
+<h2>OPTIONS<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt><strong>--help</strong> (<strong>-?</strong>)</dt><dd><p>Print usage information and exit.</p>
+</dd>
+<dt><strong>--database=</strong><em>database</em> (<strong>-d</strong> <em>database</em>)</dt><dd><p>Specify the name of the database to connect to. The <strong>-d</strong> can be
+omitted if it is the last option.</p>
+</dd>
+<dt><strong>--host=</strong><em>hostname</em> (<strong>-h</strong> <em>hostname</em>)</dt><dd><p>Specify the name of the host on which the server runs (default:
+localhost).</p>
+</dd>
+<dt><strong>--port=</strong><em>portnr</em> (<strong>-p</strong> <em>portnr</em>)</dt><dd><p>Specify the portnumber of the server (default: 50000).</p>
+</dd>
+<dt><strong>--user=</strong><em>user</em> (<strong>-u</strong> <em>user</em>)</dt><dd><p>Specify the user to connect as. If this flag is absent, the client
+will ask for a user name.</p>
+</dd>
+<dt><strong>--describe</strong> (<strong>-D</strong>)</dt><dd><p>Only dump the database schema.</p>
+</dd>
+<dt><strong>--inserts</strong> (<strong>-N</strong>)</dt><dd><p>When dumping the table data, use INSERT INTO statements, rather than
+COPY INTO + CSV values. INSERT INTO statements are more portable, and
+necessary when the load of the dump is processed by e.g. a JDBC
+application.</p>
+</dd>
+<dt><strong>--noescape</strong> (<strong>-e</strong>)</dt><dd><p>When dumping the table data, use the NO ESCAPE option on the COPY
+INTO query.</p>
+</dd>
+<dt><strong>--functions</strong> (<strong>-f</strong>)</dt><dd><p>Only dump functions definitions.</p>
+</dd>
+<dt><strong>--table=</strong><em>table</em> (<strong>-t</strong> <em>table</em>)</dt><dd><p>Only dump the specified <em>table</em>.</p>
+</dd>
+<dt><strong>--quiet</strong> (<strong>-q</strong>)</dt><dd><p>Don't print the welcome message.</p>
+</dd>
+<dt><strong>--Xdebug</strong> (<strong>-X</strong>)</dt><dd><p>Trace network interaction between <em>mclient</em> and the server.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><em>mclient</em>(1), <em>mserver5</em>(1)</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">MonetDB</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../monetdbe/authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../monetdbe/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../monetdbe/dev_notes.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../monetdbe/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../monetdbe/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../monetdbe/monetdbe_api.html">MonetDBe API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">The MonetDB Database System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html#copyright-notice">Copyright Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../build.html">Building MonetDB from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../build-fedora.html">Build on Fedora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../build-debian.html">Build on Debian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clients.html">The MonetDB clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design.html">The MonetDB CMake Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../input.html">Giving input to MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../json.html">Support for JSON in MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual_pages.html">Manual pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">MonetDB Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_handbook.html">Developer's Handbook</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, MonetDB Solutions.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/source/manual_pages/msqldump.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmutils.a  CMakeFiles/mutils.dir/mutils.c.o CMakeFiles/mutils.dir/revision.c.o
+/usr/bin/ranlib libmutils.a

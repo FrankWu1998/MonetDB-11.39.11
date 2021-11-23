@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsqlstorage.a  CMakeFiles/sqlstorage.dir/store_dependency.c.o CMakeFiles/sqlstorage.dir/store_sequence.c.o CMakeFiles/sqlstorage.dir/store.c.o CMakeFiles/sqlstorage.dir/sql_catalog.c.o
+/usr/bin/ranlib libsqlstorage.a

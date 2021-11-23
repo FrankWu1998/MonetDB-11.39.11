@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC  -DNDEBUG=1  -shared  -o lib_run_isolate.so CMakeFiles/run_isolate.dir/run_isolate.c.o -Wl,-rpath,/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/monetdb5/tools: ../tools/libmonetdb5.so.30.0.4 

@@ -1,0 +1,1 @@
+/usr/bin/cc  -DNDEBUG=1   CMakeFiles/streamcat.dir/streamcat.c.o  -o streamcat -Wl,-rpath,/home/wyf/PIM4DB-May2021-SP1/MonetDB-11.39.11/build/common/stream: ../../../common/stream/libstream.so.14.0.4 

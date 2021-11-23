@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>MonetDB Release &#8212; MonetDB 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Developer&#39;s Handbook" href="developers_handbook.html" />
+    <link rel="prev" title="CMake" href="cmake.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="monetdb-release">
+<h1>MonetDB Release<a class="headerlink" href="#monetdb-release" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-prepare-a-release">
+<h2>How to Prepare a Release<a class="headerlink" href="#how-to-prepare-a-release" title="Permalink to this headline">¶</a></h2>
+<p>This document gives step-by-step instructions on how to prepare a
+release for the MonetDB suite of programs.</p>
+<div class="section" id="release-etiquette">
+<h3>Release Etiquette<a class="headerlink" href="#release-etiquette" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>A release is a major time investment of several people.  Cooperation
+of all developers is essential to live up to our charter: to deliver
+state-of-the-art database technology to the community.</p></li>
+<li><p>In particular, a new release should not be worse than any previous one,
+i.e., all features and tests that did work before (and are still
+supported) must still work flawlessly with the new release.</p></li>
+<li><p>Strictly adhere to bug fixes and feature updates.  Nothing
+is a bug fix unless it is covered by a bug report.</p></li>
+<li><p>Remember that after every release there will be uncountable
+opportunities to get your favorite feature in.</p></li>
+<li><p>Refrain from any act that may complicate the process.</p></li>
+</ul>
+</div>
+<div class="section" id="well-before-the-release">
+<h3>Well before the release<a class="headerlink" href="#well-before-the-release" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Identify a release manager who has the authority to decide on the
+precise release content and date, rollback updates, block updates,
+etc.  i.e. anything that could put the release in danger.</p></li>
+<li><p>Prepare a draft release note to finalize the scope of the release
+and inform those affected/responsible for parts to fix errors and
+prepare/update documentation.</p></li>
+<li><p>Decide on and fix the desired version numbers for all packages involved in
+the release.</p></li>
+<li><p>All other developers leave the stable branch.</p></li>
+<li><p>Get all the bug fixes (and new features for a major release) in long
+before continuing with the rest of the steps.</p></li>
+<li><p>Announce freeze dates and planned release dates on the developers
+list.</p></li>
+<li><p>Regularly try building the release on Windows during this stage.
+This includes trying to create installers and trying out the
+installers.</p></li>
+<li><p>A major (and very time consuming) task of the release manager is to
+continuously remind the developers to indeed care about and fix their
+bugs. This task consists mainly of reading aloud both the nightly testing
+result emails and the daily TestWeb status to each involved developer
+personally.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="procedure">
+<h2><code class="docutils literal notranslate"><span class="pre">Procedure</span></code><a class="headerlink" href="#procedure" title="Permalink to this headline">¶</a></h2>
+<p>There are several differences between a normal build and a release build:
+- The name of the release
+- Th monetdb version</p>
+</div>
+<div class="section" id="implementation">
+<h2><code class="docutils literal notranslate"><span class="pre">Implementation</span></code><a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p>There are 3 different sets of versions:
+- The version description
+- The monetdb version number
+- The monetb libraries version numbers</p>
+<p>The version description is &quot;unreleased&quot;, unless there is an actual release. Than it contains the name, for example &quot;Nov2019-SP3&quot;. The monetdb version number is the version of the entire application, previously managed with vertoo. It contains three parts, a major, minor and release number. The release number is even during development and incremented to even for the actual release version.</p>
+</div>
+<div class="section" id="building-a-release">
+<h2><code class="docutils literal notranslate"><span class="pre">Building</span> <span class="pre">a</span> <span class="pre">release</span></code><a class="headerlink" href="#building-a-release" title="Permalink to this headline">¶</a></h2>
+<p>When doing a release build, the only extra thing to do is to add the &quot;-DRELEASE_VERSION=ON&quot; parameter to the cmake command. This will make sure that the build will use the required version string and numbers. After building a successful release the final step is to tag the current version of the code in the release branch. Then you can start the next release by incrementing the &quot;release&quot; number of the monetdb version by 2. Or if necessary, create a new release branch.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">MonetDB</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/dev_notes.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monetdbe/monetdbe_api.html">MonetDBe API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">The MonetDB Database System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#copyright-notice">Copyright Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Building MonetDB from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-fedora.html">Build on Fedora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-debian.html">Build on Debian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clients.html">The MonetDB clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">The MonetDB CMake Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">Giving input to MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="json.html">Support for JSON in MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual_pages.html">Manual pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MonetDB Release</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-prepare-a-release">How to Prepare a Release</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#release-etiquette">Release Etiquette</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#well-before-the-release">Well before the release</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#procedure"><code class="docutils literal notranslate"><span class="pre">Procedure</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementation"><code class="docutils literal notranslate"><span class="pre">Implementation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-a-release"><code class="docutils literal notranslate"><span class="pre">Building</span> <span class="pre">a</span> <span class="pre">release</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developers_handbook.html">Developer's Handbook</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="cmake.html" title="previous chapter">CMake</a></li>
+      <li>Next: <a href="developers_handbook.html" title="next chapter">Developer's Handbook</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, MonetDB Solutions.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/release.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

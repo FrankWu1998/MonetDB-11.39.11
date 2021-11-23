@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Introduction &#8212; MonetDB 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Developer notes" href="dev_notes.html" />
+    <link rel="prev" title="Authors" href="authors.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">MonetDBe</span></code> is the embedded version of MonetDB. It provides all the
+functionality offered by the MonetDB SQL server environment, but makes
+this available as a single <code class="docutils literal notranslate"><span class="pre">libmonetdbe.so</span></code> library. This library
+can be directly linked with a C application to benefit from the
+functionality.</p>
+<p><code class="docutils literal notranslate"><span class="pre">An</span> <span class="pre">embedded</span> <span class="pre">database</span> <span class="pre">system</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">database</span> <span class="pre">management</span> <span class="pre">system</span> <span class="pre">(DBMS)</span> <span class="pre">which</span>
+<span class="pre">is</span> <span class="pre">tightly</span> <span class="pre">integrated</span> <span class="pre">with</span> <span class="pre">an</span> <span class="pre">application</span> <span class="pre">software</span> <span class="pre">that</span> <span class="pre">requires</span> <span class="pre">access</span> <span class="pre">to</span> <span class="pre">stored</span> <span class="pre">data,</span>
+<span class="pre">such</span> <span class="pre">that</span> <span class="pre">the</span> <span class="pre">database</span> <span class="pre">system</span> <span class="pre">is</span> <span class="pre">&quot;hidden&quot;</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">application's</span> <span class="pre">end-user</span>
+<span class="pre">and</span> <span class="pre">requires</span> <span class="pre">little</span> <span class="pre">or</span> <span class="pre">no</span> <span class="pre">ongoing</span> <span class="pre">maintenance.</span></code> <cite>wikipedia &lt;https://en.wikipedia.org/wiki/Embedded_database&gt;</cite></p>
+<p>The embedded database market has for a long time been dominated by traditional row-stores,
+often with limited SQL functionality, scalability or performance.
+The space lacks a mature open-source column store deemed essential to push
+the performance envelope for data analytics applications.</p>
+<div class="section" id="what-is-our-proposed-solution">
+<h2>What is our proposed solution?<a class="headerlink" href="#what-is-our-proposed-solution" title="Permalink to this headline">¶</a></h2>
+<p>Wouldn't it be great if a full fledged column-store SQL database server be harnessed
+to the point it can work as an embedded DBMS.  A fully parallel execution engine
+to exploit the common multi-core platforms. This way addressing the needs for
+data analytics and machine learning, without relying on expensive interprocess communication or ETL.
+A strong embeddedness with the application to easily use the UDFs at close range without overhead in data exchanges.</p>
+</div>
+<div class="section" id="how-we-solved-it">
+<h2>How we solved it<a class="headerlink" href="#how-we-solved-it" title="Permalink to this headline">¶</a></h2>
+<p>The solution brought to you is illustrated below. On the left we see MonetDB in
+the role of a client/server architecture as it has worked all along.
+The interaction between the applications and the server is regulated using standard API's, such as JDBC/ODBC, and the MonetDB API.
+In this architecture, the underlying assumptions are:
+. The server is fully isolated from the application code for security, stability, reliability.
+. The server serves multiple users concurrently.
+. The server manages a large shared storage space.
+. The server can use replication for resilience and load sharing.
+. The server can communicate with its peers to execute queries over partitioned tables.</p>
+<p>A large part of the server code, however, can be decoupled to reach an
+embeddable database system, illustrated at the right with a focus
+on the programming language C.
+A single library to be linked into the application code directly. With the obvious benefits:</p>
+<p>. No client-server communication overhead.
+. No intermediate serialization.
+. Full use of the multi-core architectures.
+. Seamless integration with the application.
+. Single user control over the resources.
+. Working with :memory: databases with controlled RAM footprint.
+. Boosting your data analytics</p>
+<img alt="../_images/architecture.png" src="../_images/architecture.png" />
+</div>
+<div class="section" id="how-does-it-work">
+<h2>How does it work?<a class="headerlink" href="#how-does-it-work" title="Permalink to this headline">¶</a></h2>
+<p>MonetDBe encapsulates the full SQL functionality offered by MonetDB.
+To achieve this, we had to create a single shared library (libmonetdbe) to
+expose the main sql interfaces using a small api (monetdbe.h).
+It is an integral component of the server version nowadays, which avoids maintaining multiple code paths.</p>
+</div>
+<div class="section" id="what-to-expect">
+<h2>What to expect?<a class="headerlink" href="#what-to-expect" title="Permalink to this headline">¶</a></h2>
+<p>The MonetDBe library supports three different storage schemes.
+A light-weight scheme for small databases confined to main memory, i.e. connect(':memory:').
+The maximum footprint can be set explicitly or is derived from the host (VM) resource limits.
+Using a directory on your local machine is the way to go if you need persistence,
+but with exclusive access as it concerns ACID properties. If the application works
+with :memory: or a local database then switching to a MonetDB server merely
+requires the connect call to be provided with the access point information.</p>
+<p>The MonetDBe code is available from the development branch of MonetDB as an <strong>alpha-release</strong>..
+For now, the embedded version can serve a single database at a time, but coarse grain locking
+is considered to enable sharing the same persistent storage.
+There is no such thing as distributed queries over partitioned tables and
+stored in different MonetDBe instances or instant database replication between them.
+These features we will be added to the interface soon.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">MonetDB</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-our-proposed-solution">What is our proposed solution?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-we-solved-it">How we solved it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-does-it-work">How does it work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-to-expect">What to expect?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dev_notes.html">Developer notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monetdbe_api.html">MonetDBe API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/intro.html">The MonetDB Database System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/intro.html#copyright-notice">Copyright Notice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/build.html">Building MonetDB from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/build-fedora.html">Build on Fedora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/build-debian.html">Build on Debian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/clients.html">The MonetDB clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/design.html">The MonetDB CMake Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/input.html">Giving input to MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/json.html">Support for JSON in MonetDB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/manual_pages.html">Manual pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/cmake.html">CMake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/release.html">MonetDB Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/developers_handbook.html">Developer's Handbook</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="authors.html" title="previous chapter">Authors</a></li>
+      <li>Next: <a href="dev_notes.html" title="next chapter">Developer notes</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, MonetDB Solutions.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/monetdbe/introduction.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
